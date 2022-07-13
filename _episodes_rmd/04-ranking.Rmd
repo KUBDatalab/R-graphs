@@ -1,0 +1,53 @@
+---
+title: "Ranking"
+teaching: 42
+exercises: 47
+questions: 
+- "FIXME"
+
+objectives:
+- "FIXME"
+
+keypoints:
+- "FIXME"
+source: Rmd
+---
+
+```{r, include = FALSE}
+source("../bin/chunk-options.R")
+knitr_fig_path("04-")
+```
+
+Plot types useful for showing rankings - that is, which type of observation
+is the most common, and which is the least common.
+
+
+## Barplots
+
+
+### Think about
+
+## spider/radar plots
+
+### Think about
+
+## Wordclouds
+
+### Think about
+
+## Parallel
+
+### Think about
+
+## Lollipop
+
+### Think about
+
+## Circular barplot
+
+### Think about
+
+
+
+
+{% include links.md %}
