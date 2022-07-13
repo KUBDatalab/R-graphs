@@ -1,5 +1,5 @@
 ---
-title: "setup - change filename!"
+title: "Setup"
 teaching: 42
 exercises: 47
 questions: 
@@ -18,19 +18,33 @@ source("../bin/chunk-options.R")
 knitr_fig_path("01-")
 ```
 
-Not really a course. A collection of graphs and plots - we will pick and
-choose for a course on RUC.
+
+## Setup
+
+We are working with ggplot here. Base is nice. Plotly is also nice. But we are
+far from finished with what we've started here. So for now we are sticking with
+ggplot2.
+
+Besides ggplot2, we are working with other libraries to extend the functionality
+of ggplot or access interesting data.
+
+Therefore: Install the following libraries:
+```{r eval = F}
+install.packages("tidyverse")
+install.packages("cowplot")
+install.packages("palmerpenguins")
+```
+
+And load them:
+
+```{r}
+library(tidyverse)
+library(cowplot)
+library(palmerpenguins)
+```
 
 
-Plots udvalgt efter type.
 
-fordelinger
-Korrelationer
-Ranking
-Dele af en helhed
-Evolution
-Kort
-flow
 
 
 
