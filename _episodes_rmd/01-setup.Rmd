@@ -1,0 +1,38 @@
+---
+title: "setup - change filename!"
+teaching: 42
+exercises: 47
+questions: 
+- "FIXME"
+
+objectives:
+- "FIXME"
+
+keypoints:
+- "FIXME"
+source: Rmd
+---
+
+```{r, include = FALSE}
+source("../bin/chunk-options.R")
+knitr_fig_path("01-")
+```
+
+Not really a course. A collection of graphs and plots - we will pick and
+choose for a course on RUC.
+
+
+Plots udvalgt efter type.
+
+fordelinger
+Korrelationer
+Ranking
+Dele af en helhed
+Evolution
+Kort
+flow
+
+
+
+
+{% include links.md %}

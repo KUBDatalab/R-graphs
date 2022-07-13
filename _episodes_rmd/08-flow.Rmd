@@ -1,0 +1,26 @@
+---
+title: "Flow"
+teaching: 42
+exercises: 47
+questions: 
+- "FIXME"
+
+objectives:
+- "FIXME"
+
+keypoints:
+- "FIXME"
+source: Rmd
+---
+
+```{r, include = FALSE}
+source("../bin/chunk-options.R")
+knitr_fig_path("08-")
+```
+
+Plots for something that becomes something else - or changes from one thing 
+to another
+
+
+
+{% include links.md %}
