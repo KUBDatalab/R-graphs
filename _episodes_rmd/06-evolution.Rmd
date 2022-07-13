@@ -20,4 +20,9 @@ knitr_fig_path("02-")
 
 Not evolution as in biology, evolution as in something is changing
 
+line chart
+her skal vi have geom_ribbon og geom_smooth med. 
+
+
+
 {% include links.md %}
