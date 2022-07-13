@@ -17,6 +17,254 @@ source: Rmd
 
 
 
+We have some data on the mass of penguins. We expect some penguins to weigh 
+more than others. Perhaps it is a smaller kind of penguin. Perhaps it is a 
+female penguin, and they are smaller than male penguins. And maybe some penguins
+are fatter than other penguins.
+
+Ranking penguins from light to heavy, 
+how many are there, or, what is the distribution of their weight?
+
+## Histograms
+
+### What are they?
+
+Histograms takes all the weights of the penguins, divides them into intervals, 
+or bins, of weight, eg one bin with 3300 to 3400 grams, and the next bin from 
+3400 to 3500 grams. Then we count how many penguins are in a specific bin. 
+And plot it. It might look like this:
+
+~~~
+Error in penguins %>% ggplot(aes(body_mass_g)): could not find function "%>%"
+~~~
+{: .error}
+
+
+### What do we use them for?
+
+We typically use histograms to visualise the distribution of a variable. Is it
+normal, bimodal, uniform or skewed? It can quickly reveal mistakes in data or 
+weird outliers.
+
+We can also use histograms to compare different variables. But beware of comparing
+too many, it can make the graphs difficult to read, and the aim of visualising 
+is to make things easier to understand.
+
+### how do we make them?
+
+The geom_ we are using here is geom_histogram(). It takes only one variable 
+in the mapping.
+
+
+~~~
+# library
+library(ggplot2)
+library(palmerpenguins)
+
+# dataset:
+data <-  penguins
+
+# basic histogram
+ggplot(data, aes(x=body_mass_g)) + 
+  geom_histogram()
+~~~
+{: .language-r}
+
+
+
+~~~
+`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+~~~
+{: .output}
+
+
+
+~~~
+Warning: Removed 2 rows containing non-finite values (stat_bin).
+~~~
+{: .warning}
+
+<img src="../fig/rmd-02-unnamed-chunk-3-1.png" title="plot of chunk unnamed-chunk-3" alt="plot of chunk unnamed-chunk-3" width="612" style="display: block; margin: auto;" />
+Built into the geom_histogram is the statistical transformation, that counts the 
+number of observations in each bin.
+
+Note the warning that this statistical transformation as default uses bins = 30.
+This is the default number of bins. And it is almost quaranteed that it is not
+the best number of bins.
+
+Bins can be determined in two ways, either by providing a number of bins:
+*geom_histogram(bins = 30)* 
+or by specifying the width of the bins:
+*geom_histogram(binwidth = 500)*
+
+
+### Interesting variations
+
+#### more than one on same axis
+
+~~~
+penguins %>%
+  filter(!is.na(sex)) %>% 
+  ggplot( aes(x=body_mass_g, fill=sex)) +
+  geom_histogram(alpha = 0.6, position = "identity")
+~~~
+{: .language-r}
+
+
+
+~~~
+Error in penguins %>% filter(!is.na(sex)) %>% ggplot(aes(x = body_mass_g, : could not find function "%>%"
+~~~
+{: .error}
+
+Note that we do not map sex to color, but rather to fill. Color is the 
+color of the outline of the individual bars, fill the inside of the 
+bars.
+
+#### Upside-down
+
+Or mirrored histogram.
+
+det skal vist gøres lidt mere læseligt...
+
+~~~
+ggplot() +
+  geom_histogram(aes(x = penguins %>% filter(sex == "female") %>% pull(body_mass_g), y = ..density.. ), fill="#69b3a2" ) +
+  geom_histogram(aes(x = penguins %>% filter(sex == "male") %>% pull(body_mass_g), y = -..density.. ), fill= "#404080")
+~~~
+{: .language-r}
+
+
+
+~~~
+Error in penguins %>% filter(sex == "female") %>% pull(body_mass_g): could not find function "%>%"
+~~~
+{: .error}
+
+<img src="../fig/rmd-02-unnamed-chunk-5-1.png" title="plot of chunk unnamed-chunk-5" alt="plot of chunk unnamed-chunk-5" width="612" style="display: block; margin: auto;" />
+
+
+#### Grid
+
+#### margin
+
+
+### Think about
+
+The number of bins (or their width, they are equivalent) can lead to very
+different conclusions. Try several sizes.
+
+~~~
+── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──
+~~~
+{: .output}
+
+
+
+~~~
+✔ tibble  3.1.7     ✔ dplyr   1.0.9
+✔ tidyr   1.2.0     ✔ stringr 1.4.0
+✔ readr   2.1.2     ✔ forcats 0.5.1
+✔ purrr   0.3.4     
+~~~
+{: .output}
+
+
+
+~~~
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+~~~
+{: .output}
+
+
+
+~~~
+`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+~~~
+{: .output}
+
+
+
+~~~
+Warning: Removed 2 rows containing non-finite values (stat_bin).
+~~~
+{: .warning}
+
+<img src="../fig/rmd-02-unnamed-chunk-6-1.png" title="plot of chunk unnamed-chunk-6" alt="plot of chunk unnamed-chunk-6" width="612" style="display: block; margin: auto;" />
+
+~~~
+Warning: Removed 2 rows containing non-finite values (stat_bin).
+Removed 2 rows containing non-finite values (stat_bin).
+Removed 2 rows containing non-finite values (stat_bin).
+Removed 2 rows containing non-finite values (stat_bin).
+~~~
+{: .warning}
+
+<img src="../fig/rmd-02-unnamed-chunk-6-2.png" title="plot of chunk unnamed-chunk-6" alt="plot of chunk unnamed-chunk-6" width="612" style="display: block; margin: auto;" />
+
+
+Weird and complicated color schemes does not add insight. Avoid them.
+
+This is not a barplot! Histograms plot the distribution of a single variable.
+
+Avoid comparing more than two, maybe three groups in the same histogram. 
+
+Do not use unequal bin widths. 
+
+
+## Boxplots
+
+### What are they?
+
+### What do we use them for?
+
+### how do we make them?
+
+### Interesting variations
+
+### Think about
+
+## Density
+
+### What are they?
+
+### What do we use them for?
+
+### how do we make them?
+
+### Interesting variations
+
+### Think about
+
+## Ridgeline
+
+
+
+### What are they?
+
+### What do we use them for?
+
+### how do we make them?
+
+### Interesting variations
+
+### Think about
+
+## Violin
+
+### What are they?
+
+### What do we use them for?
+
+### how do we make them?
+
+### Interesting variations
+
+### Think about
+
+
 
 
 {% include links.md %}

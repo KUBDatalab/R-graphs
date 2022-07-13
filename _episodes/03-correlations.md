@@ -17,6 +17,33 @@ source: Rmd
 
 
 
-Plots useful for showing correlations
+## Scatterplots
+
+### Think about
+
+## Connected scatter
+
+
+### Think about
+
+## heatmap
+
+
+### Think about
+
+## Correlogram
+
+
+### Think about
+
+## Bubble
+
+
+### Think about
+
+## Density 2D
+
+
+### Think about
 
 {% include links.md %}
