@@ -102,7 +102,6 @@ det skal vist gøres lidt mere læseligt...
 ggplot() +
   geom_histogram(aes(x = penguins %>% filter(sex == "female") %>% pull(body_mass_g), y = ..density.. ), fill="#69b3a2" ) +
   geom_histogram(aes(x = penguins %>% filter(sex == "male") %>% pull(body_mass_g), y = -..density.. ), fill= "#404080")
-
 ```
 
 
@@ -155,24 +154,72 @@ cowplot::plot_grid(p1, p2, p3, p4)
 ```
 
 
-Weird and complicated color schemes does not add insight. Avoid them.
+* Weird and complicated color schemes does not add insight. Avoid them.
 
-This is not a barplot! Histograms plot the distribution of a single variable.
+* This is not a barplot! Histograms plot the distribution of a single variable.
 
-Avoid comparing more than two, maybe three groups in the same histogram. 
+* Avoid comparing more than two, maybe three groups in the same histogram. 
 
-Do not use unequal bin widths. 
+* Do not use unequal bin widths. 
 
 
 ## Boxplots
 
 ### What are they?
 
+A summary of one numeric variable. It has several elements.
+
+* The line dividing the box represents the median of the data.
+* The ends of the box represents the upper and lower quartiles, (Q3 and Q1 
+respectively). 50% of the observations are in this box. This is also called the 
+interquartile range (IQR).
+* The line at the top of the box, shows Q3 + 1.5 * IQR. This is interpreted as the
+values above Q3 that are not outliers.
+* The line at the bottom of the box, shows Q1 + 1.5 * IQR. This is interpreted as
+the values below Q1 that are not outliers.
+* Dots at each end of the lines shows potential outliers.
+
 ### What do we use them for?
+
+A boxplot summarises several important numbers related to the distribution of 
+data. A rule of thumb (but not necessarily a good one), is that if two sets of 
+data do not have overlapping boxes, they come for different distributions, and
+are therefore different.
+Typically we show more than one boxplot, but a collection of boxplots.
 
 ### how do we make them?
 
+```{r}
+penguins %>% 
+  ggplot(aes(x = body_mass_g)) + 
+  geom_boxplot()
+```
+
+Typically we want to compare the weight of different groups of penguins:
+```{r}
+penguins %>% 
+  ggplot(aes(y = species, x = body_mass_g)) + 
+  geom_boxplot()
+```
+Gentoo penguins are generally heavier than Chinstrap and Adelie penguins. But
+some Chinstraps and Adelies are as heavy as Gentoos. Remember that this overlap
+does not mean that we can not conclude that Gentoos are not larger that the two
+other species of penguins.
+
 ### Interesting variations
+
+The box can obscure patterns in the distribution. It is often a good idea to
+add the actual datapoints to the boxplots. We use geom_jitter rather than
+geom_point. Points might overlap in a way that makes it impossible to see if a
+point represents 1 or 50 penguins. geom_jitter adds small amounts of noise to 
+the points.
+```{r}
+penguins %>% 
+  ggplot(aes(y = species, x = body_mass_g)) + 
+  geom_boxplot() +
+  geom_jitter()
+```
+
 
 ### Think about
 

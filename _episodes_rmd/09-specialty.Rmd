@@ -18,7 +18,34 @@ source("../bin/chunk-options.R")
 knitr_fig_path("09-")
 ```
 
-AUC, ROC, survival, den slags.
+
+## ROC
+
+Når vi laver logistiske regressioner, forsøger vi at fitte en model til 
+en virkelighed hvor vores responsvariabel er binær. Ja/nej, sand/falsk.
+
+I analysen af hvordan radaroperatører under anden verdenskrig klarede sig, opfandt 
+man denne metode. Vi ser noget på en skærm. Vi ser mange forskellige input på 
+en skærm. Vurder om det er en tysk bombemaskine på vej mod London, eller en
+flok gæs.
+
+Der er to interessante ting. Sensitiviteten. Sandsynligheden for at vi beslutter
+os for at det er tyskere, når det faktisk er tyskere.
+
+Specificiteten, Sandsynligheden for at vi beslutter os for at det er gæs, når det 
+faktisk er gæs.
+
+Der er subtile forskelle mellem de to.
+
+Den ideelle model har en sensitivitet på 1. Og en specificitet på 1.
+
+Vi skal starte med at have noget data, før vi kan plotte en roc-kurve. Hvis ikke
+du har det data, så kom igen når du har det.
+
+AUC, ROC, 
+
+
+survival, den slags.
 
 
 
