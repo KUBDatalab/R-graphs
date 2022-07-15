@@ -205,24 +205,112 @@ Removed 2 rows containing non-finite values (stat_bin).
 <img src="../fig/rmd-02-unnamed-chunk-6-2.png" title="plot of chunk unnamed-chunk-6" alt="plot of chunk unnamed-chunk-6" width="612" style="display: block; margin: auto;" />
 
 
-Weird and complicated color schemes does not add insight. Avoid them.
+* Weird and complicated color schemes does not add insight. Avoid them.
 
-This is not a barplot! Histograms plot the distribution of a single variable.
+* This is not a barplot! Histograms plot the distribution of a single variable.
 
-Avoid comparing more than two, maybe three groups in the same histogram. 
+* Avoid comparing more than two, maybe three groups in the same histogram. 
 
-Do not use unequal bin widths. 
+* Do not use unequal bin widths. 
 
 
 ## Boxplots
 
 ### What are they?
 
+A summary of one numeric variable. It has several elements.
+
+* The line dividing the box represents the median of the data.
+* The ends of the box represents the upper and lower quartiles, (Q3 and Q1 
+respectively). 50% of the observations are in this box. This is also called the 
+interquartile range (IQR).
+* The line at the top of the box, shows Q3 + 1.5 * IQR. This is interpreted as the
+values above Q3 that are not outliers.
+* The line at the bottom of the box, shows Q1 + 1.5 * IQR. This is interpreted as
+the values below Q1 that are not outliers.
+* Dots at each end of the lines shows potential outliers.
+
 ### What do we use them for?
+
+A boxplot summarises several important numbers related to the distribution of 
+data. A rule of thumb (but not necessarily a good one), is that if two sets of 
+data do not have overlapping boxes, they come for different distributions, and
+are therefore different.
+Typically we show more than one boxplot, but a collection of boxplots.
 
 ### how do we make them?
 
+
+~~~
+penguins %>% 
+  ggplot(aes(x = body_mass_g)) + 
+  geom_boxplot()
+~~~
+{: .language-r}
+
+
+
+~~~
+Warning: Removed 2 rows containing non-finite values (stat_boxplot).
+~~~
+{: .warning}
+
+<img src="../fig/rmd-02-unnamed-chunk-7-1.png" title="plot of chunk unnamed-chunk-7" alt="plot of chunk unnamed-chunk-7" width="612" style="display: block; margin: auto;" />
+
+Typically we want to compare the weight of different groups of penguins:
+
+~~~
+penguins %>% 
+  ggplot(aes(y = species, x = body_mass_g)) + 
+  geom_boxplot()
+~~~
+{: .language-r}
+
+
+
+~~~
+Warning: Removed 2 rows containing non-finite values (stat_boxplot).
+~~~
+{: .warning}
+
+<img src="../fig/rmd-02-unnamed-chunk-8-1.png" title="plot of chunk unnamed-chunk-8" alt="plot of chunk unnamed-chunk-8" width="612" style="display: block; margin: auto;" />
+Gentoo penguins are generally heavier than Chinstrap and Adelie penguins. But
+some Chinstraps and Adelies are as heavy as Gentoos. Remember that this overlap
+does not mean that we can not conclude that Gentoos are not larger that the two
+other species of penguins.
+
 ### Interesting variations
+
+The box can obscure patterns in the distribution. It is often a good idea to
+add the actual datapoints to the boxplots. We use geom_jitter rather than
+geom_point. Points might overlap in a way that makes it impossible to see if a
+point represents 1 or 50 penguins. geom_jitter adds small amounts of noise to 
+the points.
+
+~~~
+penguins %>% 
+  ggplot(aes(y = species, x = body_mass_g)) + 
+  geom_boxplot() +
+  geom_jitter()
+~~~
+{: .language-r}
+
+
+
+~~~
+Warning: Removed 2 rows containing non-finite values (stat_boxplot).
+~~~
+{: .warning}
+
+
+
+~~~
+Warning: Removed 2 rows containing missing values (geom_point).
+~~~
+{: .warning}
+
+<img src="../fig/rmd-02-unnamed-chunk-9-1.png" title="plot of chunk unnamed-chunk-9" alt="plot of chunk unnamed-chunk-9" width="612" style="display: block; margin: auto;" />
+
 
 ### Think about
 
