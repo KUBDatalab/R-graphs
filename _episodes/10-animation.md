@@ -22,27 +22,26 @@ animerede plots. Det er jeg ikke sikker på kan håndteres her - men lad os se:
 
 ~~~
 library(gapminder)
- 
-# Charge libraries:
-library(ggplot2)
-library(gganimate)
+install.packages("gifski")
 ~~~
 {: .language-r}
 
 
 
 ~~~
-No renderer backend detected. gganimate will default to writing frames to separate files
-Consider installing:
-- the `gifski` package for gif output
-- the `av` package for video output
-and restarting the R session
+Installing package into '/home/runner/work/_temp/Library'
+(as 'lib' is unspecified)
 ~~~
 {: .output}
 
 
 
 ~~~
+library(gifski)
+# Charge libraries:
+library(ggplot2)
+library(gganimate)
+ 
 # Make a ggplot, but add frame=year: one image per year
 ggplot(gapminder, aes(gdpPercap, lifeExp, size = pop, color = continent)) +
   geom_point() +
@@ -55,35 +54,13 @@ ggplot(gapminder, aes(gdpPercap, lifeExp, size = pop, color = continent)) +
 ~~~
 {: .language-r}
 
-
-
-~~~
-Warning: No renderer available. Please install the gifski, av, or magick package
-to create animated output
-~~~
-{: .warning}
-
-
-
-~~~
-NULL
-~~~
-{: .output}
-
-
+<img src="fig/rmd-10-unnamed-chunk-2-1.gif" title="plot of chunk unnamed-chunk-2" alt="plot of chunk unnamed-chunk-2" style="display: block; margin: auto;" />
 
 ~~~
 # Save at gif:
 anim_save("../fig/271-ggplot2-animated-gif-chart-with-gganimate1.gif")
 ~~~
 {: .language-r}
-
-
-
-~~~
-Error: The animation object does not specify a save_animation method
-~~~
-{: .error}
 
 [test](../fig/271-ggplot2-animated-gif-chart-with-gganimate1.gif)
 
