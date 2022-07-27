@@ -21,6 +21,54 @@ knitr_fig_path("08-")
 Plots for something that becomes something else - or changes from one thing 
 to another
 
+## Chord diagram
+### What are they?
+
+### What do we use them for?
+
+### how do we make them?
+
+### Interesting variations
+
+## network
+
+### What are they?
+
+### What do we use them for?
+
+### how do we make them?
+
+### Interesting variations
+
+## Sankey
+
+### What are they?
+
+### What do we use them for?
+
+### how do we make them?
+
+### Interesting variations
+
+## Arc diagram
+
+### What are they?
+
+### What do we use them for?
+
+### how do we make them?
+
+### Interesting variations
+
+# Edge bundling
+
+### What are they?
+
+### What do we use them for?
+
+### how do we make them?
+
+### Interesting variations
 
 
 {% include links.md %}
