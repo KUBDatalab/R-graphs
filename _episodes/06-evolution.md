@@ -19,8 +19,52 @@ source: Rmd
 
 Not evolution as in biology, evolution as in something is changing
 
-line chart
+## line chart
 her skal vi have geom_ribbon og geom_smooth med. 
+### What are they?
+
+### What do we use them for?
+
+### how do we make them?
+
+### Interesting variations
+
+## Area
+### What are they?
+
+### What do we use them for?
+
+### how do we make them?
+
+### Interesting variations
+
+## Stacked area
+### What are they?
+
+### What do we use them for?
+
+### how do we make them?
+
+### Interesting variations
+
+## Streamchart
+### What are they?
+
+### What do we use them for?
+
+### how do we make them?
+
+### Interesting variations
+
+## Time Series
+### What are they?
+
+### What do we use them for?
+
+### how do we make them?
+
+### Interesting variations
+
 
 
 

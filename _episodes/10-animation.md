@@ -74,7 +74,7 @@ NULL
 
 ~~~
 # Save at gif:
-anim_save("271-ggplot2-animated-gif-chart-with-gganimate1.gif")
+anim_save("../fig/271-ggplot2-animated-gif-chart-with-gganimate1.gif")
 ~~~
 {: .language-r}
 
@@ -85,6 +85,7 @@ Error: The animation object does not specify a save_animation method
 ~~~
 {: .error}
 
+[test](../fig/271-ggplot2-animated-gif-chart-with-gganimate1.gif)
 
 
 {% include links.md %}

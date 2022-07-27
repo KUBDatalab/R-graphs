@@ -17,33 +17,91 @@ source: Rmd
 
 
 
+# Correlations
+
+If one variable goes up, what happens to the other variable? How are they
+correlated?
+
 ## Scatterplots
+Shows the relation between two numeric variables. Each dot represents one 
+observation. The position of the dot on the X-axis (horisontal, AKA abscissa), 
+represents the value of the first variable for that observation. The position
+of the dot on the Y-axis (vertical, AKA ordinate), represents the value of 
+the second variable for that observation.
+
+
+~~~
+ggplot(penguins, aes(x=body_mass_g, y=flipper_length_mm)) +
+  geom_point()
+~~~
+{: .language-r}
+
+
+
+~~~
+Error in ggplot(penguins, aes(x = body_mass_g, y = flipper_length_mm)): could not find function "ggplot"
+~~~
+{: .error}
+
 
 ### Think about
 
+Overlapping points
+
+
 ## Connected scatter
 
+### What are they?
+
+### What do we use them for?
+
+### how do we make them?
+
+### Interesting variations
 
 ### Think about
 
 ## heatmap
 
+### What are they?
 
-### Think about
+### What do we use them for?
+
+### how do we make them?
+
+### Interesting variations
+
 
 ## Correlogram
 
 
-### Think about
+### What are they?
+
+### What do we use them for?
+
+### how do we make them?
+
+### Interesting variations
 
 ## Bubble
 
 
-### Think about
+### What are they?
+
+### What do we use them for?
+
+### how do we make them?
+
+### Interesting variations
 
 ## Density 2D
 
+### What are they?
 
-### Think about
+### What do we use them for?
+
+### how do we make them?
+
+### Interesting variations
 
 {% include links.md %}

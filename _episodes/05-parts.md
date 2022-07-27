@@ -17,7 +17,63 @@ source: Rmd
 
 
 
+## Barplot - grouped and stacked
+### What are they?
 
+### What do we use them for?
+
+### how do we make them?
+
+### Interesting variations
+
+## Treemap
+
+### What are they?
+
+### What do we use them for?
+
+### how do we make them?
+
+### Interesting variations
+
+## Doughnut
+
+### What are they?
+
+### What do we use them for?
+
+### how do we make them?
+
+### Interesting variations
+
+## Pie chart
+
+### What are they?
+
+### What do we use them for?
+
+### how do we make them?
+
+### Interesting variations
+
+## Dendrogram
+
+### What are they?
+
+### What do we use them for?
+
+### how do we make them?
+
+### Interesting variations
+
+## Circular packing
+### What are they?
+
+### What do we use them for?
+
+### how do we make them?
+
+### Interesting variations
 
 
 {% include links.md %}

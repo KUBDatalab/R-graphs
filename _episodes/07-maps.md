@@ -17,6 +17,61 @@ source: Rmd
 
 
 
+## Map
+### What are they?
 
+### What do we use them for?
+
+### how do we make them?
+
+### Interesting variations
+
+## Chropleth
+### What are they?
+
+### What do we use them for?
+
+### how do we make them?
+
+### Interesting variations
+
+## Hexbin map
+### What are they?
+
+### What do we use them for?
+
+### how do we make them?
+
+### Interesting variations
+
+## Cartogram
+
+### What are they?
+
+### What do we use them for?
+
+### how do we make them?
+
+### Interesting variations
+
+## Connection
+
+### What are they?
+
+### What do we use them for?
+
+### how do we make them?
+
+### Interesting variations
+
+## Bubble map
+
+### What are they?
+
+### What do we use them for?
+
+### how do we make them?
+
+### Interesting variations
 
 {% include links.md %}

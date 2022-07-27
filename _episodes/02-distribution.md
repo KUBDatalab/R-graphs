@@ -155,32 +155,14 @@ The number of bins (or their width, they are equivalent) can lead to very
 different conclusions. Try several sizes.
 
 ~~~
-── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──
-~~~
-{: .output}
-
-
-
-~~~
-✔ tibble  3.1.7     ✔ dplyr   1.0.9
+── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2 ──
+✔ tibble  3.1.8     ✔ dplyr   1.0.9
 ✔ tidyr   1.2.0     ✔ stringr 1.4.0
 ✔ readr   2.1.2     ✔ forcats 0.5.1
 ✔ purrr   0.3.4     
-~~~
-{: .output}
-
-
-
-~~~
 ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 ✖ dplyr::filter() masks stats::filter()
 ✖ dplyr::lag()    masks stats::lag()
-~~~
-{: .output}
-
-
-
-~~~
 `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 ~~~
 {: .output}

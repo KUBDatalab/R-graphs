@@ -18,7 +18,7 @@ source: Rmd
 
 
 
-## ROC
+## ROC curves
 
 Når vi laver logistiske regressioner, forsøger vi at fitte en model til 
 en virkelighed hvor vores responsvariabel er binær. Ja/nej, sand/falsk.
@@ -45,7 +45,7 @@ AUC, ROC,
 
 
 survival, den slags.
-
+## Survival plots
 
 
 {% include links.md %}
