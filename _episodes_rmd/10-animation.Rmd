@@ -38,9 +38,10 @@ ggplot(gapminder, aes(gdpPercap, lifeExp, size = pop, color = continent)) +
   ease_aes('linear')
 
 # Save at gif:
-anim_save("271-ggplot2-animated-gif-chart-with-gganimate1.gif")
+anim_save("../fig/271-ggplot2-animated-gif-chart-with-gganimate1.gif")
 ```
 
+[test](../fig/271-ggplot2-animated-gif-chart-with-gganimate1.gif)
 
 
 {% include links.md %}
