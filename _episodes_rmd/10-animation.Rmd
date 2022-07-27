@@ -20,7 +20,7 @@ knitr_fig_path("10-")
 
 animerede plots. Det er jeg ikke sikker på kan håndteres her - men lad os se:
 
-```{r}
+```{r animation_test}
 library(gapminder)
 install.packages("gifski")
 library(gifski)
@@ -37,12 +37,15 @@ ggplot(gapminder, aes(gdpPercap, lifeExp, size = pop, color = continent)) +
   labs(title = 'Year: {frame_time}', x = 'GDP per capita', y = 'life expectancy') +
   transition_time(year) +
   ease_aes('linear')
+```
 
+Hvad hvis vi deler den op?
+```{r gem_gif_test}
 # Save at gif:
 anim_save("../fig/271-ggplot2-animated-gif-chart-with-gganimate1.gif")
 ```
 
-[test](../fig/271-ggplot2-animated-gif-chart-with-gganimate1.gif)
+![test](../fig/271-ggplot2-animated-gif-chart-with-gganimate1.gif)
 
 
 {% include links.md %}
