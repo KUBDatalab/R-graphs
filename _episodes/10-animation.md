@@ -54,7 +54,9 @@ ggplot(gapminder, aes(gdpPercap, lifeExp, size = pop, color = continent)) +
 ~~~
 {: .language-r}
 
-<img src="fig/rmd-10-unnamed-chunk-2-1.gif" title="plot of chunk unnamed-chunk-2" alt="plot of chunk unnamed-chunk-2" style="display: block; margin: auto;" />
+<img src="fig/rmd-10-animation_test-1.gif" title="plot of chunk animation_test" alt="plot of chunk animation_test" style="display: block; margin: auto;" />
+
+Hvad hvis vi deler den op?
 
 ~~~
 # Save at gif:
@@ -62,7 +64,7 @@ anim_save("../fig/271-ggplot2-animated-gif-chart-with-gganimate1.gif")
 ~~~
 {: .language-r}
 
-[test](../fig/271-ggplot2-animated-gif-chart-with-gganimate1.gif)
+![test](../fig/271-ggplot2-animated-gif-chart-with-gganimate1.gif)
 
 
 {% include links.md %}
