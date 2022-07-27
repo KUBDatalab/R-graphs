@@ -22,7 +22,8 @@ animerede plots. Det er jeg ikke sikker på kan håndteres her - men lad os se:
 
 ```{r}
 library(gapminder)
- 
+install.packages("gifski")
+library(gifski)
 # Charge libraries:
 library(ggplot2)
 library(gganimate)
