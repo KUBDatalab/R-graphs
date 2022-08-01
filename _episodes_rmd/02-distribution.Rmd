@@ -14,8 +14,8 @@ source: Rmd
 ---
 
 ```{r, include = FALSE}
-#source("../bin/chunk-options.R")
-#knitr_fig_path("02-")
+source("../bin/chunk-options.R")
+knitr_fig_path("02-")
 library(tidyverse)
 library(palmerpenguins)
 ```
@@ -45,16 +45,7 @@ penguins %>%
 
 ### Python test
 
-```{r}
-library(reticulate)
-```
 
-
-```{python}
-
-x = [1, 2, 3]
-
-```
 
 
 ### What do we use them for?
