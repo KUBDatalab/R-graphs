@@ -34,10 +34,30 @@ or bins, of weight, eg one bin with 3300 to 3400 grams, and the next bin from
 3400 to 3500 grams. Then we count how many penguins are in a specific bin. 
 And plot it. It might look like this:
 
-~~~
-Error in penguins %>% ggplot(aes(body_mass_g)): could not find function "%>%"
-~~~
-{: .error}
+```
+## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+```
+
+```
+## Warning: Removed 2 rows containing non-finite values (stat_bin).
+```
+
+![plot of chunk histogram](figure/histogram-1.png)
+
+
+### Python test
+
+
+```r
+library(reticulate)
+```
+
+
+
+```python
+
+x = [1, 2, 3]
+```
 
 
 ### What do we use them for?
@@ -56,7 +76,7 @@ The geom_ we are using here is geom_histogram(). It takes only one variable
 in the mapping.
 
 
-~~~
+```r
 # library
 library(ggplot2)
 library(palmerpenguins)
@@ -67,24 +87,17 @@ data <-  penguins
 # basic histogram
 ggplot(data, aes(x=body_mass_g)) + 
   geom_histogram()
-~~~
-{: .language-r}
+```
 
+```
+## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+```
 
+```
+## Warning: Removed 2 rows containing non-finite values (stat_bin).
+```
 
-~~~
-`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
-~~~
-{: .output}
-
-
-
-~~~
-Warning: Removed 2 rows containing non-finite values (stat_bin).
-~~~
-{: .warning}
-
-<img src="../fig/rmd-02-unnamed-chunk-3-1.png" title="plot of chunk unnamed-chunk-3" alt="plot of chunk unnamed-chunk-3" width="612" style="display: block; margin: auto;" />
+![plot of chunk unnamed-chunk-4](figure/unnamed-chunk-4-1.png)
 Built into the geom_histogram is the statistical transformation, that counts the 
 number of observations in each bin.
 
@@ -102,20 +115,18 @@ or by specifying the width of the bins:
 
 #### more than one on same axis
 
-~~~
+```r
 penguins %>%
   filter(!is.na(sex)) %>% 
   ggplot( aes(x=body_mass_g, fill=sex)) +
   geom_histogram(alpha = 0.6, position = "identity")
-~~~
-{: .language-r}
+```
 
+```
+## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+```
 
-
-~~~
-Error in penguins %>% filter(!is.na(sex)) %>% ggplot(aes(x = body_mass_g, : could not find function "%>%"
-~~~
-{: .error}
+![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5-1.png)
 
 Note that we do not map sex to color, but rather to fill. Color is the 
 color of the outline of the individual bars, fill the inside of the 
@@ -127,21 +138,18 @@ Or mirrored histogram.
 
 det skal vist gøres lidt mere læseligt...
 
-~~~
+```r
 ggplot() +
   geom_histogram(aes(x = penguins %>% filter(sex == "female") %>% pull(body_mass_g), y = ..density.. ), fill="#69b3a2" ) +
   geom_histogram(aes(x = penguins %>% filter(sex == "male") %>% pull(body_mass_g), y = -..density.. ), fill= "#404080")
-~~~
-{: .language-r}
+```
 
+```
+## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+```
 
-
-~~~
-Error in penguins %>% filter(sex == "female") %>% pull(body_mass_g): could not find function "%>%"
-~~~
-{: .error}
-
-<img src="../fig/rmd-02-unnamed-chunk-5-1.png" title="plot of chunk unnamed-chunk-5" alt="plot of chunk unnamed-chunk-5" width="612" style="display: block; margin: auto;" />
+![plot of chunk unnamed-chunk-6](figure/unnamed-chunk-6-1.png)
 
 
 #### Grid
@@ -154,37 +162,24 @@ Error in penguins %>% filter(sex == "female") %>% pull(body_mass_g): could not f
 The number of bins (or their width, they are equivalent) can lead to very
 different conclusions. Try several sizes.
 
-~~~
-── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2 ──
-✔ tibble  3.1.8     ✔ dplyr   1.0.9
-✔ tidyr   1.2.0     ✔ stringr 1.4.0
-✔ readr   2.1.2     ✔ forcats 0.5.1
-✔ purrr   0.3.4     
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
-~~~
-{: .output}
+```
+## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+```
 
+```
+## Warning: Removed 2 rows containing non-finite values (stat_bin).
+```
 
+![plot of chunk unnamed-chunk-7](figure/unnamed-chunk-7-1.png)
 
-~~~
-Warning: Removed 2 rows containing non-finite values (stat_bin).
-~~~
-{: .warning}
+```
+## Warning: Removed 2 rows containing non-finite values (stat_bin).
+## Removed 2 rows containing non-finite values (stat_bin).
+## Removed 2 rows containing non-finite values (stat_bin).
+## Removed 2 rows containing non-finite values (stat_bin).
+```
 
-<img src="../fig/rmd-02-unnamed-chunk-6-1.png" title="plot of chunk unnamed-chunk-6" alt="plot of chunk unnamed-chunk-6" width="612" style="display: block; margin: auto;" />
-
-~~~
-Warning: Removed 2 rows containing non-finite values (stat_bin).
-Removed 2 rows containing non-finite values (stat_bin).
-Removed 2 rows containing non-finite values (stat_bin).
-Removed 2 rows containing non-finite values (stat_bin).
-~~~
-{: .warning}
-
-<img src="../fig/rmd-02-unnamed-chunk-6-2.png" title="plot of chunk unnamed-chunk-6" alt="plot of chunk unnamed-chunk-6" width="612" style="display: block; margin: auto;" />
+![plot of chunk unnamed-chunk-7](figure/unnamed-chunk-7-2.png)
 
 
 * Weird and complicated color schemes does not add insight. Avoid them.
@@ -223,39 +218,31 @@ Typically we show more than one boxplot, but a collection of boxplots.
 ### how do we make them?
 
 
-~~~
+```r
 penguins %>% 
   ggplot(aes(x = body_mass_g)) + 
   geom_boxplot()
-~~~
-{: .language-r}
+```
 
+```
+## Warning: Removed 2 rows containing non-finite values (stat_boxplot).
+```
 
-
-~~~
-Warning: Removed 2 rows containing non-finite values (stat_boxplot).
-~~~
-{: .warning}
-
-<img src="../fig/rmd-02-unnamed-chunk-7-1.png" title="plot of chunk unnamed-chunk-7" alt="plot of chunk unnamed-chunk-7" width="612" style="display: block; margin: auto;" />
+![plot of chunk unnamed-chunk-8](figure/unnamed-chunk-8-1.png)
 
 Typically we want to compare the weight of different groups of penguins:
 
-~~~
+```r
 penguins %>% 
   ggplot(aes(y = species, x = body_mass_g)) + 
   geom_boxplot()
-~~~
-{: .language-r}
+```
 
+```
+## Warning: Removed 2 rows containing non-finite values (stat_boxplot).
+```
 
-
-~~~
-Warning: Removed 2 rows containing non-finite values (stat_boxplot).
-~~~
-{: .warning}
-
-<img src="../fig/rmd-02-unnamed-chunk-8-1.png" title="plot of chunk unnamed-chunk-8" alt="plot of chunk unnamed-chunk-8" width="612" style="display: block; margin: auto;" />
+![plot of chunk unnamed-chunk-9](figure/unnamed-chunk-9-1.png)
 Gentoo penguins are generally heavier than Chinstrap and Adelie penguins. But
 some Chinstraps and Adelies are as heavy as Gentoos. Remember that this overlap
 does not mean that we can not conclude that Gentoos are not larger that the two
@@ -269,32 +256,28 @@ geom_point. Points might overlap in a way that makes it impossible to see if a
 point represents 1 or 50 penguins. geom_jitter adds small amounts of noise to 
 the points.
 
-~~~
+```r
 penguins %>% 
   ggplot(aes(y = species, x = body_mass_g)) + 
   geom_boxplot() +
   geom_jitter()
-~~~
-{: .language-r}
+```
 
+```
+## Warning: Removed 2 rows containing non-finite values (stat_boxplot).
+```
 
+```
+## Warning: Removed 2 rows containing missing values (geom_point).
+```
 
-~~~
-Warning: Removed 2 rows containing non-finite values (stat_boxplot).
-~~~
-{: .warning}
-
-
-
-~~~
-Warning: Removed 2 rows containing missing values (geom_point).
-~~~
-{: .warning}
-
-<img src="../fig/rmd-02-unnamed-chunk-9-1.png" title="plot of chunk unnamed-chunk-9" alt="plot of chunk unnamed-chunk-9" width="612" style="display: block; margin: auto;" />
+![plot of chunk unnamed-chunk-10](figure/unnamed-chunk-10-1.png)
 
 
 ### Think about
+
+Boxplots might hide interesting features. 
+
 
 ## Density
 
