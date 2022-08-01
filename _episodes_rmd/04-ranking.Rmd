@@ -16,6 +16,8 @@ source: Rmd
 ```{r, include = FALSE}
 source("../bin/chunk-options.R")
 knitr_fig_path("04-")
+library(tidyverse)
+library(patchwork)
 ```
 
 Plot types useful for showing rankings - that is, which type of observation
@@ -24,26 +26,138 @@ is the most common, and which is the least common.
 
 ## Barplots
 
+### What are they?
+
+### What do we use them for?
+
+### how do we make them?
+
+### Interesting variations
 
 ### Think about
+Be careful! It is tempting to use barplots for other stuff, like the 
+mean value of two groups. This can be missleading. Here is an example:
+
+```{r}
+set.seed(47)
+group1 <- rnorm(n = 100, mean = 1, sd = 1)
+group2 <- rlnorm(n = 100, 
+                 meanlog = log(1^2/sqrt(1^2 + 1^2)), 
+                 sdlog = sqrt(log(1+(1^2/1^2))))
+groups_long <- cbind(
+  group1,
+  group2
+) %>% 
+  as.data.frame() %>% 
+  gather("group", "response", 1:2)
+
+bar <- groups_long %>% 
+  ggplot(aes(x = group, y = response)) +
+  geom_bar(stat = "summary", fun = mean, 
+           width = 0.7, alpha = 0.8,
+           aes(fill = group)) + 
+  stat_summary(geom = "errorbar", fun.data = "mean_se",
+               width = 0.1, size = 1) 
+
+dotplot <- groups_long %>% 
+  ggplot(aes(x = group, y = response)) +
+  ggbeeswarm::geom_quasirandom(
+    shape = 21, color = "white", 
+    alpha = 0.8, size = 3,
+    aes(fill = group)
+  ) +
+  scale_fill_manual(values = brewer.pal(8, "Accent")[1:2]) +
+  labs(x = "Group",
+       y = "Response",
+        caption = paste0("OH!!!\nP = ", 
+                        signif(ks.test(group1, group2)$p.value, 2),
+                        " (Kolmogorov–Smirnov test)")) +
+  theme_classic() +
+  theme(
+    text = element_text(size = 12, face = "bold", color = "black"),
+    axis.text = element_text(color = "black"),
+    legend.position = "none",
+    plot.title = element_text(size = 10),
+    plot.caption = element_text(hjust = 0)
+  ) +
+  ggtitle(
+    paste0(
+      "group1: median = ", signif(median(group1), 2), 
+      "; IQR = ", signif(IQR(group1), 2), "\n",
+      "group2: median = ", signif(median(group2), 2), 
+      "; IQR = ", signif(IQR(group2), 2)
+    )
+  )
+
+wrap_plots(
+  bar, dotplot, nrow = 1
+)
+
+```
+
 
 ## spider/radar plots
 
+### What are they?
+
+### What do we use them for?
+
+### how do we make them?
+
+### Interesting variations
+
 ### Think about
+
 
 ## Wordclouds
 
+### What are they?
+
+### What do we use them for?
+
+### how do we make them?
+
+### Interesting variations
+
 ### Think about
+
+
 
 ## Parallel
 
+### What are they?
+
+### What do we use them for?
+
+### how do we make them?
+
+### Interesting variations
+
 ### Think about
+
 
 ## Lollipop
 
+### What are they?
+
+### What do we use them for?
+
+### how do we make them?
+
+### Interesting variations
+
 ### Think about
 
+
 ## Circular barplot
+
+### What are they?
+
+### What do we use them for?
+
+### how do we make them?
+
+### Interesting variations
 
 ### Think about
 
