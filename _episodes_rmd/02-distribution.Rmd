@@ -45,16 +45,7 @@ penguins %>%
 
 ### Python test
 
-```{r}
-library(reticulate)
-```
 
-
-```{python}
-
-x = [1, 2, 3]
-
-```
 
 
 ### What do we use them for?
