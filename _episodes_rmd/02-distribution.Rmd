@@ -14,8 +14,10 @@ source: Rmd
 ---
 
 ```{r, include = FALSE}
-source("../bin/chunk-options.R")
-knitr_fig_path("02-")
+#source("../bin/chunk-options.R")
+#knitr_fig_path("02-")
+library(tidyverse)
+library(palmerpenguins)
 ```
 
 We have some data on the mass of penguins. We expect some penguins to weigh 
@@ -34,8 +36,24 @@ Histograms takes all the weights of the penguins, divides them into intervals,
 or bins, of weight, eg one bin with 3300 to 3400 grams, and the next bin from 
 3400 to 3500 grams. Then we count how many penguins are in a specific bin. 
 And plot it. It might look like this:
-```{r echo=F}
-penguins %>% ggplot(aes(body_mass_g)) + geom_histogram()
+```{r histogram, echo=F}
+penguins %>% 
+  ggplot(aes(body_mass_g)) + 
+  geom_histogram()
+```
+
+
+### Python test
+
+```{r}
+library(reticulate)
+```
+
+
+```{python}
+
+x = [1, 2, 3]
+
 ```
 
 
@@ -222,6 +240,9 @@ penguins %>%
 
 
 ### Think about
+
+Boxplots might hide interesting features. 
+
 
 ## Density
 
