@@ -27,6 +27,8 @@ knitr_fig_path("05-")
 
 ### Interesting variations
 
+### Think about
+
 ## Treemap
 
 ### What are they?
@@ -36,6 +38,8 @@ knitr_fig_path("05-")
 ### how do we make them?
 
 ### Interesting variations
+
+### Think about
 
 ## Doughnut
 
@@ -47,15 +51,52 @@ knitr_fig_path("05-")
 
 ### Interesting variations
 
+### Think about
+
 ## Pie chart
 
 ### What are they?
 
+verdens værste plot type.
+
+En cirkel delt ind i slices hvor hver repræsentere en andel af helet.
+
 ### What do we use them for?
+Alt. det er en del af problemet...
+
 
 ### how do we make them?
 
+
+ggplot har holdninger. Så der er ikke et geom_ i ggplot til at lave 
+lagkager.
+
+Skal man - så laver man et barplot, og ændrer på koordinatsystemet med 
+coord_polar. 
+
+
+
 ### Interesting variations
+
+Der er ingen gode variationer. Lad nu bare være.
+
+### Think about
+
+Overvej helt at lade være med at lave den. Brug barcharts, treemaps eller andet.
+
+### Hvorfor er det grafen fra helvede?
+
+Problemet med piecharts er at de grundlæggende viser forskelle på forskellige
+grupper ved at vise en vinkel. Og det er vi mennesker ret dårlige til.
+
+lad os lave tre piecharts, og tre barcharts. 
+https://www.data-to-viz.com/caveat/pie.html
+
+#### det er muligt at gøre det værre.
+
+Lad være med det. 
+3D, legend aside, procenter der ikke summer til 100. For mange slices.
+Exploderede piechars.
 
 ## Dendrogram
 
@@ -67,6 +108,8 @@ knitr_fig_path("05-")
 
 ### Interesting variations
 
+### Think about
+
 ## Circular packing
 ### What are they?
 
@@ -76,5 +119,6 @@ knitr_fig_path("05-")
 
 ### Interesting variations
 
+### Think about
 
 {% include links.md %}

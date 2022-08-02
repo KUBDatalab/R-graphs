@@ -64,6 +64,8 @@ ggplot(penguins, aes(x=body_mass_g, y=flipper_length_mm)) +
 
 #### all combinations 
 
+også kendt som corellogram, der dukker op senere.
+
 Since scatterplots provides a quick way of visualizing the correlation between
 two variables, it can be useful to visualize all combinations of two variables
 in our data.
@@ -137,6 +139,8 @@ Overlapping points
 ## Connected scatter
 
 ### What are they?
+https://r-graph-gallery.com/connected_scatterplot_ggplot2.html
+
 
 ### What do we use them for?
 
@@ -146,9 +150,13 @@ Overlapping points
 
 ### Think about
 
+
 ## heatmap
 
 ### What are they?
+
+https://r-graph-gallery.com/heatmap.html
+
 
 ### What do we use them for?
 
@@ -160,6 +168,7 @@ Overlapping points
 ## Correlogram
 
 
+
 ### What are they?
 
 ### What do we use them for?
@@ -169,9 +178,12 @@ Overlapping points
 ### Interesting variations
 
 ## Bubble
-
+https://r-graph-gallery.com/bubble-chart.html
 
 ### What are they?
+
+Et scatterplot hvor der plottes cirkler. En tredie numerisk variabel er 
+mappet til størrelse af cirklen.
 
 ### What do we use them for?
 
@@ -180,6 +192,11 @@ Overlapping points
 ### Interesting variations
 
 ## Density 2D
+
+Et scatterplot, hvor en farvegradient beregnes efter hvor mange 
+punkter der ligger omkring en koordinat.
+
+
 
 ### What are they?
 
