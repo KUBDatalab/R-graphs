@@ -87,7 +87,7 @@ Be careful - the plot can get very busy!
 
 #### coloring
 
-```{r scatter-how}
+```{r scatter-how-color}
 ggplot(penguins, aes(x=body_mass_g, y=flipper_length_mm, color = species)) +
   geom_point()
 ```
