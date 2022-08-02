@@ -1,9 +1,12 @@
 ---
 title: "Distributions"
-teaching: 42
-exercises: 47
+teaching: 0
+exercises: 0
 questions: 
-- "FIXME"
+- "What are histograms?"
+- "What are violin plots?"
+- "What are density plots?"
+- "What are boxplots?"
 
 objectives:
 - "FIXME"
@@ -28,6 +31,8 @@ are fatter than other penguins.
 Ranking penguins from light to heavy, 
 how many are there, or, what is the distribution of their weight?
 
+The plots in this section are useful for visualizing distributions of data.
+
 ## Histograms
 
 ### What are they?
@@ -36,16 +41,11 @@ Histograms takes all the weights of the penguins, divides them into intervals,
 or bins, of weight, eg one bin with 3300 to 3400 grams, and the next bin from 
 3400 to 3500 grams. Then we count how many penguins are in a specific bin. 
 And plot it. It might look like this:
-```{r histogram, echo=F}
+```{r histogram-show, echo=F}
 penguins %>% 
   ggplot(aes(body_mass_g)) + 
   geom_histogram()
 ```
-
-
-### Python test
-
-
 
 
 ### What do we use them for?
@@ -63,16 +63,8 @@ is to make things easier to understand.
 The geom_ we are using here is geom_histogram(). It takes only one variable 
 in the mapping.
 
-```{r}
-# library
-library(ggplot2)
-library(palmerpenguins)
-
-# dataset:
-data <-  penguins
-
-# basic histogram
-ggplot(data, aes(x=body_mass_g)) + 
+```{r histogram-making}
+ggplot(penguins, aes(x=body_mass_g)) + 
   geom_histogram()
 ```
 Built into the geom_histogram is the statistical transformation, that counts the 
@@ -90,7 +82,25 @@ or by specifying the width of the bins:
 
 ### Interesting variations
 
+
 #### more than one on same axis
+
+We can plot more than one distribution in the same plot.
+
+The addition of `alpha = 0.6` makes the bars transparent. 
+By default the bars will be stacked
+
+
+```{r}
+penguins %>%
+  filter(!is.na(sex)) %>% 
+  ggplot( aes(x=body_mass_g, fill=sex)) +
+  geom_histogram(alpha = 0.6)
+```
+
+`position = "identity"` plots the two distributions as they are, rather than
+stacking them:
+
 ```{r}
 penguins %>%
   filter(!is.na(sex)) %>% 
@@ -98,25 +108,74 @@ penguins %>%
   geom_histogram(alpha = 0.6, position = "identity")
 ```
 
-Note that we do not map sex to color, but rather to fill. Color is the 
-color of the outline of the individual bars, fill the inside of the 
+Note in both cases, that we do not map sex to color, but rather to fill. 
+Color is the color of the outline of the individual bars, fill the inside of the 
 bars.
 
 #### Upside-down
 
-Or mirrored histogram.
+Or mirrored histogram. One distribution above the x-axis, one below.
 
-det skal vist gøres lidt mere læseligt...
-```{r}
+The code is a bit more readable if we construct two different dataframes, one
+for each sex. Remember that the statistical transformation that counts the 
+observations in each bin was build into geom_histogram. Because we now need to 
+plot the negative count for one of the dataframes (male in this case), we have
+to specify the statistical transformation, in order to place a minus sign in front
+of it in the second line. Because we are plotting two individual dataframes,
+there is no grouping variable that we can map to the `fill` argument, we have
+to specify the color ourself:
+
+```{r histogram-mirror}
+male <- penguins %>% 
+  filter(sex == "male")
+female <- penguins %>% 
+  filter(sex == "female")
 ggplot() +
-  geom_histogram(aes(x = penguins %>% filter(sex == "female") %>% pull(body_mass_g), y = ..density.. ), fill="#69b3a2" ) +
-  geom_histogram(aes(x = penguins %>% filter(sex == "male") %>% pull(body_mass_g), y = -..density.. ), fill= "#404080")
+  geom_histogram(aes(x = female$body_mass_g), fill="#69b3a2" ) +
+  geom_histogram(aes(x = male$body_mass_g, y = -..count.. ), fill= "#404080")
 ```
 
 
 #### Grid
+It is a bad idea to try to plot more than two, max three distributions in the
+same histogram. It becomes difficult to visually separate the different distributions
+and it is easy to interpret the plot wrong.
+In that case a good workaround is to plot `small multiples`. 
+We can plot it using facetwrap:
+```{r}
+penguins %>% 
+  filter(!is.na(sex)) %>% 
+  ggplot(aes(body_mass_g)) +
+  geom_histogram() +
+  facet_wrap(~species, nrow = 2)
+```
+We specify the variable we would like ggplot use to split up the data. Note that
+we are using the formula notation `~species`. We can specify the number of rows 
+(or columns) we would like the plots to be organized in. Or, with other words,
+the way we want to wrap the multiple plots.
 
-#### margin
+We can facet wrap on more that one variable:
+
+```{r}
+penguins %>% 
+  filter(!is.na(sex)) %>% 
+  ggplot(aes(body_mass_g)) +
+  geom_histogram() +
+  facet_wrap(sex~species)
+```
+
+It is also possible to place the six plots in a grid. In that case we use the
+`facet_grid()` function: 
+```{r}
+penguins %>% 
+  filter(!is.na(sex)) %>% 
+  ggplot(aes(body_mass_g)) +
+  geom_histogram() +
+  facet_grid(sex~species)
+```
+
+
+
 
 
 ### Think about
@@ -262,6 +321,7 @@ Boxplots might hide interesting features.
 ### Think about
 
 ## Violin
+
 
 ### What are they?
 
