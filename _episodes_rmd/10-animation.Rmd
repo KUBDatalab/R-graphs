@@ -13,20 +13,34 @@ keypoints:
 source: Rmd
 ---
 
-```{r, include = FALSE}
+```{r setup, include = FALSE}
 source("../bin/chunk-options.R")
 knitr_fig_path("10-")
+library(gapminder)
+library(gifski)
+library(ggplot2)
+library(gganimate)
 ```
 
 animerede plots. Det er jeg ikke sikker på kan håndteres her - men lad os se:
 
+Det kan de...
+
+En fiks måde at vise en udvikling er ved at animere plottet. Start med at lave
+dit plot, og facetter efter tidsvariablen:
+
+
+```{r}
+ggplot(gapminder, aes(gdpPercap, lifeExp, size = pop, color = continent)) +
+  geom_point() +
+  facet_wrap(~year)
+```
+Når så du vil animere, erstatter du `facet_wrap(~year)`  med `transition_time(year)`.
+og vupti har du en animation. I dette tilfælde smider vi ldit ekstra på.
+
+
 ```{r animation_test}
-library(gapminder)
-install.packages("gifski")
-library(gifski)
-# Charge libraries:
-library(ggplot2)
-library(gganimate)
+
  
 # Make a ggplot, but add frame=year: one image per year
 ggplot(gapminder, aes(gdpPercap, lifeExp, size = pop, color = continent)) +
@@ -38,6 +52,13 @@ ggplot(gapminder, aes(gdpPercap, lifeExp, size = pop, color = continent)) +
   transition_time(year) +
   ease_aes('linear')
 ```
+
+Vi smider en logaritmisk skala på x-aksen, piller i hvordan plottet themes. 
+Og så skriver vi eksplicit `ease_aes('linear')`. For hvad stiller vi op når 
+vi har et punkt til tiden 1957, og et til tiden 1962, men ikke til årene imellem?
+
+Vi lader R beregne hvordan punktet ville se ud i 1958, 1959 etc. Hvis ændringen er
+lineær. Der er andre muligheder end lineær. Læs dokumentationen for mulighederne.
 
 Hvad hvis vi deler den op?
 ```{r gem_gif_test}
