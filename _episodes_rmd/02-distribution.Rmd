@@ -247,6 +247,12 @@ values above Q3 that are not outliers.
 the values below Q1 that are not outliers.
 * Dots at each end of the lines shows potential outliers.
 
+```{r boxplot-what, echo = F}
+penguins %>% 
+  ggplot(aes(x = body_mass_g)) + 
+  geom_boxplot()
+```
+
 ### What do we use them for?
 
 A boxplot summarises several important numbers related to the distribution of 
@@ -257,22 +263,29 @@ Typically we show more than one boxplot, but a collection of boxplots.
 
 ### how do we make them?
 
-```{r}
+Remember that a boxplot visualises the distribution of a variable. The values
+of that variable is all we need:
+
+```{r boxplot-how}
 penguins %>% 
   ggplot(aes(x = body_mass_g)) + 
   geom_boxplot()
 ```
 
-Typically we want to compare the weight of different groups of penguins:
+Typically we want to compare the weight of different groups of penguins. That
+is, compare the distribution of something, between different groups:
 ```{r}
 penguins %>% 
   ggplot(aes(y = species, x = body_mass_g)) + 
   geom_boxplot()
 ```
 Gentoo penguins are generally heavier than Chinstrap and Adelie penguins. But
-some Chinstraps and Adelies are as heavy as Gentoos. Remember that this overlap
-does not mean that we can not conclude that Gentoos are not larger that the two
-other species of penguins.
+some Chinstraps and Adelies are as heavy as some Gentoos. 
+
+This overlap does not mean that we can conclude that Gentoos are not larger than 
+Adelie penguins. Or that Adelie and Gentoo penquins are really the same. Or for
+that matter that penguins exist on a spectrum between Gentoos and Adelies.
+
 
 ### Interesting variations
 
@@ -291,7 +304,40 @@ penguins %>%
 
 ### Think about
 
-Boxplots might hide interesting features. 
+As mentioned boxplots might hide interesting features. The two plots below show first two 
+boxplots that are made from different distributions. The overlap might lead
+us to think they are similar. The plot on the right adds the individual datapoints
+revealing that the data is not that similar.
+
+```{r boxes_hiding_stuff, echo = F}
+set.seed(666)
+group1 <- rnorm(n = 100, mean = 1, sd = 1)
+group2 <- rlnorm(n = 100, 
+                 meanlog = log(1^2/sqrt(1^2 + 1^2)), 
+                 sdlog = sqrt(log(1+(1^2/1^2))))
+
+groups_long <- cbind(
+  group1,
+  group2
+) %>% 
+  as.data.frame() %>% 
+  gather("group", "response", 1:2)
+
+box_1 <- groups_long %>% 
+  ggplot(aes(response, group = group)) +
+  geom_boxplot() +
+  coord_flip()
+
+box_2 <- groups_long %>% 
+  ggplot(aes(response, group)) +
+  geom_boxplot() +
+  geom_jitter() +
+  coord_flip()
+
+box_1 + box_2
+
+```
+
 
 
 ## Density
