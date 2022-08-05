@@ -1,15 +1,18 @@
 ---
-title: "Setup"
-teaching: 42
-exercises: 47
+title: "Intro"
+teaching: 0
+exercises: 0
 questions: 
-- "FIXME"
+- "What is this?"
 
 objectives:
-- "FIXME"
+- "Align expections"
 
 keypoints:
-- "FIXME"
+- "This is not a course"
+- "We only focus on how to make plots"
+- "Contact us if you spot something wrong"
+- "Also contact us if you have specific wishes"
 source: Rmd
 ---
 
@@ -20,42 +23,34 @@ knitr_fig_path("00-")
 
 ## What is this?
 
-This is not really a course. It is a collection of graphs and plots, that we 
-would like to keep handy, in order to pick and choose when we get questions
-or when running workshops on visualisations.
+This is a collection of graphs and plots, primarily made with ggplot2.
+
+It contains notes on what a given type of plot is, what it is usually used
+for, how to make it, interesting variations, and pitfalls one should be 
+aware of using it.
+
 
 ## What is it not?
+
+This is not a course. We use this as reference for part of the work we do
+in KUB Datalab, and as supplemental material in certain courses. 
+
+It is also not a statistics page. We show (when we get around to actually doing
+it), how to make a survival plot. But how the data behind such a plot is not
+something we get into. 
 
 ## What is here?
 Plots are organised by their use. For each type of plot, there are notes on
 what it is, what it is typically used for, how we make them, some interesting
 variations on the major theme (if there are any. Or if we can imagine them.).
-And notes on common pitfalls mistakes and errors using this particular plot.
+And notes on common pitfalls, mistakes and errors using this particular plot.
 
 ## What is missing?
 
-Send us an email on kubdatalab@kb.dk or (better), report an issue on 
+Send us an email on kubdatalab@kb.dk or, better, report an issue on 
 https://github.com/KUBDatalab/R-graphs/issues if you spot a mistake, 
 have a favorite plot we have not included, or are frustrated because we have
 not finished the description of a particular plot type that you need now!
-
-Hvad er det her?
-Hvad er det ikke?
-
-Det er ikke et R-kursus. Det er eksempler på hvordan man plotter et histogram.
-Det er noter om hvad et histogram er. Og hvad man typisk bruger det til.
-Det er eksempler på varianter af histogrammer.
-og det er "pas-lige-på" noter om hvad man skal være opmærksom på.
-
-Det er ikke et kursus i hvordan du laver en lineær regression. Det er noter om
-hvordan du plotter resultatet af din lineære regression.
-
-Vi viser hvordan du plotter en ROC-kurve. Men det er ikke et kursus i hvordan du
-får fat på de data der skal bruges til at lave en ROC-kurve. 
-
-Hvis du vil lave et survival plot - så er der noter (eller vil komme til at være)
-om hvordan man gør det. Men beregningen af de tal der skal ind i plottet - det
-må du selv finde ud af.
 
 
 {% include links.md %}

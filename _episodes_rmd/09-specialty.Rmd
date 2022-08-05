@@ -21,6 +21,7 @@ knitr_fig_path("09-")
 Special ting, vi prøver at holde det til ting der ikke er dækket af de 
 øvrige; til plots der bruges i ganske særlige sammenhænge.
 
+Kig på ggsurvfit pakken
 
 ## ROC curves
 
