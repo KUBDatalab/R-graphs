@@ -1,9 +1,9 @@
 ---
 title: "Specialty plots"
-teaching: 42
-exercises: 47
+teaching: 0
+exercises: 0
 questions: 
-- "FIXME"
+- "ROC"
 
 objectives:
 - "FIXME"
@@ -18,6 +18,10 @@ source("../bin/chunk-options.R")
 knitr_fig_path("09-")
 ```
 
+Special ting, vi prøver at holde det til ting der ikke er dækket af de 
+øvrige; til plots der bruges i ganske særlige sammenhænge.
+
+Kig på ggsurvfit pakken
 
 ## ROC curves
 
@@ -48,5 +52,11 @@ AUC, ROC,
 survival, den slags.
 ## Survival plots
 
+
+## manhattan plots
+
+## scree plots
+
+## biplots - pca
 
 {% include links.md %}

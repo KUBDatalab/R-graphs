@@ -26,6 +26,8 @@ source: Rmd
 
 ### Interesting variations
 
+### Think about
+
 ## Chropleth
 ### What are they?
 
@@ -35,6 +37,8 @@ source: Rmd
 
 ### Interesting variations
 
+### Think about
+
 ## Hexbin map
 ### What are they?
 
@@ -43,6 +47,8 @@ source: Rmd
 ### how do we make them?
 
 ### Interesting variations
+
+### Think about
 
 ## Cartogram
 
@@ -54,6 +60,8 @@ source: Rmd
 
 ### Interesting variations
 
+### Think about
+
 ## Connection
 
 ### What are they?
@@ -64,6 +72,8 @@ source: Rmd
 
 ### Interesting variations
 
+### Think about
+
 ## Bubble map
 
 ### What are they?
@@ -73,5 +83,7 @@ source: Rmd
 ### how do we make them?
 
 ### Interesting variations
+
+### Think about
 
 {% include links.md %}

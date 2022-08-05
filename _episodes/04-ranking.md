@@ -64,7 +64,6 @@ dotplot <- groups_long %>%
     alpha = 0.8, size = 3,
     aes(fill = group)
   ) +
-  scale_fill_manual(values = brewer.pal(8, "Accent")[1:2]) +
   labs(x = "Group",
        y = "Response",
         caption = paste0("OH!!!\nP = ", 
@@ -86,31 +85,14 @@ dotplot <- groups_long %>%
       "; IQR = ", signif(IQR(group2), 2)
     )
   )
-~~~
-{: .language-r}
 
-
-
-~~~
-Error in brewer.pal(8, "Accent"): could not find function "brewer.pal"
-~~~
-{: .error}
-
-
-
-~~~
 wrap_plots(
   bar, dotplot, nrow = 1
 )
 ~~~
 {: .language-r}
 
-
-
-~~~
-Error in wrap_plots(bar, dotplot, nrow = 1): object 'dotplot' not found
-~~~
-{: .error}
+<img src="../fig/rmd-04-unnamed-chunk-2-1.png" title="plot of chunk unnamed-chunk-2" alt="plot of chunk unnamed-chunk-2" width="612" style="display: block; margin: auto;" />
 
 
 ## spider/radar plots
@@ -124,7 +106,9 @@ Error in wrap_plots(bar, dotplot, nrow = 1): object 'dotplot' not found
 ### Interesting variations
 
 ### Think about
+Det her er også noget skrammel...
 
+https://www.data-to-viz.com/caveat/spider.html
 
 ## Wordclouds
 
@@ -137,6 +121,28 @@ Error in wrap_plots(bar, dotplot, nrow = 1): object 'dotplot' not found
 ### Interesting variations
 
 ### Think about
+Are we actually learning anything from this? Visualisations are a form of
+storytelling. Anton Chekhov had a principle of not introducing extranious
+objects on the scene. If a gun was placed on the table in the first act, it had to
+be used in the second (or at least before the play was over.)
+Follow the same principle. A good story should not give unneccesary information.
+It should provide you with context to help you understand it. And it should 
+lead you to the right conclusions.
+
+Wordclouds do not group words that mean the same thing. "difficult" and "hard"
+might mean the same thing, but a standard wordcloud will treat them as two 
+different words.
+
+They do not capture complex themes. "Expensive" is the same as "not cheap" or
+"costs too much". This is subtly different from the previous point.
+
+The lack context. If something is helpful - what is helpful?
+
+They are prone to bias. Try to show people the same word cloud, and 
+ask them to list the top five information in them.
+
+They obscure the relative importance of stuff. Is the first issue actually
+as important as the second? Are the first three equally important?
 
 
 

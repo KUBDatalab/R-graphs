@@ -19,29 +19,27 @@ source: Rmd
 
 animerede plots. Det er jeg ikke sikker på kan håndteres her - men lad os se:
 
+Det kan de...
+
+En fiks måde at vise en udvikling er ved at animere plottet. Start med at lave
+dit plot, og facetter efter tidsvariablen:
+
+
 
 ~~~
-library(gapminder)
-install.packages("gifski")
+ggplot(gapminder, aes(gdpPercap, lifeExp, size = pop, color = continent)) +
+  geom_point() +
+  facet_wrap(~year)
 ~~~
 {: .language-r}
 
-
-
-~~~
-Installing package into '/home/runner/work/_temp/Library'
-(as 'lib' is unspecified)
-~~~
-{: .output}
+<img src="../fig/rmd-10-unnamed-chunk-1-1.png" title="plot of chunk unnamed-chunk-1" alt="plot of chunk unnamed-chunk-1" width="612" style="display: block; margin: auto;" />
+Når så du vil animere, erstatter du `facet_wrap(~year)`  med `transition_time(year)`.
+og vupti har du en animation. I dette tilfælde smider vi ldit ekstra på.
 
 
 
 ~~~
-library(gifski)
-# Charge libraries:
-library(ggplot2)
-library(gganimate)
- 
 # Make a ggplot, but add frame=year: one image per year
 ggplot(gapminder, aes(gdpPercap, lifeExp, size = pop, color = continent)) +
   geom_point() +
@@ -55,6 +53,13 @@ ggplot(gapminder, aes(gdpPercap, lifeExp, size = pop, color = continent)) +
 {: .language-r}
 
 <img src="fig/rmd-10-animation_test-1.gif" title="plot of chunk animation_test" alt="plot of chunk animation_test" style="display: block; margin: auto;" />
+
+Vi smider en logaritmisk skala på x-aksen, piller i hvordan plottet themes. 
+Og så skriver vi eksplicit `ease_aes('linear')`. For hvad stiller vi op når 
+vi har et punkt til tiden 1957, og et til tiden 1962, men ikke til årene imellem?
+
+Vi lader R beregne hvordan punktet ville se ud i 1958, 1959 etc. Hvis ændringen er
+lineær. Der er andre muligheder end lineær. Læs dokumentationen for mulighederne.
 
 Hvad hvis vi deler den op?
 

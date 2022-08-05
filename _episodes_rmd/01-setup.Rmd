@@ -1,15 +1,15 @@
 ---
 title: "Setup"
-teaching: 42
-exercises: 47
+teaching: 0
+exercises: 0
 questions: 
-- "FIXME"
+- "What should I have installed if I want to follow along?"
 
 objectives:
 - "FIXME"
 
 keypoints:
-- "FIXME"
+- "Again this is not a course"
 source: Rmd
 ---
 
@@ -21,9 +21,8 @@ knitr_fig_path("01-")
 
 ## Setup
 
-We are working with ggplot here. Base is nice. Plotly is also nice. But we are
-far from finished with what we've started here. So for now we are sticking with
-ggplot2.
+We are working with ggplot here. Base is nice. Plotly is also nice. But for now 
+we are almost exclusively sticking with ggplot2.
 
 Besides ggplot2, we are working with other libraries to extend the functionality
 of ggplot or access interesting data.
@@ -33,6 +32,7 @@ Therefore: Install the following libraries:
 install.packages("tidyverse")
 install.packages("cowplot")
 install.packages("palmerpenguins")
+install.packages("ggExtra")
 ```
 
 And load them:
@@ -44,7 +44,7 @@ library(palmerpenguins)
 ```
 
 
-
+There, done!
 
 
 
