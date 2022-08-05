@@ -1,15 +1,18 @@
 ---
-title: "Setup"
-teaching: 42
-exercises: 47
+title: "Intro"
+teaching: 0
+exercises: 0
 questions: 
-- "FIXME"
+- "What is this?"
 
 objectives:
-- "FIXME"
+- "Align expections"
 
 keypoints:
-- "FIXME"
+- "This is not a course"
+- "We only focus on how to make plots"
+- "Contact us if you spot something wrong"
+- "Also contact us if you have specific wishes"
 source: Rmd
 ---
 
