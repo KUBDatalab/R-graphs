@@ -63,7 +63,7 @@ is to make things easier to understand.
 The geom_ we are using here is geom_histogram(). It takes only one variable 
 in the mapping.
 
-```{r histogram-making}
+```{r histogram-making, warning = F}
 ggplot(penguins, aes(x=body_mass_g)) + 
   geom_histogram()
 ```
@@ -353,23 +353,85 @@ box_1 + box_2
 
 
 
-## Density
+## Density plots
+
+
 
 ### What are they?
+A plot of the kernel density estimation of the distribution. 
+
+Think of it as a smoothed histogram
+
+```{r density-what, echo = F}
+coeff <- 50000
+penguins %>% 
+  ggplot(aes(body_mass_g)) + 
+  geom_density(alpha = 0.5) +
+  geom_histogram(aes(x = body_mass_g, y = ..count.. /coeff), alpha = 0.1) +
+  scale_y_continuous(
+    sec.axis = sec_axis(~.*coeff)
+  )
+```
+
 
 ### What do we use them for?
+Density plots show the distribution of a numeric variabel. It gets a bit closer
+to an actual continous distribution than a histogram.
 
 ### how do we make them?
 
+As with histograms we only use one variable:
+
+```{r density-how}
+penguins %>% 
+  ggplot(aes(body_mass_g)) + 
+  geom_density() 
+```
+
+
 ### Interesting variations
+
+#### More than one distribution on same axis
+
+
+#### Upside-down
+
+```{r}
+male <- penguins %>% 
+  filter(sex == "male")
+female <- penguins %>% 
+  filter(sex == "female")
+ggplot() +
+  geom_density(aes(x = female$body_mass_g), fill="#69b3a2" ) +
+  geom_density(aes(x = male$body_mass_g, y = -..density.. ), fill= "#404080")
+
+```
+
+
+
+
+#### Grid
+  
+Fuldstændigt parallelt til grids i histogrammer
+
 
 ### Think about
 
 ## Ridgeline
 
+```{r}
+library(ggridges)
+```
+
+
 
 
 ### What are they?
+Det kan se ret cool ud. Det er grundlæggende "bare" et sæt af flere 
+densityplots.
+
+Også kendt som joyplots
+
 
 ### What do we use them for?
 
@@ -382,11 +444,16 @@ box_1 + box_2
 ## Violin
 
 
+
 ### What are they?
+
+en slags boxplot
 
 ### What do we use them for?
 
 ### how do we make them?
+
+geom_violin()
 
 ### Interesting variations
 
