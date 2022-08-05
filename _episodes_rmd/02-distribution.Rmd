@@ -261,9 +261,6 @@ Typically we show more than one boxplot, but a collection of boxplots.
 
 ### how do we make them?
 
-Remember that a boxplot visualises the distribution of a variable. The values
-of that variable is all we need:
-
 ```{r boxplot-how}
 penguins %>% 
   ggplot(aes(x = body_mass_g)) + 
@@ -272,37 +269,55 @@ penguins %>%
 
 Typically we want to compare the weight of different groups of penguins. That
 is, compare the distribution of something, between different groups:
+
 ```{r}
 penguins %>% 
   ggplot(aes(y = species, x = body_mass_g)) + 
   geom_boxplot()
 ```
-Gentoo penguins are generally heavier than Chinstrap and Adelie penguins. But
-some Chinstraps and Adelies are as heavy as some Gentoos. 
-
-This overlap does not mean that we can conclude that Gentoos are not larger than 
-Adelie penguins. Or that Adelie and Gentoo penquins are really the same. Or for
-that matter that penguins exist on a spectrum between Gentoos and Adelies.
 
 
 ### Interesting variations
 
-The box can obscure patterns in the distribution. It is often a good idea to
-add the actual datapoints to the boxplots. We use geom_jitter rather than
-geom_point. Points might overlap in a way that makes it impossible to see if a
-point represents 1 or 50 penguins. geom_jitter adds small amounts of noise to 
-the points.
-```{r}
+#### Boxplot with datapoints
+geom_jitter adds small amounts of noise to the points. Points can also be 
+added using geom_point()
+```{r boxplot_jitter}
 penguins %>% 
   ggplot(aes(y = species, x = body_mass_g)) + 
   geom_boxplot() +
   geom_jitter()
 ```
+#### Notches and coloring outliers
+
+```{r notched-box}
+penguins %>% 
+  ggplot(aes(y = species, x = body_mass_g)) + 
+  geom_boxplot(
+    notch = T,
+    notchwidth = 0.5,
+    outlier.color = "red"
+  )
+```
+Outlier shape, fill, size, alpha and stroke can be controlled in similar ways.
+
+#### Variable width of boxes
+
+varwidth = T will adjust the width of the boxes proportional to the squareroot of
+the number of observations in the groups.
+
+```{r}
+penguins %>% 
+  ggplot(aes(y = species, x = body_mass_g)) + 
+  geom_boxplot(
+   varwidth = T
+  )
+```
 
 
 ### Think about
 
-As mentioned boxplots might hide interesting features. The two plots below show first two 
+Boxplots might hide features of the data. The two plots below show first two 
 boxplots that are made from different distributions. The overlap might lead
 us to think they are similar. The plot on the right adds the individual datapoints
 revealing that the data is not that similar.
