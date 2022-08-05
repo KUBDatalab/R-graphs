@@ -106,7 +106,9 @@ wrap_plots(
 ### Interesting variations
 
 ### Think about
+Det her er også noget skrammel...
 
+https://www.data-to-viz.com/caveat/spider.html
 
 ## Wordclouds
 
