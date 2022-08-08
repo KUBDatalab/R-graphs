@@ -21,6 +21,9 @@ knitr_fig_path("07-")
 ## Map
 ### What are they?
 
+Det skal vi helst ikke forklare. Og de er i øvrig mest interessante i kombination
+med data.
+
 ### What do we use them for?
 
 ### how do we make them?
@@ -29,19 +32,49 @@ knitr_fig_path("07-")
 
 ### Think about
 
-## Chropleth
+## Choropleth
 ### What are they?
+
+Et kort som vi deler op i geografiske enheder. Og så farvelægger vi dem
+efter en eller anden variabel. 
+
+leaflet hvis interaktivt, ggplot2/ggmap for statiske kortl
 
 ### What do we use them for?
 
 ### how do we make them?
+
+Kort generelt falder i to dele. Find data at indlæse. shapefiles eller 
+geoJSON. Nogle pakker har data med der er egnet. Man kan også hente
+ting fra google og openstreetmap.
+
+Manipuler data og plot det.
+
+leaflet til interaktive kort.
+
+HUSK - DER SKAL NOGET JAVE HEJS IND OVER FOR AT LAVE DEM!
+
+ggmap til statiske kort.
+
+Nyttige pakker med kortdata: maps, mapdata og oz
 
 ### Interesting variations
 
 ### Think about
 
 ## Hexbin map
+Her skal vi have fundet noget geografisk data på Frankrig! 
+
+
+
 ### What are they?
+
+Kort, hvor vi splitter regionen/kloden/whatever vi plotter, op i hexagoner 
+(sekskanter). Enten selve arealet, altså at hver kommune i danmark optræder
+som en hexagon. Eller hvor vi deler danmark op i hexagoner, og så plotter
+vi 2D densities på det kort. 
+
+
 
 ### What do we use them for?
 
@@ -54,6 +87,13 @@ knitr_fig_path("07-")
 ## Cartogram
 
 ### What are they?
+
+Kort hvor vi forvrænger regioners (landes, kommuners, delstaters etc.) form
+for at vise en egenskab. 
+
+Her bruger vi pakken `cartogram`
+
+Den kan animeres. Og laves på hexbin kort
 
 ### What do we use them for?
 
