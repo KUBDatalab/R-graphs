@@ -71,6 +71,12 @@ penguins %>%
 ## Treemap
 
 ### What are they?
+Viser hierarkisk data i nestede rektangler. Hver gruppe repræsenteres af en
+rektangel, hvis areal er proportionalt med dens værdi.
+
+treemap.
+
+Den kan også gøres interaktiv med detreeR.
 
 ### What do we use them for?
 
@@ -223,9 +229,24 @@ Men også ggdendro! Den baserer sig på resultater fra hclust
 ### Think about
 
 ## Circular packing
+
 ### What are they?
 
 ### What do we use them for?
+Kan vise hierarkisk organisering. Ækvivalent til treemap og dendrogrammer.
+Hver node repræsenteres af en cirkel. Hver subnode repræsenteres som en cirkel
+inden i denne cirkel.
+
+
+Enkelt niveua laves med ggiraph og/eller packcirles.
+
+Flere niveauer laves med ggraph
+
+Der kan laves interaktive ting med flere niveauer med circlepackeR.
+
+```{r}
+
+```
 
 ### how do we make them?
 
