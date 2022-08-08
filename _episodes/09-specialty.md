@@ -22,6 +22,62 @@ Special ting, vi prøver at holde det til ting der ikke er dækket af de
 
 Kig på ggsurvfit pakken
 
+## spectra
+Primært er det vist de stat_ functioner der følger med der er interessante.
+
+~~~
+install.packages("ggspectra")
+~~~
+{: .language-r}
+
+
+
+~~~
+Installing package into '/home/runner/work/_temp/Library'
+(as 'lib' is unspecified)
+~~~
+{: .output}
+
+
+
+~~~
+library(ggspectra)
+~~~
+{: .language-r}
+
+
+
+~~~
+Loading required package: photobiology
+~~~
+{: .output}
+
+
+
+~~~
+News at https://www.r4photobiology.info/
+~~~
+{: .output}
+
+
+
+~~~
+Loading required package: ggplot2
+~~~
+{: .output}
+
+
+
+~~~
+ggplot(sun.spct)  +
+  geom_line() +
+  ggspectra::stat_valleys()
+~~~
+{: .language-r}
+
+<img src="../fig/rmd-09-unnamed-chunk-2-1.png" title="plot of chunk unnamed-chunk-2" alt="plot of chunk unnamed-chunk-2" width="612" style="display: block; margin: auto;" />
+
+
 ## ROC curves
 
 Når vi laver logistiske regressioner, forsøger vi at fitte en model til 

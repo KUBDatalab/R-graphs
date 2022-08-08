@@ -19,18 +19,54 @@ source: Rmd
 
 ## Barplot - grouped and stacked
 ### What are they?
+<img src="../fig/rmd-05-barplot_what-1.png" title="plot of chunk barplot_what" alt="plot of chunk barplot_what" width="612" style="display: block; margin: auto;" />
 
 ### What do we use them for?
 
 ### how do we make them?
 
+
+~~~
+penguins %>% 
+  filter(!is.na(sex)) %>% 
+  ggplot(aes(species, fill=sex)) +
+  geom_bar()
+~~~
+{: .language-r}
+
+<img src="../fig/rmd-05-barplot_stacked_how-1.png" title="plot of chunk barplot_stacked_how" alt="plot of chunk barplot_stacked_how" width="612" style="display: block; margin: auto;" />
+
+
+
+~~~
+penguins %>% 
+  filter(!is.na(sex)) %>% 
+  ggplot(aes(species, fill=sex)) +
+  geom_bar(position="dodge")
+~~~
+{: .language-r}
+
+<img src="../fig/rmd-05-barplot_grouped_how-1.png" title="plot of chunk barplot_grouped_how" alt="plot of chunk barplot_grouped_how" width="612" style="display: block; margin: auto;" />
+
 ### Interesting variations
 
 ### Think about
+
+
+
+
+
+
 
 ## Treemap
 
 ### What are they?
+Viser hierarkisk data i nestede rektangler. Hver gruppe repræsenteres af en
+rektangel, hvis areal er proportionalt med dens værdi.
+
+treemap.
+
+Den kan også gøres interaktiv med detreeR.
 
 ### What do we use them for?
 
@@ -40,13 +76,64 @@ source: Rmd
 
 ### Think about
 
+
+
 ## Doughnut
 
 ### What are they?
+En lagkage med hul i. Og derfor ca. lige så ringe som lagkagediagrammer
 
 ### What do we use them for?
+Mange ting - som man ikke bør bruge dem til.
 
 ### how do we make them?
+
+fordi de er noget skrammel, understøtter ggplot2 dem ikke direkte.
+
+
+~~~
+penguins %>% 
+  group_by(species) %>% 
+  summarise(count = n()) %>% 
+  ungroup() %>% 
+  mutate(frac = count/sum(count)) %>% 
+  mutate(ymax = cumsum(frac)) %>% 
+  mutate(ymin = lag(ymax, default = 0)) %>% 
+  ggplot(aes(ymax=ymax, ymin = ymin, xmax = 4, xmin = 3, fill=species)) +
+  geom_rect() +
+  coord_polar(theta="y") +
+  xlim(c(2,4))
+~~~
+{: .language-r}
+
+<img src="../fig/rmd-05-unnamed-chunk-2-1.png" title="plot of chunk unnamed-chunk-2" alt="plot of chunk unnamed-chunk-2" width="612" style="display: block; margin: auto;" />
+
+
+~~~
+# Create test data.
+data <- data.frame(
+  category=c("A", "B", "C"),
+  count=c(10, 60, 30)
+)
+ 
+# Compute percentages
+data$fraction = data$count / sum(data$count)
+
+# Compute the cumulative percentages (top of each rectangle)
+data$ymax = cumsum(data$fraction)
+
+# Compute the bottom of each rectangle
+data$ymin = c(0, head(data$ymax, n=-1))
+
+ggplot(data, aes(ymax=ymax, ymin=ymin, xmax=4, xmin=3, fill=category)) +
+     geom_rect() +
+     coord_polar(theta="y") + # Try to remove that to understand how the chart is built initially
+     xlim(c(2, 4)) # Try to remove that to see how to make a pie chart
+~~~
+{: .language-r}
+
+<img src="../fig/rmd-05-unnamed-chunk-3-1.png" title="plot of chunk unnamed-chunk-3" alt="plot of chunk unnamed-chunk-3" width="612" style="display: block; margin: auto;" />
+
 
 ### Interesting variations
 
@@ -65,6 +152,19 @@ Alt. det er en del af problemet...
 
 
 ### how do we make them?
+
+~~~
+penguins %>% 
+  group_by(species) %>% 
+  summarise(count = n()) %>% 
+  ungroup() %>% 
+  ggplot(aes(x="", y =count, fill = species)) +
+  geom_bar(stat = "identity", width = 1) +
+  coord_polar("y", start = 0)
+~~~
+{: .language-r}
+
+<img src="../fig/rmd-05-unnamed-chunk-4-1.png" title="plot of chunk unnamed-chunk-4" alt="plot of chunk unnamed-chunk-4" width="612" style="display: block; margin: auto;" />
 
 
 ggplot har holdninger. Så der er ikke et geom_ i ggplot til at lave 
@@ -105,14 +205,120 @@ Exploderede piechars.
 
 ### how do we make them?
 
+
+~~~
+library(ggraph)
+library(igraph)
+~~~
+{: .language-r}
+
+
+
+~~~
+
+Attaching package: 'igraph'
+~~~
+{: .output}
+
+
+
+~~~
+The following objects are masked from 'package:dplyr':
+
+    as_data_frame, groups, union
+~~~
+{: .output}
+
+
+
+~~~
+The following objects are masked from 'package:purrr':
+
+    compose, simplify
+~~~
+{: .output}
+
+
+
+~~~
+The following object is masked from 'package:tidyr':
+
+    crossing
+~~~
+{: .output}
+
+
+
+~~~
+The following object is masked from 'package:tibble':
+
+    as_data_frame
+~~~
+{: .output}
+
+
+
+~~~
+The following objects are masked from 'package:stats':
+
+    decompose, spectrum
+~~~
+{: .output}
+
+
+
+~~~
+The following object is masked from 'package:base':
+
+    union
+~~~
+{: .output}
+
+
+
+~~~
+library(tidyverse)
+ 
+# create an edge list data frame giving the hierarchical structure of your individuals
+d1 <- data.frame(from="origin", to=paste("group", seq(1,5), sep=""))
+d2 <- data.frame(from=rep(d1$to, each=5), to=paste("subgroup", seq(1,25), sep="_"))
+edges <- rbind(d1, d2)
+ 
+# Create a graph object 
+mygraph <- graph_from_data_frame( edges )
+ 
+# Basic tree
+ggraph(mygraph, layout = 'dendrogram', circular = FALSE) + 
+  geom_edge_diagonal() +
+  geom_node_point() +
+  theme_void()
+~~~
+{: .language-r}
+
+<img src="../fig/rmd-05-unnamed-chunk-5-1.png" title="plot of chunk unnamed-chunk-5" alt="plot of chunk unnamed-chunk-5" width="612" style="display: block; margin: auto;" />
+Men også ggdendro! Den baserer sig på resultater fra hclust
+
 ### Interesting variations
 
 ### Think about
 
 ## Circular packing
+
 ### What are they?
 
 ### What do we use them for?
+Kan vise hierarkisk organisering. Ækvivalent til treemap og dendrogrammer.
+Hver node repræsenteres af en cirkel. Hver subnode repræsenteres som en cirkel
+inden i denne cirkel.
+
+
+Enkelt niveua laves med ggiraph og/eller packcirles.
+
+Flere niveauer laves med ggraph
+
+Der kan laves interaktive ting med flere niveauer med circlepackeR.
+
+
 
 ### how do we make them?
 

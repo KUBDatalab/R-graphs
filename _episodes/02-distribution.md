@@ -70,13 +70,6 @@ ggplot(penguins, aes(x=body_mass_g)) +
 ~~~
 {: .output}
 
-
-
-~~~
-Warning: Removed 2 rows containing non-finite values (stat_bin).
-~~~
-{: .warning}
-
 <img src="../fig/rmd-02-histogram-making-1.png" title="plot of chunk histogram-making" alt="plot of chunk histogram-making" width="612" style="display: block; margin: auto;" />
 Built into the geom_histogram is the statistical transformation, that counts the 
 number of observations in each bin.
@@ -242,6 +235,23 @@ Facetting on more than two variable can get confusing, but can be done.
 
 The number of bins (or their width, these two are equivalent) can lead to very
 different conclusions. Try several sizes.
+
+~~~
+
+Attaching package: 'cowplot'
+~~~
+{: .output}
+
+
+
+~~~
+The following object is masked from 'package:patchwork':
+
+    align_plots
+~~~
+{: .output}
+
+
 
 ~~~
 `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
@@ -414,32 +424,116 @@ boxplots that are made from different distributions. The overlap might lead
 us to think they are similar. The plot on the right adds the individual datapoints
 revealing that the data is not that similar.
 
-
-~~~
-Error in `ggplot_add()`:
-! Can't add `box_2` to a ggplot object.
-~~~
-{: .error}
+<img src="../fig/rmd-02-boxes_hiding_stuff-1.png" title="plot of chunk boxes_hiding_stuff" alt="plot of chunk boxes_hiding_stuff" width="612" style="display: block; margin: auto;" />
 
 
 
-## Density
+## Density plots
+
+
 
 ### What are they?
+A plot of the kernel density estimation of the distribution. 
+
+Think of it as a smoothed histogram
+
+
+~~~
+Warning: Removed 2 rows containing non-finite values (stat_density).
+~~~
+{: .warning}
+
+
+
+~~~
+`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+~~~
+{: .output}
+
+
+
+~~~
+Warning: Removed 2 rows containing non-finite values (stat_bin).
+~~~
+{: .warning}
+
+<img src="../fig/rmd-02-density-what-1.png" title="plot of chunk density-what" alt="plot of chunk density-what" width="612" style="display: block; margin: auto;" />
+
 
 ### What do we use them for?
+Density plots show the distribution of a numeric variabel. It gets a bit closer
+to an actual continous distribution than a histogram.
 
 ### how do we make them?
 
+As with histograms we only use one variable:
+
+
+~~~
+penguins %>% 
+  ggplot(aes(body_mass_g)) + 
+  geom_density() 
+~~~
+{: .language-r}
+
+
+
+~~~
+Warning: Removed 2 rows containing non-finite values (stat_density).
+~~~
+{: .warning}
+
+<img src="../fig/rmd-02-density-how-1.png" title="plot of chunk density-how" alt="plot of chunk density-how" width="612" style="display: block; margin: auto;" />
+
+
 ### Interesting variations
+
+#### More than one distribution on same axis
+
+
+#### Upside-down
+
+
+~~~
+male <- penguins %>% 
+  filter(sex == "male")
+female <- penguins %>% 
+  filter(sex == "female")
+ggplot() +
+  geom_density(aes(x = female$body_mass_g), fill="#69b3a2" ) +
+  geom_density(aes(x = male$body_mass_g, y = -..density.. ), fill= "#404080")
+~~~
+{: .language-r}
+
+<img src="../fig/rmd-02-unnamed-chunk-9-1.png" title="plot of chunk unnamed-chunk-9" alt="plot of chunk unnamed-chunk-9" width="612" style="display: block; margin: auto;" />
+
+
+
+
+#### Grid
+  
+Fuldstændigt parallelt til grids i histogrammer
+
 
 ### Think about
 
 ## Ridgeline
 
 
+~~~
+library(ggridges)
+~~~
+{: .language-r}
+
+
+
 
 ### What are they?
+Det kan se ret cool ud. Det er grundlæggende "bare" et sæt af flere 
+densityplots.
+
+Også kendt som joyplots
+
 
 ### What do we use them for?
 
@@ -452,11 +546,16 @@ Error in `ggplot_add()`:
 ## Violin
 
 
+
 ### What are they?
+
+en slags boxplot
 
 ### What do we use them for?
 
 ### how do we make them?
+
+geom_violin()
 
 ### Interesting variations
 

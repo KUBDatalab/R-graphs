@@ -99,9 +99,16 @@ wrap_plots(
 
 ### What are they?
 
+A two-dimensional chart designed to plot one or more series of values
+over multiple quantitative variables.
+
 ### What do we use them for?
 
 ### how do we make them?
+
+ggradar
+
+
 
 ### Interesting variations
 
@@ -121,27 +128,19 @@ https://www.data-to-viz.com/caveat/spider.html
 ### Interesting variations
 
 ### Think about
-Are we actually learning anything from this? Visualisations are a form of
-storytelling. Anton Chekhov had a principle of not introducing extranious
-objects on the scene. If a gun was placed on the table in the first act, it had to
-be used in the second (or at least before the play was over.)
-Follow the same principle. A good story should not give unneccesary information.
-It should provide you with context to help you understand it. And it should 
-lead you to the right conclusions.
+Wordclouds are very popular.
 
-Wordclouds do not group words that mean the same thing. "difficult" and "hard"
-might mean the same thing, but a standard wordcloud will treat them as two 
+But they have a lot of problems.
+
+* They do not (neccesarily) group together words with the same meaning. "Difficult"
+and "hard" might mean the same thing, but a standard wordcloud will treat them as two 
 different words.
-
-They do not capture complex themes. "Expensive" is the same as "not cheap" or
+* They do not capture complex themes. "Expensive" is the same as "not cheap" or
 "costs too much". This is subtly different from the previous point.
-
-The lack context. If something is helpful - what is helpful?
-
-They are prone to bias. Try to show people the same word cloud, and 
+* They lack context. If something is helpful - what is helpful?
+* They are prone to bias. Try to show people the same word cloud, and 
 ask them to list the top five information in them.
-
-They obscure the relative importance of stuff. Is the first issue actually
+* They obscure the relative importance of stuff. Is the first issue actually
 as important as the second? Are the first three equally important?
 
 
