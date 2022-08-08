@@ -16,22 +16,67 @@ source: Rmd
 ```{r, include = FALSE}
 source("../bin/chunk-options.R")
 knitr_fig_path("05-")
+library(palmerpenguins)
+library(tidyverse)
+library(patchwork)
 ```
 
 ## Barplot - grouped and stacked
 ### What are they?
+```{r barplot_what, echo = F}
+stacked <- penguins %>% 
+  filter(!is.na(sex)) %>% 
+  ggplot(aes(species, fill=sex)) +
+  geom_bar()
+
+grouped <- penguins %>% 
+  filter(!is.na(sex)) %>% 
+  ggplot(aes(species, fill=sex)) +
+  geom_bar(position="dodge")
+
+stacked + grouped
+
+```
 
 ### What do we use them for?
 
 ### how do we make them?
 
+```{r barplot_stacked_how}
+penguins %>% 
+  filter(!is.na(sex)) %>% 
+  ggplot(aes(species, fill=sex)) +
+  geom_bar()
+```
+
+
+```{r barplot_grouped_how}
+penguins %>% 
+  filter(!is.na(sex)) %>% 
+  ggplot(aes(species, fill=sex)) +
+  geom_bar(position="dodge")
+
+```
+
 ### Interesting variations
 
 ### Think about
+
+
+
+
+
+
 
 ## Treemap
 
 ### What are they?
+Viser hierarkisk data i nestede rektangler. Hver gruppe repræsenteres af en
+rektangel, hvis areal er proportionalt med dens værdi.
+
+treemap.
+
+Den kan også gøres interaktiv med detreeR.
 
 ### What do we use them for?
 
@@ -41,13 +86,56 @@ knitr_fig_path("05-")
 
 ### Think about
 
+
+
 ## Doughnut
 
 ### What are they?
+En lagkage med hul i. Og derfor ca. lige så ringe som lagkagediagrammer
 
 ### What do we use them for?
+Mange ting - som man ikke bør bruge dem til.
 
 ### how do we make them?
+
+fordi de er noget skrammel, understøtter ggplot2 dem ikke direkte.
+
+```{r}
+penguins %>% 
+  group_by(species) %>% 
+  summarise(count = n()) %>% 
+  ungroup() %>% 
+  mutate(frac = count/sum(count)) %>% 
+  mutate(ymax = cumsum(frac)) %>% 
+  mutate(ymin = lag(ymax, default = 0)) %>% 
+  ggplot(aes(ymax=ymax, ymin = ymin, xmax = 4, xmin = 3, fill=species)) +
+  geom_rect() +
+  coord_polar(theta="y") +
+  xlim(c(2,4))
+```
+
+```{r}
+# Create test data.
+data <- data.frame(
+  category=c("A", "B", "C"),
+  count=c(10, 60, 30)
+)
+ 
+# Compute percentages
+data$fraction = data$count / sum(data$count)
+
+# Compute the cumulative percentages (top of each rectangle)
+data$ymax = cumsum(data$fraction)
+
+# Compute the bottom of each rectangle
+data$ymin = c(0, head(data$ymax, n=-1))
+
+ggplot(data, aes(ymax=ymax, ymin=ymin, xmax=4, xmin=3, fill=category)) +
+     geom_rect() +
+     coord_polar(theta="y") + # Try to remove that to understand how the chart is built initially
+     xlim(c(2, 4)) # Try to remove that to see how to make a pie chart
+```
+
 
 ### Interesting variations
 
@@ -66,6 +154,15 @@ Alt. det er en del af problemet...
 
 
 ### how do we make them?
+```{r}
+penguins %>% 
+  group_by(species) %>% 
+  summarise(count = n()) %>% 
+  ungroup() %>% 
+  ggplot(aes(x="", y =count, fill = species)) +
+  geom_bar(stat = "identity", width = 1) +
+  coord_polar("y", start = 0)
+```
 
 
 ggplot har holdninger. Så der er ikke et geom_ i ggplot til at lave 
@@ -106,14 +203,50 @@ Exploderede piechars.
 
 ### how do we make them?
 
+```{r}
+library(ggraph)
+library(igraph)
+library(tidyverse)
+ 
+# create an edge list data frame giving the hierarchical structure of your individuals
+d1 <- data.frame(from="origin", to=paste("group", seq(1,5), sep=""))
+d2 <- data.frame(from=rep(d1$to, each=5), to=paste("subgroup", seq(1,25), sep="_"))
+edges <- rbind(d1, d2)
+ 
+# Create a graph object 
+mygraph <- graph_from_data_frame( edges )
+ 
+# Basic tree
+ggraph(mygraph, layout = 'dendrogram', circular = FALSE) + 
+  geom_edge_diagonal() +
+  geom_node_point() +
+  theme_void()
+```
+Men også ggdendro! Den baserer sig på resultater fra hclust
+
 ### Interesting variations
 
 ### Think about
 
 ## Circular packing
+
 ### What are they?
 
 ### What do we use them for?
+Kan vise hierarkisk organisering. Ækvivalent til treemap og dendrogrammer.
+Hver node repræsenteres af en cirkel. Hver subnode repræsenteres som en cirkel
+inden i denne cirkel.
+
+
+Enkelt niveua laves med ggiraph og/eller packcirles.
+
+Flere niveauer laves med ggraph
+
+Der kan laves interaktive ting med flere niveauer med circlepackeR.
+
+```{r}
+
+```
 
 ### how do we make them?
 

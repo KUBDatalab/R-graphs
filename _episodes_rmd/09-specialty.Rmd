@@ -23,6 +23,17 @@ Special ting, vi prøver at holde det til ting der ikke er dækket af de
 
 Kig på ggsurvfit pakken
 
+## spectra
+Primært er det vist de stat_ functioner der følger med der er interessante.
+```{r}
+install.packages("ggspectra")
+library(ggspectra)
+ggplot(sun.spct)  +
+  geom_line() +
+  ggspectra::stat_valleys()
+```
+
+
 ## ROC curves
 
 Når vi laver logistiske regressioner, forsøger vi at fitte en model til 
