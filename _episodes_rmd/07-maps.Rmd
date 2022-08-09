@@ -102,6 +102,8 @@ vi 2D densities på det kort.
 
 ### Think about
 
+
+
 ## Cartogram
 
 ### What are they?
@@ -121,6 +123,8 @@ Den kan animeres. Og laves på hexbin kort
 
 ### Think about
 
+
+
 ## Connection
 
 ### What are they?
@@ -132,6 +136,8 @@ Den kan animeres. Og laves på hexbin kort
 ### Interesting variations
 
 ### Think about
+
+
 
 ## Bubble map
 
