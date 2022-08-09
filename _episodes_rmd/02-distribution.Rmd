@@ -486,9 +486,23 @@ penguins %>%
 
 ### What are they?
 
-en slags boxplot
+en slags boxplot. formen repræsenterer density. På mange måder bedre
+end boxplots. Men stiller lidt større krav til folk der har vænnet sig til at 
+læse boxplots.
+
+```{r violin-what, warning=F}
+penguins %>% 
+  ggplot(aes(body_mass_g, y = species, fill = species)) +
+  geom_violin() +
+  coord_flip()
+```
+
 
 ### What do we use them for?
+
+Tillader os både at se en ranking af forskellige grupper - og deres 
+fordelinger. 
+
 
 ### how do we make them?
 
@@ -498,6 +512,13 @@ geom_violin()
 
 ### Think about
 
+Pas på med at bruge dem hvis datasæt er for små. Da vil et boxplot med
+jitter ofte være bedre.
+
+sorter/order grupperne efter median-værdien.
+
+Hvis der er meget forskellige samplesizes, så vis det (se også små 
+datasæt)
 
 
 
