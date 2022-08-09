@@ -359,9 +359,9 @@ box_1 + box_2
 ### What are they?
 A plot of the kernel density estimation of the distribution. 
 
-Think of it as a smoothed histogram
+Think of it as a smoothed histogram.
 
-```{r density-what, echo = F}
+```{r density-what, echo = F, warning = F}
 coeff <- 50000
 penguins %>% 
   ggplot(aes(body_mass_g)) + 
@@ -375,13 +375,13 @@ penguins %>%
 
 ### What do we use them for?
 Density plots show the distribution of a numeric variabel. It gets a bit closer
-to an actual continous distribution than a histogram.
+to an actual continuous distribution than a histogram.
 
-### how do we make them?
+### How do we make them?
 
 As with histograms we only use one variable:
 
-```{r density-how}
+```{r density-how, warning = F}
 penguins %>% 
   ggplot(aes(body_mass_g)) + 
   geom_density() 
@@ -395,7 +395,9 @@ penguins %>%
 
 #### Upside-down
 
-```{r}
+Made in almost the same way as the mirrored histogram:
+
+```{r density-mirror, warning = F}
 male <- penguins %>% 
   filter(sex == "male")
 female <- penguins %>% 
@@ -431,12 +433,50 @@ densityplots.
 
 Også kendt som joyplots
 
+Ren
+
+```{r ridges-what, echo = F}
+library(ggridges)
+library(viridis)
+penguins %>% 
+  ggplot(aes(x = body_mass_g, y = species, fill = species)) +
+  geom_density_ridges()  +
+    theme_ridges() 
+
+```
+
+
+
+
 
 ### What do we use them for?
 
 ### how do we make them?
 
+```{r ridges-what}
+library(ggridges)
+
+penguins %>% 
+  ggplot(aes(x = body_mass_g, y = species, fill = species)) +
+  geom_density_ridges()  +
+    theme_ridges() 
+
+```
+
 ### Interesting variations
+
+Og med farvelægning efter vægt
+
+```{r}
+library(ggridges)
+library(viridis)
+penguins %>% 
+  mutate(body_mass_g = as.numeric(body_mass_g)) %>% 
+  ggplot(aes(x = body_mass_g, y = species, fill = ..x..)) +
+  geom_density_ridges_gradient()  +
+    theme_ridges() 
+
+```
 
 ### Think about
 
