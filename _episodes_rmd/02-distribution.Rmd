@@ -244,7 +244,7 @@ values above Q3 that are not outliers.
 the values below Q1 that are not outliers.
 * Dots at each end of the lines shows potential outliers.
 
-```{r boxplot-what, echo = F}
+```{r boxplot-what, echo = F, warning = F}
 penguins %>% 
   ggplot(aes(x = body_mass_g)) + 
   geom_boxplot()
@@ -260,7 +260,7 @@ Typically we show more than one boxplot, but a collection of boxplots.
 
 ### how do we make them?
 
-```{r boxplot-how}
+```{r boxplot-how, warning = F}
 penguins %>% 
   ggplot(aes(x = body_mass_g)) + 
   geom_boxplot()
@@ -269,7 +269,7 @@ penguins %>%
 Typically we want to compare the weight of different groups of penguins. That
 is, compare the distribution of something, between different groups:
 
-```{r}
+```{r boxplot-groups, warning = F}
 penguins %>% 
   ggplot(aes(y = species, x = body_mass_g)) + 
   geom_boxplot()
@@ -281,7 +281,7 @@ penguins %>%
 #### Boxplot with datapoints
 geom_jitter adds small amounts of noise to the points. Points can also be 
 added using geom_point()
-```{r boxplot_jitter}
+```{r boxplot_jitter, warning = F}
 penguins %>% 
   ggplot(aes(y = species, x = body_mass_g)) + 
   geom_boxplot() +
@@ -289,7 +289,7 @@ penguins %>%
 ```
 #### Notches and coloring outliers
 
-```{r notched-box}
+```{r notched-box, warning = F}
 penguins %>% 
   ggplot(aes(y = species, x = body_mass_g)) + 
   geom_boxplot(
@@ -305,7 +305,7 @@ Outlier shape, fill, size, alpha and stroke can be controlled in similar ways.
 varwidth = T will adjust the width of the boxes proportional to the squareroot of
 the number of observations in the groups.
 
-```{r}
+```{r boxplot-var-width, warning = F}
 penguins %>% 
   ggplot(aes(y = species, x = body_mass_g)) + 
   geom_boxplot(
