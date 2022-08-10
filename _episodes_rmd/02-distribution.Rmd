@@ -94,7 +94,7 @@ We can plot more than one distribution in the same plot.
 The addition of `alpha = 0.6` makes the bars transparent. 
 
 
-```{r}
+```{r, message = F}
 penguins %>%
   filter(!is.na(sex)) %>% 
   ggplot( aes(x=body_mass_g, fill=sex)) +
@@ -140,7 +140,7 @@ distributions
 A good workaround is to plot  `small multiples`. 
 
 We use facetwrap:
-```{r}
+```{r histogram-grid, message = F}
 penguins %>% 
   filter(!is.na(sex)) %>% 
   ggplot(aes(body_mass_g)) +
@@ -155,7 +155,7 @@ grid.
 
 We can facet wrap on more that one variable:
 
-```{r}
+```{r histogram-grid-2, message = F}
 penguins %>% 
   filter(!is.na(sex)) %>% 
   ggplot(aes(body_mass_g)) +
@@ -165,12 +165,12 @@ penguins %>%
 
 It is also possible to place the six plots in a grid. In that case we use the
 `facet_grid()` function: 
-```{r}
+```{r histogram-grid-3, message = F}
 penguins %>% 
   filter(!is.na(sex)) %>% 
   ggplot(aes(body_mass_g)) +
   geom_histogram() +
-  facet_grid(vars(sex, species))
+  facet_grid(rows = vars(sex), cols= vars(species))
 ```
 
 This provides a more consistent presentation of the two facets.
@@ -184,20 +184,18 @@ Facetting on more than two variable can get confusing, but can be done.
 
 The number of bins (or their width, these two are equivalent) can lead to very
 different conclusions. Try several sizes.
-```{r echo = F, warning = F}
+```{r histogram-bin-choices, echo = F, warning = F, message = F}
 library(ggplot2)
 library(tidyverse)
 library(palmerpenguins)
 library(cowplot)
 
 
-
 # dataset:
 data <-  penguins
 bins <- c(15,30,45, 60)
-# basic histogram
-ggplot(data, aes(x=body_mass_g)) + 
-  geom_histogram()
+
+
 
 p1 <- ggplot(data, aes(x=body_mass_g)) + 
   geom_histogram(bins = bins[1]) +
@@ -246,7 +244,7 @@ values above Q3 that are not outliers.
 the values below Q1 that are not outliers.
 * Dots at each end of the lines shows potential outliers.
 
-```{r boxplot-what, echo = F}
+```{r boxplot-what, echo = F, warning = F}
 penguins %>% 
   ggplot(aes(x = body_mass_g)) + 
   geom_boxplot()
@@ -262,7 +260,7 @@ Typically we show more than one boxplot, but a collection of boxplots.
 
 ### how do we make them?
 
-```{r boxplot-how}
+```{r boxplot-how, warning = F}
 penguins %>% 
   ggplot(aes(x = body_mass_g)) + 
   geom_boxplot()
@@ -271,7 +269,7 @@ penguins %>%
 Typically we want to compare the weight of different groups of penguins. That
 is, compare the distribution of something, between different groups:
 
-```{r}
+```{r boxplot-groups, warning = F}
 penguins %>% 
   ggplot(aes(y = species, x = body_mass_g)) + 
   geom_boxplot()
@@ -283,7 +281,7 @@ penguins %>%
 #### Boxplot with datapoints
 geom_jitter adds small amounts of noise to the points. Points can also be 
 added using geom_point()
-```{r boxplot_jitter}
+```{r boxplot_jitter, warning = F}
 penguins %>% 
   ggplot(aes(y = species, x = body_mass_g)) + 
   geom_boxplot() +
@@ -291,7 +289,7 @@ penguins %>%
 ```
 #### Notches and coloring outliers
 
-```{r notched-box}
+```{r notched-box, warning = F}
 penguins %>% 
   ggplot(aes(y = species, x = body_mass_g)) + 
   geom_boxplot(
@@ -307,7 +305,7 @@ Outlier shape, fill, size, alpha and stroke can be controlled in similar ways.
 varwidth = T will adjust the width of the boxes proportional to the squareroot of
 the number of observations in the groups.
 
-```{r}
+```{r boxplot-var-width, warning = F}
 penguins %>% 
   ggplot(aes(y = species, x = body_mass_g)) + 
   geom_boxplot(
@@ -361,9 +359,9 @@ box_1 + box_2
 ### What are they?
 A plot of the kernel density estimation of the distribution. 
 
-Think of it as a smoothed histogram
+Think of it as a smoothed histogram.
 
-```{r density-what, echo = F}
+```{r density-what, echo = F, warning = F}
 coeff <- 50000
 penguins %>% 
   ggplot(aes(body_mass_g)) + 
@@ -377,13 +375,13 @@ penguins %>%
 
 ### What do we use them for?
 Density plots show the distribution of a numeric variabel. It gets a bit closer
-to an actual continous distribution than a histogram.
+to an actual continuous distribution than a histogram.
 
-### how do we make them?
+### How do we make them?
 
 As with histograms we only use one variable:
 
-```{r density-how}
+```{r density-how, warning = F}
 penguins %>% 
   ggplot(aes(body_mass_g)) + 
   geom_density() 
@@ -397,7 +395,9 @@ penguins %>%
 
 #### Upside-down
 
-```{r}
+Made in almost the same way as the mirrored histogram:
+
+```{r density-mirror, warning = F}
 male <- penguins %>% 
   filter(sex == "male")
 female <- penguins %>% 
@@ -433,12 +433,50 @@ densityplots.
 
 Også kendt som joyplots
 
+Ren
+
+```{r ridges-what, echo = F}
+library(ggridges)
+library(viridis)
+penguins %>% 
+  ggplot(aes(x = body_mass_g, y = species, fill = species)) +
+  geom_density_ridges()  +
+    theme_ridges() 
+
+```
+
+
+
+
 
 ### What do we use them for?
 
 ### how do we make them?
 
+```{r ridges-what}
+library(ggridges)
+
+penguins %>% 
+  ggplot(aes(x = body_mass_g, y = species, fill = species)) +
+  geom_density_ridges()  +
+    theme_ridges() 
+
+```
+
 ### Interesting variations
+
+Og med farvelægning efter vægt
+
+```{r}
+library(ggridges)
+library(viridis)
+penguins %>% 
+  mutate(body_mass_g = as.numeric(body_mass_g)) %>% 
+  ggplot(aes(x = body_mass_g, y = species, fill = ..x..)) +
+  geom_density_ridges_gradient()  +
+    theme_ridges() 
+
+```
 
 ### Think about
 
@@ -448,9 +486,23 @@ Også kendt som joyplots
 
 ### What are they?
 
-en slags boxplot
+en slags boxplot. formen repræsenterer density. På mange måder bedre
+end boxplots. Men stiller lidt større krav til folk der har vænnet sig til at 
+læse boxplots.
+
+```{r violin-what, warning=F}
+penguins %>% 
+  ggplot(aes(body_mass_g, y = species, fill = species)) +
+  geom_violin() +
+  coord_flip()
+```
+
 
 ### What do we use them for?
+
+Tillader os både at se en ranking af forskellige grupper - og deres 
+fordelinger. 
+
 
 ### how do we make them?
 
@@ -460,6 +512,13 @@ geom_violin()
 
 ### Think about
 
+Pas på med at bruge dem hvis datasæt er for små. Da vil et boxplot med
+jitter ofte være bedre.
+
+sorter/order grupperne efter median-værdien.
+
+Hvis der er meget forskellige samplesizes, så vis det (se også små 
+datasæt)
 
 
 
