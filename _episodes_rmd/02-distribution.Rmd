@@ -453,7 +453,7 @@ penguins %>%
 
 ### how do we make them?
 
-```{r ridges-what}
+```{r ridges-how}
 library(ggridges)
 
 penguins %>% 
