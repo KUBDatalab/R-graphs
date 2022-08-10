@@ -191,11 +191,106 @@ grupper ved at vise en vinkel. Og det er vi mennesker ret dårlige til.
 lad os lave tre piecharts, og tre barcharts. 
 https://www.data-to-viz.com/caveat/pie.html
 
-#### det er muligt at gøre det værre.
 
-Lad være med det. 
-3D, legend aside, procenter der ikke summer til 100. For mange slices.
-Exploderede piechars.
+~~~
+library(tidyverse)
+a <- data.frame( name=letters[1:5], value=c(17,18,20,22,24) )
+b <- data.frame( name=letters[1:5], value=c(20,18,21,20,20)  )
+c <- data.frame( name=letters[1:5], value=c(24,23,21,19,18) )
+
+a <- a %>% 
+  arrange(desc(name)) %>%
+  mutate(prop = value / sum(a$value) *100) %>%
+  mutate(ypos = cumsum(prop)- 0.5*prop )
+
+b <- b %>% 
+  arrange(desc(name)) %>%
+  mutate(prop = value / sum(b$value) *100) %>%
+  mutate(ypos = cumsum(prop)- 0.5*prop )
+
+c <- c %>% 
+  arrange(desc(name)) %>%
+  mutate(prop = value / sum(c$value) *100) %>%
+  mutate(ypos = cumsum(prop)- 0.5*prop )
+
+# Basic piechart
+pa <- ggplot(a, aes(x="", y=prop, fill=name)) +
+  geom_bar(stat="identity", width=1, color="white") +
+  coord_polar("y", start=0) +
+  theme_void() + 
+  theme(legend.position="none") +
+  geom_text(aes(y = ypos, label = name), color = "white", size=6) +
+  scale_fill_brewer(palette="Set2")
+  
+pb <- ggplot(b, aes(x="", y=prop, fill=name)) +
+  geom_bar(stat="identity", width=1, color="white") +
+  coord_polar("y", start=0) +
+  theme_void() + 
+  theme(legend.position="none") +
+  geom_text(aes(y = ypos, label = name), color = "white", size=6) +
+  scale_fill_brewer(palette="Set2")
+
+pc <- ggplot(c, aes(x="", y=prop, fill=name)) +
+  geom_bar(stat="identity", width=1, color="white") +
+  coord_polar("y", start=0) +
+  theme_void() + 
+  theme(legend.position="none") +
+  geom_text(aes(y = ypos, label = name), color = "white", size=6) +
+  scale_fill_brewer(palette="Set2")
+
+pa + pb + pc
+~~~
+{: .language-r}
+
+<img src="../fig/rmd-05-unnamed-chunk-5-1.png" title="plot of chunk unnamed-chunk-5" alt="plot of chunk unnamed-chunk-5" width="612" style="display: block; margin: auto;" />
+Hvad er udviklingen i det?
+
+
+~~~
+ba <- a %>% ggplot(aes(name, value, fill = name))  +
+  geom_bar(stat= "identity") +
+  scale_fill_brewer(palette="Set2") +
+  theme(
+    legend.position = "none",
+    panel.grid = element_blank()
+  ) +
+  xlab("") +
+  ylab("")
+bb <- b %>% ggplot(aes(name, value, fill = name))  +
+  geom_bar(stat= "identity") +
+  scale_fill_brewer(palette="Set2") +
+  theme(
+    legend.position = "none",
+    panel.grid = element_blank()
+  ) +
+  xlab("") +
+  ylab("")
+bc <- c %>% ggplot(aes(name, value, fill = name))  +
+  geom_bar(stat= "identity") +
+  scale_fill_brewer(palette="Set2") +
+  theme(
+    legend.position = "none",
+    panel.grid = element_blank()
+  ) +
+  xlab("") +
+  ylab("")
+ba+bb+bc
+~~~
+{: .language-r}
+
+<img src="../fig/rmd-05-unnamed-chunk-6-1.png" title="plot of chunk unnamed-chunk-6" alt="plot of chunk unnamed-chunk-6" width="612" style="display: block; margin: auto;" />
+Kunne du se det da det var lagkagediagrammer? Nej, det kunne du ikke. 
+Så lad nu bare være med at lave dem.
+
+#### Pie charts can be made even worse
+
+Please dont. 3D-effects. Exploding piecharts. Percentages that do not sum to
+100. Too many slices. Almost anything added to piecharts will make them
+even worse. 
+
+It can be done in R. But it is difficult. ggplot2 have opinions, and makes it
+difficult to commit crimes against datavisualisation.
+
 
 ## Dendrogram
 
@@ -295,7 +390,7 @@ ggraph(mygraph, layout = 'dendrogram', circular = FALSE) +
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-05-unnamed-chunk-5-1.png" title="plot of chunk unnamed-chunk-5" alt="plot of chunk unnamed-chunk-5" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-05-unnamed-chunk-7-1.png" title="plot of chunk unnamed-chunk-7" alt="plot of chunk unnamed-chunk-7" width="612" style="display: block; margin: auto;" />
 Men også ggdendro! Den baserer sig på resultater fra hclust
 
 ### Interesting variations

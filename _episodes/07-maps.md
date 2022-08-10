@@ -27,6 +27,102 @@ med data.
 
 ### how do we make them?
 
+Det er ikke helt optimalt. Men det lader til at man kan få stamen til at 
+fungere...
+
+
+~~~
+library(ggmap)
+~~~
+{: .language-r}
+
+
+
+~~~
+Loading required package: ggplot2
+~~~
+{: .output}
+
+
+
+~~~
+Google's Terms of Service: https://cloud.google.com/maps-platform/terms/.
+~~~
+{: .output}
+
+
+
+~~~
+Please cite ggmap if you use it! See citation("ggmap") for details.
+~~~
+{: .output}
+
+
+
+~~~
+library(tidyverse)
+~~~
+{: .language-r}
+
+
+
+~~~
+── Attaching packages
+───────────────────────────────────────
+tidyverse 1.3.2 ──
+~~~
+{: .output}
+
+
+
+~~~
+✔ tibble  3.1.8     ✔ dplyr   1.0.9
+✔ tidyr   1.2.0     ✔ stringr 1.4.0
+✔ readr   2.1.2     ✔ forcats 0.5.1
+✔ purrr   0.3.4     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+~~~
+{: .output}
+
+
+
+~~~
+map <- get_stamenmap( bbox = c(left = 110, bottom = -40, right = 160, top = -10), zoom = 4, maptype = "terrain")
+~~~
+{: .language-r}
+
+
+
+~~~
+Source : http://tile.stamen.com/terrain/4/12/8.png
+Source : http://tile.stamen.com/terrain/4/13/8.png
+Source : http://tile.stamen.com/terrain/4/14/8.png
+Source : http://tile.stamen.com/terrain/4/15/8.png
+Source : http://tile.stamen.com/terrain/4/12/9.png
+Source : http://tile.stamen.com/terrain/4/13/9.png
+Source : http://tile.stamen.com/terrain/4/14/9.png
+Source : http://tile.stamen.com/terrain/4/15/9.png
+~~~
+{: .output}
+
+
+
+~~~
+ggmap(map) + 
+  theme_void() + 
+  theme(
+    plot.title = element_text(colour = "orange"), 
+    panel.border = element_rect(colour = "grey", fill=NA, size=2)
+  )
+~~~
+{: .language-r}
+
+<img src="../fig/rmd-07-unnamed-chunk-2-1.png" title="plot of chunk unnamed-chunk-2" alt="plot of chunk unnamed-chunk-2" width="612" style="display: block; margin: auto;" />
+
+
+
 ### Interesting variations
 
 ### Think about
@@ -83,6 +179,8 @@ vi 2D densities på det kort.
 
 ### Think about
 
+
+
 ## Cartogram
 
 ### What are they?
@@ -102,6 +200,8 @@ Den kan animeres. Og laves på hexbin kort
 
 ### Think about
 
+
+
 ## Connection
 
 ### What are they?
@@ -113,6 +213,8 @@ Den kan animeres. Og laves på hexbin kort
 ### Interesting variations
 
 ### Think about
+
+
 
 ## Bubble map
 

@@ -23,6 +23,12 @@ Special ting, vi prøver at holde det til ting der ikke er dækket af de
 Kig på ggsurvfit pakken
 
 ## spectra
+### What are they?
+### What do we use them for?
+### how do we make them?
+### Interesting variations
+### Think about
+
 Primært er det vist de stat_ functioner der følger med der er interessante.
 
 ~~~
@@ -79,6 +85,74 @@ ggplot(sun.spct)  +
 
 
 ## ROC curves
+### What are they?
+### What do we use them for?
+### how do we make them?
+### Interesting variations
+### Think about
+
+Men hvordan hænger de data sammen med det plot?
+
+Vi har en kontinuert værdi. Den bruger vi til at forudsige et binært outcome.
+
+Oprindelsen har rødder til radar-operatører i England under anden verdenskrig.
+Der var input fra radarene. Baseret på dem forsøgte man at skelne. Var det 
+tyske bombefly? Eller var det ikke? I sidste tilfælde var det ofte gæs.
+
+Der er to mulige fejl. Enten siger man tyskere når det var gæs. Eller også
+siger man gæs når det var tyskere. Den ene er falsk positiv. Den anden er 
+falsk negativ. Fortegnet er styret af hvad man prøver at opdage.
+
+Nogle radar-operatører var bedre 
+end andre. ROC-kurven giver os et værktøj til at sætte tal på forskellen.
+
+Vi bruger pakken plotROC. eller - det gør vi måske ikke. Jo, det gør vi!
+
+Vi skal have noget data:
+
+
+~~~
+set.seed(47)
+D.ex <- rbinom(200, size = 1, prob = .5)
+M1 <- rnorm(200, mean = D.ex, sd = .65)
+#M2 <- rnorm(200, mean = D.ex, sd = 1.5)
+
+test <- data.frame(D = D.ex, D.str = c("Gås", "Tysker")[D.ex + 1], 
+                   M1 = M1, stringsAsFactors = FALSE)
+
+head(test)
+~~~
+{: .language-r}
+
+
+
+~~~
+  D  D.str         M1
+1 1 Tysker  0.9073656
+2 0    Gås -0.3025575
+3 1 Tysker  0.7239910
+4 1 Tysker  1.4857584
+5 1 Tysker  1.4286289
+6 1 Tysker  1.1292391
+~~~
+{: .output}
+
+hvad er det vi har?
+
+
+~~~
+library(plotROC)
+test %>% ggplot(aes(d = D, m = M1)) +
+  geom_roc()
+~~~
+{: .language-r}
+
+
+
+~~~
+Error in test %>% ggplot(aes(d = D, m = M1)): could not find function "%>%"
+~~~
+{: .error}
 
 Når vi laver logistiske regressioner, forsøger vi at fitte en model til 
 en virkelighed hvor vores responsvariabel er binær. Ja/nej, sand/falsk.
@@ -106,12 +180,31 @@ AUC, ROC,
 
 survival, den slags.
 ## Survival plots
-
+### What are they?
+### What do we use them for?
+### how do we make them?
+### Interesting variations
+### Think about
 
 ## manhattan plots
+### What are they?
+### What do we use them for?
+### how do we make them?
+### Interesting variations
+### Think about
 
 ## scree plots
+### What are they?
+### What do we use them for?
+### how do we make them?
+### Interesting variations
+### Think about
 
 ## biplots - pca
+### What are they?
+### What do we use them for?
+### how do we make them?
+### Interesting variations
+### Think about
 
 {% include links.md %}

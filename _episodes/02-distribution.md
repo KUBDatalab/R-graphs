@@ -106,13 +106,6 @@ penguins %>%
 ~~~
 {: .language-r}
 
-
-
-~~~
-`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
-~~~
-{: .output}
-
 <img src="../fig/rmd-02-unnamed-chunk-2-1.png" title="plot of chunk unnamed-chunk-2" alt="plot of chunk unnamed-chunk-2" width="612" style="display: block; margin: auto;" />
 
 
@@ -168,14 +161,7 @@ penguins %>%
 ~~~
 {: .language-r}
 
-
-
-~~~
-`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
-~~~
-{: .output}
-
-<img src="../fig/rmd-02-unnamed-chunk-3-1.png" title="plot of chunk unnamed-chunk-3" alt="plot of chunk unnamed-chunk-3" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-02-histogram-grid-1.png" title="plot of chunk histogram-grid" alt="plot of chunk histogram-grid" width="612" style="display: block; margin: auto;" />
 Rather than specifying the variable used to split the data using `vars(species)`,
 it can be specified using the formula notation `~species`. 
 
@@ -194,14 +180,7 @@ penguins %>%
 ~~~
 {: .language-r}
 
-
-
-~~~
-`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
-~~~
-{: .output}
-
-<img src="../fig/rmd-02-unnamed-chunk-4-1.png" title="plot of chunk unnamed-chunk-4" alt="plot of chunk unnamed-chunk-4" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-02-histogram-grid-2-1.png" title="plot of chunk histogram-grid-2" alt="plot of chunk histogram-grid-2" width="612" style="display: block; margin: auto;" />
 
 It is also possible to place the six plots in a grid. In that case we use the
 `facet_grid()` function: 
@@ -211,18 +190,11 @@ penguins %>%
   filter(!is.na(sex)) %>% 
   ggplot(aes(body_mass_g)) +
   geom_histogram() +
-  facet_grid(vars(sex, species))
+  facet_grid(rows = vars(sex), cols= vars(species))
 ~~~
 {: .language-r}
 
-
-
-~~~
-`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
-~~~
-{: .output}
-
-<img src="../fig/rmd-02-unnamed-chunk-5-1.png" title="plot of chunk unnamed-chunk-5" alt="plot of chunk unnamed-chunk-5" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-02-histogram-grid-3-1.png" title="plot of chunk histogram-grid-3" alt="plot of chunk histogram-grid-3" width="612" style="display: block; margin: auto;" />
 
 This provides a more consistent presentation of the two facets.
 
@@ -235,30 +207,7 @@ Facetting on more than two variable can get confusing, but can be done.
 
 The number of bins (or their width, these two are equivalent) can lead to very
 different conclusions. Try several sizes.
-
-~~~
-
-Attaching package: 'cowplot'
-~~~
-{: .output}
-
-
-
-~~~
-The following object is masked from 'package:patchwork':
-
-    align_plots
-~~~
-{: .output}
-
-
-
-~~~
-`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
-~~~
-{: .output}
-
-<img src="../fig/rmd-02-unnamed-chunk-6-1.png" title="plot of chunk unnamed-chunk-6" alt="plot of chunk unnamed-chunk-6" width="612" style="display: block; margin: auto;" /><img src="../fig/rmd-02-unnamed-chunk-6-2.png" title="plot of chunk unnamed-chunk-6" alt="plot of chunk unnamed-chunk-6" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-02-histogram-bin-choices-1.png" title="plot of chunk histogram-bin-choices" alt="plot of chunk histogram-bin-choices" width="612" style="display: block; margin: auto;" />
 
 
 * Weird and complicated color schemes does not add insight. Avoid them.
@@ -283,12 +232,6 @@ values above Q3 that are not outliers.
 the values below Q1 that are not outliers.
 * Dots at each end of the lines shows potential outliers.
 
-
-~~~
-Warning: Removed 2 rows containing non-finite values (stat_boxplot).
-~~~
-{: .warning}
-
 <img src="../fig/rmd-02-boxplot-what-1.png" title="plot of chunk boxplot-what" alt="plot of chunk boxplot-what" width="612" style="display: block; margin: auto;" />
 
 ### What do we use them for?
@@ -309,13 +252,6 @@ penguins %>%
 ~~~
 {: .language-r}
 
-
-
-~~~
-Warning: Removed 2 rows containing non-finite values (stat_boxplot).
-~~~
-{: .warning}
-
 <img src="../fig/rmd-02-boxplot-how-1.png" title="plot of chunk boxplot-how" alt="plot of chunk boxplot-how" width="612" style="display: block; margin: auto;" />
 
 Typically we want to compare the weight of different groups of penguins. That
@@ -329,14 +265,7 @@ penguins %>%
 ~~~
 {: .language-r}
 
-
-
-~~~
-Warning: Removed 2 rows containing non-finite values (stat_boxplot).
-~~~
-{: .warning}
-
-<img src="../fig/rmd-02-unnamed-chunk-7-1.png" title="plot of chunk unnamed-chunk-7" alt="plot of chunk unnamed-chunk-7" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-02-boxplot-groups-1.png" title="plot of chunk boxplot-groups" alt="plot of chunk boxplot-groups" width="612" style="display: block; margin: auto;" />
 
 
 ### Interesting variations
@@ -353,20 +282,6 @@ penguins %>%
 ~~~
 {: .language-r}
 
-
-
-~~~
-Warning: Removed 2 rows containing non-finite values (stat_boxplot).
-~~~
-{: .warning}
-
-
-
-~~~
-Warning: Removed 2 rows containing missing values (geom_point).
-~~~
-{: .warning}
-
 <img src="../fig/rmd-02-boxplot_jitter-1.png" title="plot of chunk boxplot_jitter" alt="plot of chunk boxplot_jitter" width="612" style="display: block; margin: auto;" />
 #### Notches and coloring outliers
 
@@ -381,13 +296,6 @@ penguins %>%
   )
 ~~~
 {: .language-r}
-
-
-
-~~~
-Warning: Removed 2 rows containing non-finite values (stat_boxplot).
-~~~
-{: .warning}
 
 <img src="../fig/rmd-02-notched-box-1.png" title="plot of chunk notched-box" alt="plot of chunk notched-box" width="612" style="display: block; margin: auto;" />
 Outlier shape, fill, size, alpha and stroke can be controlled in similar ways.
@@ -407,14 +315,7 @@ penguins %>%
 ~~~
 {: .language-r}
 
-
-
-~~~
-Warning: Removed 2 rows containing non-finite values (stat_boxplot).
-~~~
-{: .warning}
-
-<img src="../fig/rmd-02-unnamed-chunk-8-1.png" title="plot of chunk unnamed-chunk-8" alt="plot of chunk unnamed-chunk-8" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-02-boxplot-var-width-1.png" title="plot of chunk boxplot-var-width" alt="plot of chunk boxplot-var-width" width="612" style="display: block; margin: auto;" />
 
 
 ### Think about
@@ -435,14 +336,7 @@ revealing that the data is not that similar.
 ### What are they?
 A plot of the kernel density estimation of the distribution. 
 
-Think of it as a smoothed histogram
-
-
-~~~
-Warning: Removed 2 rows containing non-finite values (stat_density).
-~~~
-{: .warning}
-
+Think of it as a smoothed histogram.
 
 
 ~~~
@@ -450,21 +344,14 @@ Warning: Removed 2 rows containing non-finite values (stat_density).
 ~~~
 {: .output}
 
-
-
-~~~
-Warning: Removed 2 rows containing non-finite values (stat_bin).
-~~~
-{: .warning}
-
 <img src="../fig/rmd-02-density-what-1.png" title="plot of chunk density-what" alt="plot of chunk density-what" width="612" style="display: block; margin: auto;" />
 
 
 ### What do we use them for?
 Density plots show the distribution of a numeric variabel. It gets a bit closer
-to an actual continous distribution than a histogram.
+to an actual continuous distribution than a histogram.
 
-### how do we make them?
+### How do we make them?
 
 As with histograms we only use one variable:
 
@@ -476,13 +363,6 @@ penguins %>%
 ~~~
 {: .language-r}
 
-
-
-~~~
-Warning: Removed 2 rows containing non-finite values (stat_density).
-~~~
-{: .warning}
-
 <img src="../fig/rmd-02-density-how-1.png" title="plot of chunk density-how" alt="plot of chunk density-how" width="612" style="display: block; margin: auto;" />
 
 
@@ -492,6 +372,8 @@ Warning: Removed 2 rows containing non-finite values (stat_density).
 
 
 #### Upside-down
+
+Made in almost the same way as the mirrored histogram:
 
 
 ~~~
@@ -505,7 +387,7 @@ ggplot() +
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-02-unnamed-chunk-9-1.png" title="plot of chunk unnamed-chunk-9" alt="plot of chunk unnamed-chunk-9" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-02-density-mirror-1.png" title="plot of chunk density-mirror" alt="plot of chunk density-mirror" width="612" style="display: block; margin: auto;" />
 
 
 
@@ -534,12 +416,89 @@ densityplots.
 
 Også kendt som joyplots
 
+Ren
+
+
+~~~
+Loading required package: viridisLite
+~~~
+{: .output}
+
+
+
+~~~
+Picking joint bandwidth of 153
+~~~
+{: .output}
+
+
+
+~~~
+Warning: Removed 2 rows containing non-finite values (stat_density_ridges).
+~~~
+{: .warning}
+
+<img src="../fig/rmd-02-ridges-what-1.png" title="plot of chunk ridges-what" alt="plot of chunk ridges-what" width="612" style="display: block; margin: auto;" />
+
+
+
+
 
 ### What do we use them for?
 
 ### how do we make them?
 
+
+~~~
+library(ggridges)
+
+penguins %>% 
+  ggplot(aes(x = body_mass_g, y = species, fill = species)) +
+  geom_density_ridges()  +
+    theme_ridges() 
+~~~
+{: .language-r}
+
+
+
+~~~
+Picking joint bandwidth of 153
+~~~
+{: .output}
+
+
+
+~~~
+Warning: Removed 2 rows containing non-finite values (stat_density_ridges).
+~~~
+{: .warning}
+
+<img src="../fig/rmd-02-ridges-how-1.png" title="plot of chunk ridges-how" alt="plot of chunk ridges-how" width="612" style="display: block; margin: auto;" />
+
 ### Interesting variations
+
+Og med farvelægning efter vægt
+
+
+~~~
+library(ggridges)
+library(viridis)
+penguins %>% 
+  mutate(body_mass_g = as.numeric(body_mass_g)) %>% 
+  ggplot(aes(x = body_mass_g, y = species, fill = ..x..)) +
+  geom_density_ridges_gradient()  +
+    theme_ridges() 
+~~~
+{: .language-r}
+
+
+
+~~~
+Picking joint bandwidth of 153
+~~~
+{: .output}
+
+<img src="../fig/rmd-02-unnamed-chunk-4-1.png" title="plot of chunk unnamed-chunk-4" alt="plot of chunk unnamed-chunk-4" width="612" style="display: block; margin: auto;" />
 
 ### Think about
 
@@ -549,9 +508,27 @@ Også kendt som joyplots
 
 ### What are they?
 
-en slags boxplot
+en slags boxplot. formen repræsenterer density. På mange måder bedre
+end boxplots. Men stiller lidt større krav til folk der har vænnet sig til at 
+læse boxplots.
+
+
+~~~
+penguins %>% 
+  ggplot(aes(body_mass_g, y = species, fill = species)) +
+  geom_violin() +
+  coord_flip()
+~~~
+{: .language-r}
+
+<img src="../fig/rmd-02-violin-what-1.png" title="plot of chunk violin-what" alt="plot of chunk violin-what" width="612" style="display: block; margin: auto;" />
+
 
 ### What do we use them for?
+
+Tillader os både at se en ranking af forskellige grupper - og deres 
+fordelinger. 
+
 
 ### how do we make them?
 
@@ -561,6 +538,13 @@ geom_violin()
 
 ### Think about
 
+Pas på med at bruge dem hvis datasæt er for små. Da vil et boxplot med
+jitter ofte være bedre.
+
+sorter/order grupperne efter median-værdien.
+
+Hvis der er meget forskellige samplesizes, så vis det (se også små 
+datasæt)
 
 
 
