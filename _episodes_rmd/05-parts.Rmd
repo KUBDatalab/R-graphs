@@ -74,6 +74,7 @@ penguins %>%
 Viser hierarkisk data i nestede rektangler. Hver gruppe repræsenteres af en
 rektangel, hvis areal er proportionalt med dens værdi.
 
+
 treemap.
 
 Den kan også gøres interaktiv med detreeR.
@@ -82,7 +83,56 @@ Den kan også gøres interaktiv med detreeR.
 
 ### how do we make them?
 
+Vi bygger dem med pakken treemap.
+
+Vi skal bruge noget data.
+Det organiseres, i den enkleste udgave på denne måde:
+```{r}
+data <- tribble(~group, ~value,
+                "one", 13,
+                "two", 5,
+                "three", 22)
+```
+
+Og så laver vi det med:
+```{r}
+library(treemap)
+treemap(data,
+        index = "group",
+        vSize="value")
+```
+
+
+Det kan også gøres med ggplot:
+```{r}
+library(treemapify)
+ggplot(data, aes(area = value, fill = group)) +
+  geom_treemap()
+
+
+```
+
+
 ### Interesting variations
+
+#### Hierarkisk
+For det tilfælde at en (eller flere) grupper har underkategorier.
+
+```{r}
+group <- c(rep("group-1",4),rep("group-2",2),rep("group-3",3))
+subgroup <- paste("subgroup" , c(1,2,3,4,1,2,1,2,3), sep="-")
+value <- c(13,5,22,12,11,7,3,1,23)
+data <- data.frame(group,subgroup,value)
+ 
+# treemap
+treemap(data,
+            index=c("group","subgroup"),
+            vSize="value",
+            type="index"
+            ) 
+```
+
+
 
 ### Think about
 
@@ -281,9 +331,14 @@ even worse.
 It can be done in R. But it is difficult. ggplot2 have opinions, and makes it
 difficult to commit crimes against datavisualisation.
 
+In some, very rare, cases a pie chart will be the best chart for what we 
+want to visualize. And in some, even more rare cases, a pie chart can be improved
+to make it even better, by adding stuff to it.
+
+But as a general rule: Dont.
 
 ## Dendrogram
-
+https://cran.r-project.org/web/packages/ggdendro/vignettes/ggdendro.html
 ### What are they?
 
 ### What do we use them for?

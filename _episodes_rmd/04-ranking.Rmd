@@ -12,6 +12,8 @@ keypoints:
 - "FIXME"
 source: Rmd
 ---
+tag et kig på:
+https://clauswilke.com/dataviz/directory-of-visualizations.html
 
 ```{r, include = FALSE}
 source("../bin/chunk-options.R")
