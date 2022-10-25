@@ -1,0 +1,35 @@
+---
+title: "Tables"
+teaching: 0
+exercises: 0
+questions: 
+- "What are histograms?"
+- "What are violin plots?"
+- "What are density plots?"
+- "What are boxplots?"
+
+objectives:
+- "FIXME"
+
+keypoints:
+- "FIXME"
+source: Rmd
+---
+
+```{r, include = FALSE}
+source("../bin/chunk-options.R")
+knitr_fig_path("11-")
+library(tidyverse)
+library(patchwork)
+library(palmerpenguins)
+```
+Maybe not a visualisation as we usually understand it.
+
+But still
+
+  https://themockup.blog/posts/2020-09-04-10-table-rules-in-r/
+  
+  
+  Også denne, men den hører hjemme et andet sted.
+
+{% include links.md %}
