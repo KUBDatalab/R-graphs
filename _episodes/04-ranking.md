@@ -14,6 +14,8 @@ keypoints:
 - "FIXME"
 source: Rmd
 ---
+tag et kig på:
+https://clauswilke.com/dataviz/directory-of-visualizations.html
 
 
 
@@ -56,7 +58,20 @@ bar <- groups_long %>%
            aes(fill = group)) + 
   stat_summary(geom = "errorbar", fun.data = "mean_se",
                width = 0.1, size = 1) 
+~~~
+{: .language-r}
 
+
+
+~~~
+Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
+ℹ Please use `linewidth` instead.
+~~~
+{: .warning}
+
+
+
+~~~
 dotplot <- groups_long %>% 
   ggplot(aes(x = group, y = response)) +
   ggbeeswarm::geom_quasirandom(
@@ -92,7 +107,7 @@ wrap_plots(
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-04-unnamed-chunk-2-1.png" title="plot of chunk unnamed-chunk-2" alt="plot of chunk unnamed-chunk-2" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-04-unnamed-chunk-2-1.png" alt="plot of chunk unnamed-chunk-2" width="612" style="display: block; margin: auto;" />
 
 
 ## spider/radar plots

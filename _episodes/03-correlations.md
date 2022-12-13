@@ -34,11 +34,11 @@ the second variable for that observation.
 
 
 ~~~
-Warning: Removed 2 rows containing missing values (geom_point).
+Warning: Removed 2 rows containing missing values (`geom_point()`).
 ~~~
 {: .warning}
 
-<img src="../fig/rmd-03-scatter-what-1.png" title="plot of chunk scatter-what" alt="plot of chunk scatter-what" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-03-scatter-what-1.png" alt="plot of chunk scatter-what" width="612" style="display: block; margin: auto;" />
 
 
 
@@ -61,11 +61,11 @@ ggplot(penguins, aes(x=body_mass_g, y=flipper_length_mm)) +
 
 
 ~~~
-Warning: Removed 2 rows containing missing values (geom_point).
+Warning: Removed 2 rows containing missing values (`geom_point()`).
 ~~~
 {: .warning}
 
-<img src="../fig/rmd-03-scatter-how-1.png" title="plot of chunk scatter-how" alt="plot of chunk scatter-how" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-03-scatter-how-1.png" alt="plot of chunk scatter-how" width="612" style="display: block; margin: auto;" />
 
 
 ### Interesting variations
@@ -86,7 +86,7 @@ plot(penguins)
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-03-scatter-matrix-1.png" title="plot of chunk scatter-matrix" alt="plot of chunk scatter-matrix" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-03-scatter-matrix-1.png" alt="plot of chunk scatter-matrix" width="612" style="display: block; margin: auto;" />
 
 The package `GGally` provides a function `ggpairs` that does this in the 
 ggplot2 universe, making it easy to adjust the plot subsequently.
@@ -100,14 +100,14 @@ ggpairs(penguins)
 
 
 ~~~
-Warning: Removed 2 rows containing non-finite values (stat_boxplot).
-Removed 2 rows containing non-finite values (stat_boxplot).
-Removed 2 rows containing non-finite values (stat_boxplot).
-Removed 2 rows containing non-finite values (stat_boxplot).
-Removed 2 rows containing non-finite values (stat_boxplot).
-Removed 2 rows containing non-finite values (stat_boxplot).
-Removed 2 rows containing non-finite values (stat_boxplot).
-Removed 2 rows containing non-finite values (stat_boxplot).
+Warning: Removed 2 rows containing non-finite values (`stat_boxplot()`).
+Removed 2 rows containing non-finite values (`stat_boxplot()`).
+Removed 2 rows containing non-finite values (`stat_boxplot()`).
+Removed 2 rows containing non-finite values (`stat_boxplot()`).
+Removed 2 rows containing non-finite values (`stat_boxplot()`).
+Removed 2 rows containing non-finite values (`stat_boxplot()`).
+Removed 2 rows containing non-finite values (`stat_boxplot()`).
+Removed 2 rows containing non-finite values (`stat_boxplot()`).
 ~~~
 {: .warning}
 
@@ -121,7 +121,7 @@ Removed 2 rows containing non-finite values (stat_boxplot).
 
 
 ~~~
-Warning: Removed 2 rows containing non-finite values (stat_bin).
+Warning: Removed 2 rows containing non-finite values (`stat_bin()`).
 ~~~
 {: .warning}
 
@@ -135,83 +135,14 @@ Warning: Removed 2 rows containing non-finite values (stat_bin).
 
 
 ~~~
-Warning: Removed 2 rows containing non-finite values (stat_bin).
+Warning: Removed 2 rows containing non-finite values (`stat_bin()`).
 ~~~
 {: .warning}
 
 
 
 ~~~
-Warning: Removed 2 rows containing non-finite values (stat_density).
-~~~
-{: .warning}
-
-
-
-~~~
-Warning in ggally_statistic(data = data, mapping = mapping, na.rm = na.rm, :
-Removed 2 rows containing missing values
-Warning in ggally_statistic(data = data, mapping = mapping, na.rm = na.rm, :
-Removed 2 rows containing missing values
-Warning in ggally_statistic(data = data, mapping = mapping, na.rm = na.rm, :
-Removed 2 rows containing missing values
-~~~
-{: .warning}
-
-
-
-~~~
-Warning: Removed 2 rows containing non-finite values (stat_boxplot).
-~~~
-{: .warning}
-
-
-
-~~~
-Warning in ggally_statistic(data = data, mapping = mapping, na.rm = na.rm, :
-Removed 2 rows containing missing values
-~~~
-{: .warning}
-
-
-
-~~~
-`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
-~~~
-{: .output}
-
-
-
-~~~
-Warning: Removed 2 rows containing non-finite values (stat_bin).
-~~~
-{: .warning}
-
-
-
-~~~
-`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
-~~~
-{: .output}
-
-
-
-~~~
-Warning: Removed 2 rows containing non-finite values (stat_bin).
-~~~
-{: .warning}
-
-
-
-~~~
-Warning: Removed 2 rows containing missing values (geom_point).
-~~~
-{: .warning}
-
-
-
-~~~
-Warning: Removed 2 rows containing non-finite values (stat_density).
+Warning: Removed 2 rows containing non-finite values (`stat_density()`).
 ~~~
 {: .warning}
 
@@ -222,13 +153,15 @@ Warning in ggally_statistic(data = data, mapping = mapping, na.rm = na.rm, :
 Removed 2 rows containing missing values
 Warning in ggally_statistic(data = data, mapping = mapping, na.rm = na.rm, :
 Removed 2 rows containing missing values
+Warning in ggally_statistic(data = data, mapping = mapping, na.rm = na.rm, :
+Removed 2 rows containing missing values
 ~~~
 {: .warning}
 
 
 
 ~~~
-Warning: Removed 2 rows containing non-finite values (stat_boxplot).
+Warning: Removed 2 rows containing non-finite values (`stat_boxplot()`).
 ~~~
 {: .warning}
 
@@ -250,7 +183,7 @@ Removed 2 rows containing missing values
 
 
 ~~~
-Warning: Removed 2 rows containing non-finite values (stat_bin).
+Warning: Removed 2 rows containing non-finite values (`stat_bin()`).
 ~~~
 {: .warning}
 
@@ -264,22 +197,21 @@ Warning: Removed 2 rows containing non-finite values (stat_bin).
 
 
 ~~~
-Warning: Removed 2 rows containing non-finite values (stat_bin).
+Warning: Removed 2 rows containing non-finite values (`stat_bin()`).
 ~~~
 {: .warning}
 
 
 
 ~~~
-Warning: Removed 2 rows containing missing values (geom_point).
-Removed 2 rows containing missing values (geom_point).
+Warning: Removed 2 rows containing missing values (`geom_point()`).
 ~~~
 {: .warning}
 
 
 
 ~~~
-Warning: Removed 2 rows containing non-finite values (stat_density).
+Warning: Removed 2 rows containing non-finite values (`stat_density()`).
 ~~~
 {: .warning}
 
@@ -288,19 +220,6 @@ Warning: Removed 2 rows containing non-finite values (stat_density).
 ~~~
 Warning in ggally_statistic(data = data, mapping = mapping, na.rm = na.rm, :
 Removed 2 rows containing missing values
-~~~
-{: .warning}
-
-
-
-~~~
-Warning: Removed 2 rows containing non-finite values (stat_boxplot).
-~~~
-{: .warning}
-
-
-
-~~~
 Warning in ggally_statistic(data = data, mapping = mapping, na.rm = na.rm, :
 Removed 2 rows containing missing values
 ~~~
@@ -309,51 +228,7 @@ Removed 2 rows containing missing values
 
 
 ~~~
-`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
-~~~
-{: .output}
-
-
-
-~~~
-Warning: Removed 2 rows containing non-finite values (stat_bin).
-~~~
-{: .warning}
-
-
-
-~~~
-`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
-~~~
-{: .output}
-
-
-
-~~~
-Warning: Removed 2 rows containing non-finite values (stat_bin).
-~~~
-{: .warning}
-
-
-
-~~~
-Warning: Removed 2 rows containing missing values (geom_point).
-Removed 2 rows containing missing values (geom_point).
-Removed 2 rows containing missing values (geom_point).
-~~~
-{: .warning}
-
-
-
-~~~
-Warning: Removed 2 rows containing non-finite values (stat_density).
-~~~
-{: .warning}
-
-
-
-~~~
-Warning: Removed 2 rows containing non-finite values (stat_boxplot).
+Warning: Removed 2 rows containing non-finite values (`stat_boxplot()`).
 ~~~
 {: .warning}
 
@@ -375,7 +250,7 @@ Removed 2 rows containing missing values
 
 
 ~~~
-Warning: Removed 2 rows containing non-finite values (stat_bin).
+Warning: Removed 2 rows containing non-finite values (`stat_bin()`).
 ~~~
 {: .warning}
 
@@ -389,7 +264,45 @@ Warning: Removed 2 rows containing non-finite values (stat_bin).
 
 
 ~~~
-Warning: Removed 2 rows containing non-finite values (stat_bin).
+Warning: Removed 2 rows containing non-finite values (`stat_bin()`).
+~~~
+{: .warning}
+
+
+
+~~~
+Warning: Removed 2 rows containing missing values (`geom_point()`).
+Removed 2 rows containing missing values (`geom_point()`).
+~~~
+{: .warning}
+
+
+
+~~~
+Warning: Removed 2 rows containing non-finite values (`stat_density()`).
+~~~
+{: .warning}
+
+
+
+~~~
+Warning in ggally_statistic(data = data, mapping = mapping, na.rm = na.rm, :
+Removed 2 rows containing missing values
+~~~
+{: .warning}
+
+
+
+~~~
+Warning: Removed 2 rows containing non-finite values (`stat_boxplot()`).
+~~~
+{: .warning}
+
+
+
+~~~
+Warning in ggally_statistic(data = data, mapping = mapping, na.rm = na.rm, :
+Removed 2 rows containing missing values
 ~~~
 {: .warning}
 
@@ -403,7 +316,7 @@ Warning: Removed 2 rows containing non-finite values (stat_bin).
 
 
 ~~~
-Warning: Removed 2 rows containing non-finite values (stat_bin).
+Warning: Removed 2 rows containing non-finite values (`stat_bin()`).
 ~~~
 {: .warning}
 
@@ -417,14 +330,101 @@ Warning: Removed 2 rows containing non-finite values (stat_bin).
 
 
 ~~~
-Warning: Removed 2 rows containing non-finite values (stat_bin).
+Warning: Removed 2 rows containing non-finite values (`stat_bin()`).
 ~~~
 {: .warning}
 
 
 
 ~~~
-Warning: Removed 11 rows containing missing values (stat_boxplot).
+Warning: Removed 2 rows containing missing values (`geom_point()`).
+Removed 2 rows containing missing values (`geom_point()`).
+Removed 2 rows containing missing values (`geom_point()`).
+~~~
+{: .warning}
+
+
+
+~~~
+Warning: Removed 2 rows containing non-finite values (`stat_density()`).
+~~~
+{: .warning}
+
+
+
+~~~
+Warning: Removed 2 rows containing non-finite values (`stat_boxplot()`).
+~~~
+{: .warning}
+
+
+
+~~~
+Warning in ggally_statistic(data = data, mapping = mapping, na.rm = na.rm, :
+Removed 2 rows containing missing values
+~~~
+{: .warning}
+
+
+
+~~~
+`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+~~~
+{: .output}
+
+
+
+~~~
+Warning: Removed 2 rows containing non-finite values (`stat_bin()`).
+~~~
+{: .warning}
+
+
+
+~~~
+`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+~~~
+{: .output}
+
+
+
+~~~
+Warning: Removed 2 rows containing non-finite values (`stat_bin()`).
+~~~
+{: .warning}
+
+
+
+~~~
+`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+~~~
+{: .output}
+
+
+
+~~~
+Warning: Removed 2 rows containing non-finite values (`stat_bin()`).
+~~~
+{: .warning}
+
+
+
+~~~
+`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+~~~
+{: .output}
+
+
+
+~~~
+Warning: Removed 2 rows containing non-finite values (`stat_bin()`).
+~~~
+{: .warning}
+
+
+
+~~~
+Warning: Removed 11 rows containing missing values (`stat_boxplot()`).
 ~~~
 {: .warning}
 
@@ -439,16 +439,16 @@ Warning: Removed 11 rows containing missing values (stat_boxplot).
 
 
 ~~~
-Warning: Removed 2 rows containing missing values (geom_point).
+Warning: Removed 2 rows containing missing values (`geom_point()`).
 ~~~
 {: .warning}
 
 
 
 ~~~
-Warning: Removed 2 rows containing missing values (geom_point).
-Removed 2 rows containing missing values (geom_point).
-Removed 2 rows containing missing values (geom_point).
+Warning: Removed 2 rows containing missing values (`geom_point()`).
+Removed 2 rows containing missing values (`geom_point()`).
+Removed 2 rows containing missing values (`geom_point()`).
 ~~~
 {: .warning}
 
@@ -459,7 +459,7 @@ Removed 2 rows containing missing values (geom_point).
 ~~~
 {: .output}
 
-<img src="../fig/rmd-03-scatter-matrix-ggally-1.png" title="plot of chunk scatter-matrix-ggally" alt="plot of chunk scatter-matrix-ggally" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-03-scatter-matrix-ggally-1.png" alt="plot of chunk scatter-matrix-ggally" width="612" style="display: block; margin: auto;" />
 
 Be careful - the plot can get very busy!
 
@@ -475,11 +475,11 @@ ggplot(penguins, aes(x=body_mass_g, y=flipper_length_mm, color = species)) +
 
 
 ~~~
-Warning: Removed 2 rows containing missing values (geom_point).
+Warning: Removed 2 rows containing missing values (`geom_point()`).
 ~~~
 {: .warning}
 
-<img src="../fig/rmd-03-scatter-how-color-1.png" title="plot of chunk scatter-how-color" alt="plot of chunk scatter-how-color" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-03-scatter-how-color-1.png" alt="plot of chunk scatter-how-color" width="612" style="display: block; margin: auto;" />
 
 
 
@@ -503,11 +503,11 @@ ggMarginal(p, type = "histogram")
 
 
 ~~~
-Warning: Removed 2 rows containing missing values (geom_point).
+Warning: Removed 2 rows containing missing values (`geom_point()`).
 ~~~
 {: .warning}
 
-<img src="../fig/rmd-03-scatter_marginal_histogram-1.png" title="plot of chunk scatter_marginal_histogram" alt="plot of chunk scatter_marginal_histogram" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-03-scatter_marginal_histogram-1.png" alt="plot of chunk scatter_marginal_histogram" width="612" style="display: block; margin: auto;" />
 
 Bemærk at det ggmarginal element der kommer ud af det, ikke er helt let at 
 arbejde videre med. Pak det ind i wrap_elements() fra patchwork pakken, så 
@@ -517,14 +517,40 @@ Der er yderligere muligheder:
 
 
 ~~~
-Warning: Removed 2 rows containing missing values (geom_point).
-Removed 2 rows containing missing values (geom_point).
-Removed 2 rows containing missing values (geom_point).
-Removed 2 rows containing missing values (geom_point).
+Warning: Removed 2 rows containing missing values (`geom_point()`).
+Removed 2 rows containing missing values (`geom_point()`).
+Removed 2 rows containing missing values (`geom_point()`).
 ~~~
 {: .warning}
 
-<img src="../fig/rmd-03-scatter_marginal_flere-1.png" title="plot of chunk scatter_marginal_flere" alt="plot of chunk scatter_marginal_flere" width="612" style="display: block; margin: auto;" />
+
+
+~~~
+Warning: The dot-dot notation (`..density..`) was deprecated in ggplot2 3.4.0.
+ℹ Please use `after_stat(density)` instead.
+ℹ The deprecated feature was likely used in the ggExtra package.
+  Please report the issue at <https://github.com/daattali/ggExtra/issues>.
+~~~
+{: .warning}
+
+
+
+~~~
+Warning: Removed 2 rows containing missing values (`geom_point()`).
+~~~
+{: .warning}
+
+
+
+~~~
+Warning: Continuous x aesthetic
+ℹ did you forget `aes(group = ...)`?
+Continuous x aesthetic
+ℹ did you forget `aes(group = ...)`?
+~~~
+{: .warning}
+
+<img src="../fig/rmd-03-scatter_marginal_flere-1.png" alt="plot of chunk scatter_marginal_flere" width="612" style="display: block; margin: auto;" />
 
 
 ### Think about

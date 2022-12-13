@@ -38,7 +38,7 @@ Histograms takes all the weights of the penguins, divides them into intervals,
 or bins, of weight, eg one bin with 3300 to 3400 grams, and the next bin from 
 3400 to 3500 grams. Then we count how many penguins are in a specific bin. 
 And plot it. It might look like this:
-<img src="../fig/rmd-02-histogram-show-1.png" title="plot of chunk histogram-show" alt="plot of chunk histogram-show" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-02-histogram-show-1.png" alt="plot of chunk histogram-show" width="612" style="display: block; margin: auto;" />
 
 
 ### What do we use them for?
@@ -70,7 +70,7 @@ ggplot(penguins, aes(x=body_mass_g)) +
 ~~~
 {: .output}
 
-<img src="../fig/rmd-02-histogram-making-1.png" title="plot of chunk histogram-making" alt="plot of chunk histogram-making" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-02-histogram-making-1.png" alt="plot of chunk histogram-making" width="612" style="display: block; margin: auto;" />
 Built into the geom_histogram is the statistical transformation, that counts the 
 number of observations in each bin.
 
@@ -106,7 +106,7 @@ penguins %>%
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-02-unnamed-chunk-2-1.png" title="plot of chunk unnamed-chunk-2" alt="plot of chunk unnamed-chunk-2" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-02-unnamed-chunk-2-1.png" alt="plot of chunk unnamed-chunk-2" width="612" style="display: block; margin: auto;" />
 
 
 
@@ -141,7 +141,15 @@ ggplot() +
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-02-histogram-mirror-1.png" title="plot of chunk histogram-mirror" alt="plot of chunk histogram-mirror" width="612" style="display: block; margin: auto;" />
+
+
+~~~
+Warning: The dot-dot notation (`..count..`) was deprecated in ggplot2 3.4.0.
+ℹ Please use `after_stat(count)` instead.
+~~~
+{: .warning}
+
+<img src="../fig/rmd-02-histogram-mirror-1.png" alt="plot of chunk histogram-mirror" width="612" style="display: block; margin: auto;" />
 
 
 #### Grid
@@ -161,7 +169,7 @@ penguins %>%
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-02-histogram-grid-1.png" title="plot of chunk histogram-grid" alt="plot of chunk histogram-grid" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-02-histogram-grid-1.png" alt="plot of chunk histogram-grid" width="612" style="display: block; margin: auto;" />
 Rather than specifying the variable used to split the data using `vars(species)`,
 it can be specified using the formula notation `~species`. 
 
@@ -180,7 +188,7 @@ penguins %>%
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-02-histogram-grid-2-1.png" title="plot of chunk histogram-grid-2" alt="plot of chunk histogram-grid-2" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-02-histogram-grid-2-1.png" alt="plot of chunk histogram-grid-2" width="612" style="display: block; margin: auto;" />
 
 It is also possible to place the six plots in a grid. In that case we use the
 `facet_grid()` function: 
@@ -194,7 +202,7 @@ penguins %>%
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-02-histogram-grid-3-1.png" title="plot of chunk histogram-grid-3" alt="plot of chunk histogram-grid-3" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-02-histogram-grid-3-1.png" alt="plot of chunk histogram-grid-3" width="612" style="display: block; margin: auto;" />
 
 This provides a more consistent presentation of the two facets.
 
@@ -207,7 +215,7 @@ Facetting on more than two variable can get confusing, but can be done.
 
 The number of bins (or their width, these two are equivalent) can lead to very
 different conclusions. Try several sizes.
-<img src="../fig/rmd-02-histogram-bin-choices-1.png" title="plot of chunk histogram-bin-choices" alt="plot of chunk histogram-bin-choices" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-02-histogram-bin-choices-1.png" alt="plot of chunk histogram-bin-choices" width="612" style="display: block; margin: auto;" />
 
 
 * Weird and complicated color schemes does not add insight. Avoid them.
@@ -232,7 +240,7 @@ values above Q3 that are not outliers.
 the values below Q1 that are not outliers.
 * Dots at each end of the lines shows potential outliers.
 
-<img src="../fig/rmd-02-boxplot-what-1.png" title="plot of chunk boxplot-what" alt="plot of chunk boxplot-what" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-02-boxplot-what-1.png" alt="plot of chunk boxplot-what" width="612" style="display: block; margin: auto;" />
 
 ### What do we use them for?
 
@@ -252,7 +260,7 @@ penguins %>%
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-02-boxplot-how-1.png" title="plot of chunk boxplot-how" alt="plot of chunk boxplot-how" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-02-boxplot-how-1.png" alt="plot of chunk boxplot-how" width="612" style="display: block; margin: auto;" />
 
 Typically we want to compare the weight of different groups of penguins. That
 is, compare the distribution of something, between different groups:
@@ -265,7 +273,7 @@ penguins %>%
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-02-boxplot-groups-1.png" title="plot of chunk boxplot-groups" alt="plot of chunk boxplot-groups" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-02-boxplot-groups-1.png" alt="plot of chunk boxplot-groups" width="612" style="display: block; margin: auto;" />
 
 
 ### Interesting variations
@@ -282,7 +290,7 @@ penguins %>%
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-02-boxplot_jitter-1.png" title="plot of chunk boxplot_jitter" alt="plot of chunk boxplot_jitter" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-02-boxplot_jitter-1.png" alt="plot of chunk boxplot_jitter" width="612" style="display: block; margin: auto;" />
 #### Notches and coloring outliers
 
 
@@ -297,7 +305,7 @@ penguins %>%
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-02-notched-box-1.png" title="plot of chunk notched-box" alt="plot of chunk notched-box" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-02-notched-box-1.png" alt="plot of chunk notched-box" width="612" style="display: block; margin: auto;" />
 Outlier shape, fill, size, alpha and stroke can be controlled in similar ways.
 
 #### Variable width of boxes
@@ -315,7 +323,7 @@ penguins %>%
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-02-boxplot-var-width-1.png" title="plot of chunk boxplot-var-width" alt="plot of chunk boxplot-var-width" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-02-boxplot-var-width-1.png" alt="plot of chunk boxplot-var-width" width="612" style="display: block; margin: auto;" />
 
 
 ### Think about
@@ -325,7 +333,7 @@ boxplots that are made from different distributions. The overlap might lead
 us to think they are similar. The plot on the right adds the individual datapoints
 revealing that the data is not that similar.
 
-<img src="../fig/rmd-02-boxes_hiding_stuff-1.png" title="plot of chunk boxes_hiding_stuff" alt="plot of chunk boxes_hiding_stuff" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-02-boxes_hiding_stuff-1.png" alt="plot of chunk boxes_hiding_stuff" width="612" style="display: block; margin: auto;" />
 
 
 
@@ -344,7 +352,7 @@ Think of it as a smoothed histogram.
 ~~~
 {: .output}
 
-<img src="../fig/rmd-02-density-what-1.png" title="plot of chunk density-what" alt="plot of chunk density-what" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-02-density-what-1.png" alt="plot of chunk density-what" width="612" style="display: block; margin: auto;" />
 
 
 ### What do we use them for?
@@ -363,7 +371,7 @@ penguins %>%
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-02-density-how-1.png" title="plot of chunk density-how" alt="plot of chunk density-how" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-02-density-how-1.png" alt="plot of chunk density-how" width="612" style="display: block; margin: auto;" />
 
 
 ### Interesting variations
@@ -387,7 +395,7 @@ ggplot() +
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-02-density-mirror-1.png" title="plot of chunk density-mirror" alt="plot of chunk density-mirror" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-02-density-mirror-1.png" alt="plot of chunk density-mirror" width="612" style="display: block; margin: auto;" />
 
 
 
@@ -434,11 +442,11 @@ Picking joint bandwidth of 153
 
 
 ~~~
-Warning: Removed 2 rows containing non-finite values (stat_density_ridges).
+Warning: Removed 2 rows containing non-finite values (`stat_density_ridges()`).
 ~~~
 {: .warning}
 
-<img src="../fig/rmd-02-ridges-what-1.png" title="plot of chunk ridges-what" alt="plot of chunk ridges-what" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-02-ridges-what-1.png" alt="plot of chunk ridges-what" width="612" style="display: block; margin: auto;" />
 
 
 
@@ -469,11 +477,11 @@ Picking joint bandwidth of 153
 
 
 ~~~
-Warning: Removed 2 rows containing non-finite values (stat_density_ridges).
+Warning: Removed 2 rows containing non-finite values (`stat_density_ridges()`).
 ~~~
 {: .warning}
 
-<img src="../fig/rmd-02-ridges-how-1.png" title="plot of chunk ridges-how" alt="plot of chunk ridges-how" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-02-ridges-how-1.png" alt="plot of chunk ridges-how" width="612" style="display: block; margin: auto;" />
 
 ### Interesting variations
 
@@ -498,7 +506,7 @@ Picking joint bandwidth of 153
 ~~~
 {: .output}
 
-<img src="../fig/rmd-02-unnamed-chunk-4-1.png" title="plot of chunk unnamed-chunk-4" alt="plot of chunk unnamed-chunk-4" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-02-unnamed-chunk-4-1.png" alt="plot of chunk unnamed-chunk-4" width="612" style="display: block; margin: auto;" />
 
 ### Think about
 
@@ -521,7 +529,7 @@ penguins %>%
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-02-violin-what-1.png" title="plot of chunk violin-what" alt="plot of chunk violin-what" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-02-violin-what-1.png" alt="plot of chunk violin-what" width="612" style="display: block; margin: auto;" />
 
 
 ### What do we use them for?

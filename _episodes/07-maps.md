@@ -46,14 +46,14 @@ Loading required package: ggplot2
 
 
 ~~~
-Google's Terms of Service: https://cloud.google.com/maps-platform/terms/.
+ℹ Google's Terms of Service: <https://mapsplatform.google.com>
 ~~~
 {: .output}
 
 
 
 ~~~
-Please cite ggmap if you use it! See citation("ggmap") for details.
+ℹ Please cite ggmap if you use it! Use `citation("ggmap")` for details.
 ~~~
 {: .output}
 
@@ -76,10 +76,10 @@ tidyverse 1.3.2 ──
 
 
 ~~~
-✔ tibble  3.1.8     ✔ dplyr   1.0.9
-✔ tidyr   1.2.0     ✔ stringr 1.4.0
-✔ readr   2.1.2     ✔ forcats 0.5.1
-✔ purrr   0.3.4     
+✔ tibble  3.1.8      ✔ dplyr   1.0.10
+✔ tidyr   1.2.1      ✔ stringr 1.5.0 
+✔ readr   2.1.3      ✔ forcats 0.5.2 
+✔ purrr   0.3.5      
 ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 ✖ dplyr::filter() masks stats::filter()
 ✖ dplyr::lag()    masks stats::lag()
@@ -96,14 +96,7 @@ map <- get_stamenmap( bbox = c(left = 110, bottom = -40, right = 160, top = -10)
 
 
 ~~~
-Source : http://tile.stamen.com/terrain/4/12/8.png
-Source : http://tile.stamen.com/terrain/4/13/8.png
-Source : http://tile.stamen.com/terrain/4/14/8.png
-Source : http://tile.stamen.com/terrain/4/15/8.png
-Source : http://tile.stamen.com/terrain/4/12/9.png
-Source : http://tile.stamen.com/terrain/4/13/9.png
-Source : http://tile.stamen.com/terrain/4/14/9.png
-Source : http://tile.stamen.com/terrain/4/15/9.png
+ℹ Map tiles by Stamen Design, under CC BY 3.0. Data by OpenStreetMap, under ODbL.
 ~~~
 {: .output}
 
@@ -119,7 +112,15 @@ ggmap(map) +
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-07-unnamed-chunk-2-1.png" title="plot of chunk unnamed-chunk-2" alt="plot of chunk unnamed-chunk-2" width="612" style="display: block; margin: auto;" />
+
+
+~~~
+Warning: The `size` argument of `element_rect()` is deprecated as of ggplot2 3.4.0.
+ℹ Please use the `linewidth` argument instead.
+~~~
+{: .warning}
+
+<img src="../fig/rmd-07-unnamed-chunk-2-1.png" alt="plot of chunk unnamed-chunk-2" width="612" style="display: block; margin: auto;" />
 
 
 

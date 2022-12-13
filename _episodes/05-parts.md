@@ -19,7 +19,7 @@ source: Rmd
 
 ## Barplot - grouped and stacked
 ### What are they?
-<img src="../fig/rmd-05-barplot_what-1.png" title="plot of chunk barplot_what" alt="plot of chunk barplot_what" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-05-barplot_what-1.png" alt="plot of chunk barplot_what" width="612" style="display: block; margin: auto;" />
 
 ### What do we use them for?
 
@@ -34,7 +34,7 @@ penguins %>%
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-05-barplot_stacked_how-1.png" title="plot of chunk barplot_stacked_how" alt="plot of chunk barplot_stacked_how" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-05-barplot_stacked_how-1.png" alt="plot of chunk barplot_stacked_how" width="612" style="display: block; margin: auto;" />
 
 
 
@@ -46,7 +46,7 @@ penguins %>%
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-05-barplot_grouped_how-1.png" title="plot of chunk barplot_grouped_how" alt="plot of chunk barplot_grouped_how" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-05-barplot_grouped_how-1.png" alt="plot of chunk barplot_grouped_how" width="612" style="display: block; margin: auto;" />
 
 ### Interesting variations
 
@@ -64,6 +64,7 @@ penguins %>%
 Viser hierarkisk data i nestede rektangler. Hver gruppe repræsenteres af en
 rektangel, hvis areal er proportionalt med dens værdi.
 
+
 treemap.
 
 Den kan også gøres interaktiv med detreeR.
@@ -72,7 +73,68 @@ Den kan også gøres interaktiv med detreeR.
 
 ### how do we make them?
 
+Vi bygger dem med pakken treemap.
+
+Vi skal bruge noget data.
+Det organiseres, i den enkleste udgave på denne måde:
+
+~~~
+data <- tribble(~group, ~value,
+                "one", 13,
+                "two", 5,
+                "three", 22)
+~~~
+{: .language-r}
+
+Og så laver vi det med:
+
+~~~
+library(treemap)
+treemap(data,
+        index = "group",
+        vSize="value")
+~~~
+{: .language-r}
+
+<img src="../fig/rmd-05-unnamed-chunk-3-1.png" alt="plot of chunk unnamed-chunk-3" width="612" style="display: block; margin: auto;" />
+
+
+Det kan også gøres med ggplot:
+
+~~~
+library(treemapify)
+ggplot(data, aes(area = value, fill = group)) +
+  geom_treemap()
+~~~
+{: .language-r}
+
+<img src="../fig/rmd-05-unnamed-chunk-4-1.png" alt="plot of chunk unnamed-chunk-4" width="612" style="display: block; margin: auto;" />
+
+
 ### Interesting variations
+
+#### Hierarkisk
+For det tilfælde at en (eller flere) grupper har underkategorier.
+
+
+~~~
+group <- c(rep("group-1",4),rep("group-2",2),rep("group-3",3))
+subgroup <- paste("subgroup" , c(1,2,3,4,1,2,1,2,3), sep="-")
+value <- c(13,5,22,12,11,7,3,1,23)
+data <- data.frame(group,subgroup,value)
+ 
+# treemap
+treemap(data,
+            index=c("group","subgroup"),
+            vSize="value",
+            type="index"
+            ) 
+~~~
+{: .language-r}
+
+<img src="../fig/rmd-05-unnamed-chunk-5-1.png" alt="plot of chunk unnamed-chunk-5" width="612" style="display: block; margin: auto;" />
+
+
 
 ### Think about
 
@@ -106,7 +168,7 @@ penguins %>%
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-05-unnamed-chunk-2-1.png" title="plot of chunk unnamed-chunk-2" alt="plot of chunk unnamed-chunk-2" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-05-unnamed-chunk-6-1.png" alt="plot of chunk unnamed-chunk-6" width="612" style="display: block; margin: auto;" />
 
 
 ~~~
@@ -132,7 +194,7 @@ ggplot(data, aes(ymax=ymax, ymin=ymin, xmax=4, xmin=3, fill=category)) +
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-05-unnamed-chunk-3-1.png" title="plot of chunk unnamed-chunk-3" alt="plot of chunk unnamed-chunk-3" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-05-unnamed-chunk-7-1.png" alt="plot of chunk unnamed-chunk-7" width="612" style="display: block; margin: auto;" />
 
 
 ### Interesting variations
@@ -164,7 +226,7 @@ penguins %>%
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-05-unnamed-chunk-4-1.png" title="plot of chunk unnamed-chunk-4" alt="plot of chunk unnamed-chunk-4" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-05-unnamed-chunk-8-1.png" alt="plot of chunk unnamed-chunk-8" width="612" style="display: block; margin: auto;" />
 
 
 ggplot har holdninger. Så der er ikke et geom_ i ggplot til at lave 
@@ -242,7 +304,7 @@ pa + pb + pc
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-05-unnamed-chunk-5-1.png" title="plot of chunk unnamed-chunk-5" alt="plot of chunk unnamed-chunk-5" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-05-unnamed-chunk-9-1.png" alt="plot of chunk unnamed-chunk-9" width="612" style="display: block; margin: auto;" />
 Hvad er udviklingen i det?
 
 
@@ -278,7 +340,7 @@ ba+bb+bc
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-05-unnamed-chunk-6-1.png" title="plot of chunk unnamed-chunk-6" alt="plot of chunk unnamed-chunk-6" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-05-unnamed-chunk-10-1.png" alt="plot of chunk unnamed-chunk-10" width="612" style="display: block; margin: auto;" />
 Kunne du se det da det var lagkagediagrammer? Nej, det kunne du ikke. 
 Så lad nu bare være med at lave dem.
 
@@ -291,9 +353,14 @@ even worse.
 It can be done in R. But it is difficult. ggplot2 have opinions, and makes it
 difficult to commit crimes against datavisualisation.
 
+In some, very rare, cases a pie chart will be the best chart for what we 
+want to visualize. And in some, even more rare cases, a pie chart can be improved
+to make it even better, by adding stuff to it.
+
+But as a general rule: Dont.
 
 ## Dendrogram
-
+https://cran.r-project.org/web/packages/ggdendro/vignettes/ggdendro.html
 ### What are they?
 
 ### What do we use them for?
@@ -390,7 +457,15 @@ ggraph(mygraph, layout = 'dendrogram', circular = FALSE) +
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-05-unnamed-chunk-7-1.png" title="plot of chunk unnamed-chunk-7" alt="plot of chunk unnamed-chunk-7" width="612" style="display: block; margin: auto;" />
+
+
+~~~
+Warning: Using the `size` aesthetic in this geom was deprecated in ggplot2 3.4.0.
+ℹ Please use `linewidth` in the `default_aes` field and elsewhere instead.
+~~~
+{: .warning}
+
+<img src="../fig/rmd-05-unnamed-chunk-11-1.png" alt="plot of chunk unnamed-chunk-11" width="612" style="display: block; margin: auto;" />
 Men også ggdendro! Den baserer sig på resultater fra hclust
 
 ### Interesting variations

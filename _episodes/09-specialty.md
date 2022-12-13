@@ -81,7 +81,7 @@ ggplot(sun.spct)  +
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-09-unnamed-chunk-2-1.png" title="plot of chunk unnamed-chunk-2" alt="plot of chunk unnamed-chunk-2" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-09-unnamed-chunk-2-1.png" alt="plot of chunk unnamed-chunk-2" width="612" style="display: block; margin: auto;" />
 
 
 ## ROC curves
