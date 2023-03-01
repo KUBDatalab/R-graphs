@@ -1,0 +1,154 @@
+---
+title: "Ternære plots"
+teaching: 0
+exercises: 0
+questions: 
+- "FIXME"
+
+objectives:
+- "FIXME"
+
+keypoints:
+- "FIXME"
+source: Rmd
+---
+
+```{r, include = FALSE}
+source("../bin/chunk-options.R")
+knitr_fig_path("50-")
+library(tidyverse)
+library(patchwork)
+library(knitr)
+library(scales)
+library(palmerpenguins)
+```
+
+Sådden nogen her:
+
+![fra wikimedia](../fig/Ternary.example.plot.2.jpg)
+
+Hvis du ved at du har brug for at lave sådan et - så ved du også
+hvordan du skal aflæse dem. Men vi har lige et eksempel eller to
+til sidst alligevel.
+
+Vi skal bruge en ekstra pakke, `ggtern`.
+```{r}
+library(ggtern)
+```
+Så skal vi bruge noget data der kan plottes på den måde. De kommer
+oprindeligt herfra:
+https://ourworldindata.org/electricity-mix
+
+Dem indlæser vi:
+```{r}
+elmix <- read_csv("../data/electricity-prod-source.csv")
+```
+
+Du kan finde dem her: (indsæt link når siden er renderet første gang).
+
+Vi kan lave dem på to måder. Enten direkte:
+
+```{r}
+elmix %>% 
+  filter(aar == 2018, land == "Sweden") %>% 
+  ggtern(aes(x=fossil/total, 
+             y = vedvarende/total, 
+             z = kernekraft/total)) +
+  geom_point()
+```
+
+den ser ud som den gør, fordi fordelingen af elproduktionen i 
+Sverige i 2018 var således:
+
+```{r}
+elmix %>% 
+  filter(aar == 2018, land == "Sweden") %>% 
+  transmute(fossil = fossil/total,
+         vedvarende = vedvarende/total,
+         kernekraft = kernekraft/total) %>% 
+  pivot_longer(everything(), names_to = "kilde",
+               values_to = "andel") %>% 
+  mutate(andel = scales::percent(andel)) %>% 
+  knitr::kable()
+  
+```
+I stedet kan vi bruge ggplot (ggtern er baseret på den), og supplere
+med et nyt koordinatsystem:
+
+```{r}
+tern_plot <- elmix %>% 
+  filter(aar == 2018, land == "Sweden") %>% 
+  ggplot(aes(x=fossil, 
+             y = vedvarende, 
+             z = kernekraft)) +
+  coord_tern() +
+  geom_point()
+tern_plot
+```
+
+Bemærk også at det ikke var nødvendigt at beregne andelene - det klarer
+ggtern for os. Det var heller ikke nødvendigt i det første eksempel.
+
+Vi kan bruge andre (men ikke alle) geoms fra ggplot. geom_text til
+at sætte etiketter på eksempelvis. Vi får advarsler i konsollen hvis 
+vi prøver at gøre noget der ikke er muligt.
+
+ggtern kommer med egne ekstra geoms.
+```{r}
+tern_plot + geom_crosshair_tern()
+```
+Der kan gøre det lettere at aflæse punkterne. Det er stadig
+pænt svært at huske hvad der er hvad. ggtern har nogen themes, der 
+kan gøre det lettere:
+
+```{r}
+tern_plot +
+  geom_crosshair_tern() +
+  theme_hidetitles() +
+  theme_showarrows() 
+```
+Der er *mange* andre ting gemt i pakken. Læs evt. dokumentationen.
+
+Stier kan bruges til at illustrere hvordan tingene har udviklet sig. Her 
+skal vi huske at der kan optræde NA værdier i datasættet. Dem kan vi 
+ikke plotte. 
+vi bruger geom_path som geom - og smider en pil på, så vi kan se
+hvilken vej Frankrig bevæger sig.
+
+```{r}
+elmix %>% 
+  filter(land == "France") %>% 
+  filter(complete.cases(.)) %>%
+   ggplot(aes(x=fossil, 
+             y = vedvarende, 
+             z = kernekraft)) +
+  geom_path(arrow = arrow(length=unit(.2, "cm"))) +
+  coord_tern() +
+  theme_hidetitles() +
+  theme_showarrows()
+
+```
+
+Blot som et eksempel på hvad man kan få ud hvis man bruger et 
+par timer på hjælpefilerne:
+```{r}
+ggtern(data = data.frame(x = rnorm(100),
+                         y = rnorm(100),
+                         z = rnorm(100)),
+       aes(x, y, z)) +
+  stat_density_tern(geom = 'polygon',
+                    n    = 200,
+                    aes(fill  = ..level..,
+                        alpha = ..level..),
+                    bdl = 0.02) +
+  geom_point() +
+  theme_rgbw() +
+  labs(title = "Example Density/Contour Plot")    +
+  scale_fill_gradient(low = "blue",high = "red")  +
+  guides(color = "none", fill = "none", alpha = "none")
+```
+
+
+
+
+{% include links.md %}
