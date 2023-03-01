@@ -1,0 +1,28 @@
+---
+title: "snailcharts"
+teaching: 0
+exercises: 0
+questions: 
+- "FIXME"
+
+objectives:
+- "FIXME"
+
+keypoints:
+- "FIXME"
+source: Rmd
+---
+
+```{r, include = FALSE}
+source("../bin/chunk-options.R")
+knitr_fig_path("11-")
+library(tidyverse)
+library(patchwork)
+library(palmerpenguins)
+```
+
+Muligvis så fæl at det slet ikke kan gøres i ggplot.
+
+https://medium.com/nightingale/yet-another-alternative-for-bar-charts-introducing-the-snail-chart-4fe69b938594
+
+{% include links.md %}
