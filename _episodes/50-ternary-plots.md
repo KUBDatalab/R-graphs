@@ -264,7 +264,7 @@ Warning: The dot-dot notation (`..level..`) was deprecated in ggplot2 3.4.0.
 
 
 ~~~
-Warning: Removed 90 rows containing non-finite values (`StatDensityTern()`).
+Warning: Removed 86 rows containing non-finite values (`StatDensityTern()`).
 ~~~
 {: .warning}
 

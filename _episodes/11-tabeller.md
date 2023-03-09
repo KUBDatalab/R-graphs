@@ -19,6 +19,22 @@ source: Rmd
 ---
 
 
+
+We do not typically think of tables as visualisations. But
+they are often the best way of showing data. 
+
+Charts use an abstraction to show the data. And sometimes that
+abstraction gets in the way. Tables present data as close to raw
+as possible. 
+
+Use tables when data cannot be presented visually easily, or when
+the data requires more specific attention.
+
+The goal of presenting data is to make trends, connections, differences or similarities more apparent to the reader. 
+
+
+
+
 Maybe not a visualisation as we usually understand it.
 
 But still
