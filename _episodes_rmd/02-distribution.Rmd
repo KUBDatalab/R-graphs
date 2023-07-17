@@ -520,6 +520,7 @@ sorter/order grupperne efter median-værdien.
 Hvis der er meget forskellige samplesizes, så vis det (se også små 
 datasæt)
 
-
+Pas også på med automatisk generering af violinplots. De risikerer at blive 
+anatomisk korrekte. 
 
 {% include links.md %}

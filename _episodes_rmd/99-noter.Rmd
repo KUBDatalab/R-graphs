@@ -1,0 +1,28 @@
+---
+title: "Noter"
+teaching: 0
+exercises: 0
+questions: 
+- "FIXME"
+
+objectives:
+- "FIXME"
+
+keypoints:
+- "FIXME"
+source: Rmd
+---
+
+```{r, include = FALSE}
+source("../bin/chunk-options.R")
+knitr_fig_path("99-")
+library(tidyverse)
+library(patchwork)
+library(knitr)
+library(scales)
+library(palmerpenguins)
+```
+
+https://ivelasq.rbind.io/blog/other-geoms/
+
+{% include links.md %}
