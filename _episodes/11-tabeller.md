@@ -20,6 +20,9 @@ source: Rmd
 
 
 
+den her er værd at kigge på:
+https://cedricscherer.netlify.app/2019/08/05/a-ggplot2-tutorial-for-beautiful-plotting-in-r/#text
+
 We do not typically think of tables as visualisations. But
 they are often the best way of showing data. 
 
@@ -33,6 +36,23 @@ the data requires more specific attention.
 The goal of presenting data is to make trends, connections, differences or similarities more apparent to the reader. 
 
 
+~~~
+library(reactable)
+
+table_ex <- mtcars %>% 
+  select(cyl, mpg, disp) %>% 
+  reactable()
+
+table_ex
+~~~
+{: .language-r}
+
+
+
+~~~
+Error in loadNamespace(name): there is no package called 'webshot'
+~~~
+{: .error}
 
 
 Maybe not a visualisation as we usually understand it.

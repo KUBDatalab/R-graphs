@@ -45,6 +45,9 @@ what it is, what it is typically used for, how we make them, some interesting
 variations on the major theme (if there are any. Or if we can imagine them.).
 And notes on common pitfalls, mistakes and errors using this particular plot.
 
+Hvad har du af data? 
+
+
 ## What is missing?
 
 Send us an email on kubdatalab@kb.dk or, better, report an issue on 

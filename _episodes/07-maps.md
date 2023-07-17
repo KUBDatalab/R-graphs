@@ -46,13 +46,21 @@ Loading required package: ggplot2
 
 
 ~~~
-ℹ Google's Terms of Service: <https://mapsplatform.google.com>
+The legacy packages maptools, rgdal, and rgeos, underpinning the sp package,
+which was just loaded, will retire in October 2023.
+Please refer to R-spatial evolution reports for details, especially
+https://r-spatial.org/r/2023/05/15/evolution4.html.
+It may be desirable to make the sf package available;
+package maintainers should consider adding sf to Suggests:.
+The sp package is now running under evolution status 2
+     (status 2 uses the sf package in place of rgdal)
 ~~~
 {: .output}
 
 
 
 ~~~
+ℹ Google's Terms of Service: <https://mapsplatform.google.com>
 ℹ Please cite ggmap if you use it! Use `citation("ggmap")` for details.
 ~~~
 {: .output}
@@ -68,16 +76,10 @@ library(tidyverse)
 
 ~~~
 ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.0     ✔ readr     2.1.4
+✔ dplyr     1.1.2     ✔ readr     2.1.4
 ✔ forcats   1.0.0     ✔ stringr   1.5.0
-✔ lubridate 1.9.2     ✔ tibble    3.2.0
+✔ lubridate 1.9.2     ✔ tibble    3.2.1
 ✔ purrr     1.0.1     ✔ tidyr     1.3.0
-~~~
-{: .output}
-
-
-
-~~~
 ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 ✖ dplyr::filter() masks stats::filter()
 ✖ dplyr::lag()    masks stats::lag()
@@ -116,10 +118,16 @@ ggmap(map) +
 ~~~
 Warning: The `size` argument of `element_rect()` is deprecated as of ggplot2 3.4.0.
 ℹ Please use the `linewidth` argument instead.
+This warning is displayed once every 8 hours.
+Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
+generated.
 ~~~
 {: .warning}
 
-<img src="../fig/rmd-07-unnamed-chunk-2-1.png" alt="plot of chunk unnamed-chunk-2" width="612" style="display: block; margin: auto;" />
+<div class="figure" style="text-align: center">
+<img src="../fig/rmd-07-unnamed-chunk-2-1.png" alt="plot of chunk unnamed-chunk-2" width="612" />
+<p class="caption">plot of chunk unnamed-chunk-2</p>
+</div>
 
 
 

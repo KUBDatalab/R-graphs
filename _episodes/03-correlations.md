@@ -38,7 +38,10 @@ Warning: Removed 2 rows containing missing values (`geom_point()`).
 ~~~
 {: .warning}
 
-<img src="../fig/rmd-03-scatter-what-1.png" alt="plot of chunk scatter-what" width="612" style="display: block; margin: auto;" />
+<div class="figure" style="text-align: center">
+<img src="../fig/rmd-03-scatter-what-1.png" alt="plot of chunk scatter-what" width="612" />
+<p class="caption">plot of chunk scatter-what</p>
+</div>
 
 
 
@@ -65,7 +68,10 @@ Warning: Removed 2 rows containing missing values (`geom_point()`).
 ~~~
 {: .warning}
 
-<img src="../fig/rmd-03-scatter-how-1.png" alt="plot of chunk scatter-how" width="612" style="display: block; margin: auto;" />
+<div class="figure" style="text-align: center">
+<img src="../fig/rmd-03-scatter-how-1.png" alt="plot of chunk scatter-how" width="612" />
+<p class="caption">plot of chunk scatter-how</p>
+</div>
 
 
 ### Interesting variations
@@ -86,7 +92,10 @@ plot(penguins)
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-03-scatter-matrix-1.png" alt="plot of chunk scatter-matrix" width="612" style="display: block; margin: auto;" />
+<div class="figure" style="text-align: center">
+<img src="../fig/rmd-03-scatter-matrix-1.png" alt="plot of chunk scatter-matrix" width="612" />
+<p class="caption">plot of chunk scatter-matrix</p>
+</div>
 
 The package `GGally` provides a function `ggpairs` that does this in the 
 ggplot2 universe, making it easy to adjust the plot subsequently.
@@ -459,7 +468,10 @@ Removed 2 rows containing missing values (`geom_point()`).
 ~~~
 {: .output}
 
-<img src="../fig/rmd-03-scatter-matrix-ggally-1.png" alt="plot of chunk scatter-matrix-ggally" width="612" style="display: block; margin: auto;" />
+<div class="figure" style="text-align: center">
+<img src="../fig/rmd-03-scatter-matrix-ggally-1.png" alt="plot of chunk scatter-matrix-ggally" width="612" />
+<p class="caption">plot of chunk scatter-matrix-ggally</p>
+</div>
 
 Be careful - the plot can get very busy!
 
@@ -479,7 +491,10 @@ Warning: Removed 2 rows containing missing values (`geom_point()`).
 ~~~
 {: .warning}
 
-<img src="../fig/rmd-03-scatter-how-color-1.png" alt="plot of chunk scatter-how-color" width="612" style="display: block; margin: auto;" />
+<div class="figure" style="text-align: center">
+<img src="../fig/rmd-03-scatter-how-color-1.png" alt="plot of chunk scatter-how-color" width="612" />
+<p class="caption">plot of chunk scatter-how-color</p>
+</div>
 
 
 
@@ -507,7 +522,10 @@ Warning: Removed 2 rows containing missing values (`geom_point()`).
 ~~~
 {: .warning}
 
-<img src="../fig/rmd-03-scatter_marginal_histogram-1.png" alt="plot of chunk scatter_marginal_histogram" width="612" style="display: block; margin: auto;" />
+<div class="figure" style="text-align: center">
+<img src="../fig/rmd-03-scatter_marginal_histogram-1.png" alt="plot of chunk scatter_marginal_histogram" width="612" />
+<p class="caption">plot of chunk scatter_marginal_histogram</p>
+</div>
 
 Bemærk at det ggmarginal element der kommer ud af det, ikke er helt let at 
 arbejde videre med. Pak det ind i wrap_elements() fra patchwork pakken, så 
@@ -530,6 +548,9 @@ Warning: The dot-dot notation (`..density..`) was deprecated in ggplot2 3.4.0.
 ℹ Please use `after_stat(density)` instead.
 ℹ The deprecated feature was likely used in the ggExtra package.
   Please report the issue at <https://github.com/daattali/ggExtra/issues>.
+This warning is displayed once every 8 hours.
+Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
+generated.
 ~~~
 {: .warning}
 
@@ -550,7 +571,10 @@ Continuous x aesthetic
 ~~~
 {: .warning}
 
-<img src="../fig/rmd-03-scatter_marginal_flere-1.png" alt="plot of chunk scatter_marginal_flere" width="612" style="display: block; margin: auto;" />
+<div class="figure" style="text-align: center">
+<img src="../fig/rmd-03-scatter_marginal_flere-1.png" alt="plot of chunk scatter_marginal_flere" width="612" />
+<p class="caption">plot of chunk scatter_marginal_flere</p>
+</div>
 
 
 ### Think about

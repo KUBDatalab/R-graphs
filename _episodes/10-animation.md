@@ -33,7 +33,10 @@ ggplot(gapminder, aes(gdpPercap, lifeExp, size = pop, color = continent)) +
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-10-unnamed-chunk-1-1.png" alt="plot of chunk unnamed-chunk-1" width="612" style="display: block; margin: auto;" />
+<div class="figure" style="text-align: center">
+<img src="../fig/rmd-10-unnamed-chunk-1-1.png" alt="plot of chunk unnamed-chunk-1" width="612" />
+<p class="caption">plot of chunk unnamed-chunk-1</p>
+</div>
 Når så du vil animere, erstatter du `facet_wrap(~year)`  med `transition_time(year)`.
 og vupti har du en animation. I dette tilfælde smider vi ldit ekstra på.
 
@@ -52,7 +55,10 @@ ggplot(gapminder, aes(gdpPercap, lifeExp, size = pop, color = continent)) +
 ~~~
 {: .language-r}
 
-<img src="fig/rmd-10-animation_test-1.gif" alt="plot of chunk animation_test" style="display: block; margin: auto;" />
+<div class="figure" style="text-align: center">
+<img src="fig/rmd-10-animation_test-1.gif" alt="plot of chunk animation_test"  />
+<p class="caption">plot of chunk animation_test</p>
+</div>
 
 Vi smider en logaritmisk skala på x-aksen, piller i hvordan plottet themes. 
 Og så skriver vi eksplicit `ease_aes('linear')`. For hvad stiller vi op når 

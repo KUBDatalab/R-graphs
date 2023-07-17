@@ -19,7 +19,10 @@ source: Rmd
 
 ## Barplot - grouped and stacked
 ### What are they?
-<img src="../fig/rmd-05-barplot_what-1.png" alt="plot of chunk barplot_what" width="612" style="display: block; margin: auto;" />
+<div class="figure" style="text-align: center">
+<img src="../fig/rmd-05-barplot_what-1.png" alt="plot of chunk barplot_what" width="612" />
+<p class="caption">plot of chunk barplot_what</p>
+</div>
 
 ### What do we use them for?
 
@@ -34,7 +37,10 @@ penguins %>%
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-05-barplot_stacked_how-1.png" alt="plot of chunk barplot_stacked_how" width="612" style="display: block; margin: auto;" />
+<div class="figure" style="text-align: center">
+<img src="../fig/rmd-05-barplot_stacked_how-1.png" alt="plot of chunk barplot_stacked_how" width="612" />
+<p class="caption">plot of chunk barplot_stacked_how</p>
+</div>
 
 
 
@@ -46,7 +52,10 @@ penguins %>%
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-05-barplot_grouped_how-1.png" alt="plot of chunk barplot_grouped_how" width="612" style="display: block; margin: auto;" />
+<div class="figure" style="text-align: center">
+<img src="../fig/rmd-05-barplot_grouped_how-1.png" alt="plot of chunk barplot_grouped_how" width="612" />
+<p class="caption">plot of chunk barplot_grouped_how</p>
+</div>
 
 ### Interesting variations
 
@@ -96,7 +105,10 @@ treemap(data,
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-05-unnamed-chunk-3-1.png" alt="plot of chunk unnamed-chunk-3" width="612" style="display: block; margin: auto;" />
+<div class="figure" style="text-align: center">
+<img src="../fig/rmd-05-unnamed-chunk-3-1.png" alt="plot of chunk unnamed-chunk-3" width="612" />
+<p class="caption">plot of chunk unnamed-chunk-3</p>
+</div>
 
 
 Det kan også gøres med ggplot:
@@ -108,7 +120,10 @@ ggplot(data, aes(area = value, fill = group)) +
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-05-unnamed-chunk-4-1.png" alt="plot of chunk unnamed-chunk-4" width="612" style="display: block; margin: auto;" />
+<div class="figure" style="text-align: center">
+<img src="../fig/rmd-05-unnamed-chunk-4-1.png" alt="plot of chunk unnamed-chunk-4" width="612" />
+<p class="caption">plot of chunk unnamed-chunk-4</p>
+</div>
 
 
 ### Interesting variations
@@ -132,7 +147,10 @@ treemap(data,
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-05-unnamed-chunk-5-1.png" alt="plot of chunk unnamed-chunk-5" width="612" style="display: block; margin: auto;" />
+<div class="figure" style="text-align: center">
+<img src="../fig/rmd-05-unnamed-chunk-5-1.png" alt="plot of chunk unnamed-chunk-5" width="612" />
+<p class="caption">plot of chunk unnamed-chunk-5</p>
+</div>
 
 
 
@@ -168,7 +186,10 @@ penguins %>%
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-05-unnamed-chunk-6-1.png" alt="plot of chunk unnamed-chunk-6" width="612" style="display: block; margin: auto;" />
+<div class="figure" style="text-align: center">
+<img src="../fig/rmd-05-unnamed-chunk-6-1.png" alt="plot of chunk unnamed-chunk-6" width="612" />
+<p class="caption">plot of chunk unnamed-chunk-6</p>
+</div>
 
 
 ~~~
@@ -194,7 +215,10 @@ ggplot(data, aes(ymax=ymax, ymin=ymin, xmax=4, xmin=3, fill=category)) +
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-05-unnamed-chunk-7-1.png" alt="plot of chunk unnamed-chunk-7" width="612" style="display: block; margin: auto;" />
+<div class="figure" style="text-align: center">
+<img src="../fig/rmd-05-unnamed-chunk-7-1.png" alt="plot of chunk unnamed-chunk-7" width="612" />
+<p class="caption">plot of chunk unnamed-chunk-7</p>
+</div>
 
 
 ### Interesting variations
@@ -226,7 +250,10 @@ penguins %>%
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-05-unnamed-chunk-8-1.png" alt="plot of chunk unnamed-chunk-8" width="612" style="display: block; margin: auto;" />
+<div class="figure" style="text-align: center">
+<img src="../fig/rmd-05-unnamed-chunk-8-1.png" alt="plot of chunk unnamed-chunk-8" width="612" />
+<p class="caption">plot of chunk unnamed-chunk-8</p>
+</div>
 
 
 ggplot har holdninger. Så der er ikke et geom_ i ggplot til at lave 
@@ -304,7 +331,10 @@ pa + pb + pc
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-05-unnamed-chunk-9-1.png" alt="plot of chunk unnamed-chunk-9" width="612" style="display: block; margin: auto;" />
+<div class="figure" style="text-align: center">
+<img src="../fig/rmd-05-unnamed-chunk-9-1.png" alt="plot of chunk unnamed-chunk-9" width="612" />
+<p class="caption">plot of chunk unnamed-chunk-9</p>
+</div>
 Hvad er udviklingen i det?
 
 
@@ -340,7 +370,10 @@ ba+bb+bc
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-05-unnamed-chunk-10-1.png" alt="plot of chunk unnamed-chunk-10" width="612" style="display: block; margin: auto;" />
+<div class="figure" style="text-align: center">
+<img src="../fig/rmd-05-unnamed-chunk-10-1.png" alt="plot of chunk unnamed-chunk-10" width="612" />
+<p class="caption">plot of chunk unnamed-chunk-10</p>
+</div>
 Kunne du se det da det var lagkagediagrammer? Nej, det kunne du ikke. 
 Så lad nu bare være med at lave dem.
 
@@ -471,10 +504,16 @@ ggraph(mygraph, layout = 'dendrogram', circular = FALSE) +
 ~~~
 Warning: Using the `size` aesthetic in this geom was deprecated in ggplot2 3.4.0.
 ℹ Please use `linewidth` in the `default_aes` field and elsewhere instead.
+This warning is displayed once every 8 hours.
+Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
+generated.
 ~~~
 {: .warning}
 
-<img src="../fig/rmd-05-unnamed-chunk-11-1.png" alt="plot of chunk unnamed-chunk-11" width="612" style="display: block; margin: auto;" />
+<div class="figure" style="text-align: center">
+<img src="../fig/rmd-05-unnamed-chunk-11-1.png" alt="plot of chunk unnamed-chunk-11" width="612" />
+<p class="caption">plot of chunk unnamed-chunk-11</p>
+</div>
 Men også ggdendro! Den baserer sig på resultater fra hclust
 
 ### Interesting variations

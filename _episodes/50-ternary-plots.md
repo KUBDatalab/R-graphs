@@ -110,7 +110,10 @@ elmix %>%
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-50-unnamed-chunk-4-1.png" alt="plot of chunk unnamed-chunk-4" width="612" style="display: block; margin: auto;" />
+<div class="figure" style="text-align: center">
+<img src="../fig/rmd-50-unnamed-chunk-4-1.png" alt="plot of chunk unnamed-chunk-4" width="612" />
+<p class="caption">plot of chunk unnamed-chunk-4</p>
+</div>
 
 den ser ud som den gør, fordi fordelingen af elproduktionen i 
 Sverige i 2018 var således:
@@ -166,7 +169,10 @@ tern_plot
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-50-unnamed-chunk-6-1.png" alt="plot of chunk unnamed-chunk-6" width="612" style="display: block; margin: auto;" />
+<div class="figure" style="text-align: center">
+<img src="../fig/rmd-50-unnamed-chunk-6-1.png" alt="plot of chunk unnamed-chunk-6" width="612" />
+<p class="caption">plot of chunk unnamed-chunk-6</p>
+</div>
 
 Bemærk også at det ikke var nødvendigt at beregne andelene - det klarer
 ggtern for os. Det var heller ikke nødvendigt i det første eksempel.
@@ -182,7 +188,10 @@ tern_plot + geom_crosshair_tern()
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-50-unnamed-chunk-7-1.png" alt="plot of chunk unnamed-chunk-7" width="612" style="display: block; margin: auto;" />
+<div class="figure" style="text-align: center">
+<img src="../fig/rmd-50-unnamed-chunk-7-1.png" alt="plot of chunk unnamed-chunk-7" width="612" />
+<p class="caption">plot of chunk unnamed-chunk-7</p>
+</div>
 Der kan gøre det lettere at aflæse punkterne. Det er stadig
 pænt svært at huske hvad der er hvad. ggtern har nogen themes, der 
 kan gøre det lettere:
@@ -196,7 +205,10 @@ tern_plot +
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-50-unnamed-chunk-8-1.png" alt="plot of chunk unnamed-chunk-8" width="612" style="display: block; margin: auto;" />
+<div class="figure" style="text-align: center">
+<img src="../fig/rmd-50-unnamed-chunk-8-1.png" alt="plot of chunk unnamed-chunk-8" width="612" />
+<p class="caption">plot of chunk unnamed-chunk-8</p>
+</div>
 Der er *mange* andre ting gemt i pakken. Læs evt. dokumentationen.
 
 Stier kan bruges til at illustrere hvordan tingene har udviklet sig. Her 
@@ -228,7 +240,10 @@ replace the existing one.
 ~~~
 {: .output}
 
-<img src="../fig/rmd-50-unnamed-chunk-9-1.png" alt="plot of chunk unnamed-chunk-9" width="612" style="display: block; margin: auto;" />
+<div class="figure" style="text-align: center">
+<img src="../fig/rmd-50-unnamed-chunk-9-1.png" alt="plot of chunk unnamed-chunk-9" width="612" />
+<p class="caption">plot of chunk unnamed-chunk-9</p>
+</div>
 
 Blot som et eksempel på hvad man kan få ud hvis man bruger et 
 par timer på hjælpefilerne:
@@ -258,6 +273,9 @@ Warning: The dot-dot notation (`..level..`) was deprecated in ggplot2 3.4.0.
 ℹ Please use `after_stat(level)` instead.
 ℹ The deprecated feature was likely used in the ggplot2 package.
   Please report the issue at <https://github.com/tidyverse/ggplot2/issues>.
+This warning is displayed once every 8 hours.
+Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
+generated.
 ~~~
 {: .warning}
 
@@ -268,7 +286,10 @@ Warning: Removed 86 rows containing non-finite values (`StatDensityTern()`).
 ~~~
 {: .warning}
 
-<img src="../fig/rmd-50-unnamed-chunk-10-1.png" alt="plot of chunk unnamed-chunk-10" width="612" style="display: block; margin: auto;" />
+<div class="figure" style="text-align: center">
+<img src="../fig/rmd-50-unnamed-chunk-10-1.png" alt="plot of chunk unnamed-chunk-10" width="612" />
+<p class="caption">plot of chunk unnamed-chunk-10</p>
+</div>
 
 
 
