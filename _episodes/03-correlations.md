@@ -561,16 +561,6 @@ Warning: Removed 2 rows containing missing values (`geom_point()`).
 ~~~
 {: .warning}
 
-
-
-~~~
-Warning: Continuous x aesthetic
-ℹ did you forget `aes(group = ...)`?
-Continuous x aesthetic
-ℹ did you forget `aes(group = ...)`?
-~~~
-{: .warning}
-
 <div class="figure" style="text-align: center">
 <img src="../fig/rmd-03-scatter_marginal_flere-1.png" alt="plot of chunk scatter_marginal_flere" width="612" />
 <p class="caption">plot of chunk scatter_marginal_flere</p>

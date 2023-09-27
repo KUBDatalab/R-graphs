@@ -282,7 +282,7 @@ generated.
 
 
 ~~~
-Warning: Removed 86 rows containing non-finite values (`StatDensityTern()`).
+Warning: Removed 93 rows containing non-finite values (`StatDensityTern()`).
 ~~~
 {: .warning}
 

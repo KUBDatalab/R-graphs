@@ -1,0 +1,158 @@
+current directory: /home/runner/work/R-graphs/R-graphs/.vendor/bundle/ruby/2.7.0/gems/ffi-1.16.2/ext/ffi_c
+/opt/hostedtoolcache/Ruby/2.7.8/x64/bin/ruby -I /opt/hostedtoolcache/Ruby/2.7.8/x64/lib/ruby/2.7.0 -r ./siteconf20230927-16212-1ief6rf.rb extconf.rb
+checking for ffi_prep_closure_loc() in -lffi... yes
+checking for ffi_prep_cif_var()... yes
+checking for ffi_raw_call()... yes
+checking for ffi_prep_raw_closure()... yes
+checking for rb_gc_mark_movable()... yes
+checking for whether -pthread is accepted as LDFLAGS... yes
+creating extconf.h
+creating Makefile
+
+current directory: /home/runner/work/R-graphs/R-graphs/.vendor/bundle/ruby/2.7.0/gems/ffi-1.16.2/ext/ffi_c
+make "DESTDIR=" clean
+make[1]: Entering directory '/home/runner/work/R-graphs/R-graphs/.vendor/bundle/ruby/2.7.0/gems/ffi-1.16.2/ext/ffi_c'
+Makefile:176: warning: overriding recipe for target 'clean'
+ÀáhU:176: warning: ignoring old recipe for target 'clean'
+Makefile:183: warning: overriding recipe for target 'distclean'
+ÀáhU:183: warning: ignoring old recipe for target 'distclean'
+Makefile:191: warning: overriding recipe for target 'install-so'
+ÀáhU:191: warning: ignoring old recipe for target 'install-so'
+Makefile:201: warning: overriding recipe for target 'pre-install-rb-default'
+ÀáhU:201: warning: ignoring old recipe for target 'pre-install-rb-default'
+Makefile:203: warning: overriding recipe for target '.sitearchdir.time'
+ÀáhU:203: warning: ignoring old recipe for target '.sitearchdir.time'
+Makefile:213: warning: overriding recipe for target '.cc.o'
+ÀáhU:213: warning: ignoring old recipe for target '.cc.o'
+Makefile:217: warning: overriding recipe for target '.cc.S'
+ÀáhU:217: warning: ignoring old recipe for target '.cc.S'
+Makefile:221: warning: overriding recipe for target '.mm.o'
+ÀáhU:221: warning: ignoring old recipe for target '.mm.o'
+Makefile:225: warning: overriding recipe for target '.mm.S'
+ÀáhU:225: warning: ignoring old recipe for target '.mm.S'
+Makefile:229: warning: overriding recipe for target '.cxx.o'
+ÀáhU:229: warning: ignoring old recipe for target '.cxx.o'
+Makefile:233: warning: overriding recipe for target '.cxx.S'
+ÀáhU:233: warning: ignoring old recipe for target '.cxx.S'
+Makefile:237: warning: overriding recipe for target '.cpp.o'
+ÀáhU:237: warning: ignoring old recipe for target '.cpp.o'
+Makefile:241: warning: overriding recipe for target '.cpp.S'
+ÀáhU:241: warning: ignoring old recipe for target '.cpp.S'
+Makefile:245: warning: overriding recipe for target '.c.o'
+ÀáhU:245: warning: ignoring old recipe for target '.c.o'
+Makefile:249: warning: overriding recipe for target '.c.S'
+ÀáhU:249: warning: ignoring old recipe for target '.c.S'
+Makefile:253: warning: overriding recipe for target '.m.o'
+ÀáhU:253: warning: ignoring old recipe for target '.m.o'
+Makefile:257: warning: overriding recipe for target '.m.S'
+ÀáhU:257: warning: ignoring old recipe for target '.m.S'
+Makefile:261: warning: overriding recipe for target 'ffi_c.so'
+ÀáhU:261: warning: ignoring old recipe for target 'ffi_c.so'
+make[1]: Leaving directory '/home/runner/work/R-graphs/R-graphs/.vendor/bundle/ruby/2.7.0/gems/ffi-1.16.2/ext/ffi_c'
+
+current directory: /home/runner/work/R-graphs/R-graphs/.vendor/bundle/ruby/2.7.0/gems/ffi-1.16.2/ext/ffi_c
+make "DESTDIR="
+make[1]: Entering directory '/home/runner/work/R-graphs/R-graphs/.vendor/bundle/ruby/2.7.0/gems/ffi-1.16.2/ext/ffi_c'
+Makefile:176: warning: overriding recipe for target 'clean'
+ÀHšvkU:176: warning: ignoring old recipe for target 'clean'
+Makefile:183: warning: overriding recipe for target 'distclean'
+ÀHšvkU:183: warning: ignoring old recipe for target 'distclean'
+Makefile:191: warning: overriding recipe for target 'install-so'
+ÀHšvkU:191: warning: ignoring old recipe for target 'install-so'
+Makefile:201: warning: overriding recipe for target 'pre-install-rb-default'
+ÀHšvkU:201: warning: ignoring old recipe for target 'pre-install-rb-default'
+Makefile:203: warning: overriding recipe for target '.sitearchdir.time'
+ÀHšvkU:203: warning: ignoring old recipe for target '.sitearchdir.time'
+Makefile:213: warning: overriding recipe for target '.cc.o'
+ÀHšvkU:213: warning: ignoring old recipe for target '.cc.o'
+Makefile:217: warning: overriding recipe for target '.cc.S'
+ÀHšvkU:217: warning: ignoring old recipe for target '.cc.S'
+Makefile:221: warning: overriding recipe for target '.mm.o'
+ÀHšvkU:221: warning: ignoring old recipe for target '.mm.o'
+Makefile:225: warning: overriding recipe for target '.mm.S'
+ÀHšvkU:225: warning: ignoring old recipe for target '.mm.S'
+Makefile:229: warning: overriding recipe for target '.cxx.o'
+ÀHšvkU:229: warning: ignoring old recipe for target '.cxx.o'
+Makefile:233: warning: overriding recipe for target '.cxx.S'
+ÀHšvkU:233: warning: ignoring old recipe for target '.cxx.S'
+Makefile:237: warning: overriding recipe for target '.cpp.o'
+ÀHšvkU:237: warning: ignoring old recipe for target '.cpp.o'
+Makefile:241: warning: overriding recipe for target '.cpp.S'
+ÀHšvkU:241: warning: ignoring old recipe for target '.cpp.S'
+Makefile:245: warning: overriding recipe for target '.c.o'
+ÀHšvkU:245: warning: ignoring old recipe for target '.c.o'
+Makefile:249: warning: overriding recipe for target '.c.S'
+ÀHšvkU:249: warning: ignoring old recipe for target '.c.S'
+Makefile:253: warning: overriding recipe for target '.m.o'
+ÀHšvkU:253: warning: ignoring old recipe for target '.m.o'
+Makefile:257: warning: overriding recipe for target '.m.S'
+ÀHšvkU:257: warning: ignoring old recipe for target '.m.S'
+Makefile:261: warning: overriding recipe for target 'ffi_c.so'
+ÀHšvkU:261: warning: ignoring old recipe for target 'ffi_c.so'
+compiling AbstractMemory.c
+compiling ArrayType.c
+compiling Buffer.c
+compiling Call.c
+compiling ClosurePool.c
+compiling DynamicLibrary.c
+compiling Function.c
+compiling FunctionInfo.c
+compiling LastError.c
+compiling LongDouble.c
+compiling MappedType.c
+compiling MemoryPointer.c
+compiling MethodHandle.c
+compiling Platform.c
+compiling Pointer.c
+compiling Struct.c
+compiling StructByValue.c
+compiling StructLayout.c
+compiling Thread.c
+compiling Type.c
+compiling Types.c
+compiling Variadic.c
+compiling ffi.c
+linking shared-object ffi_c.so
+make[1]: Leaving directory '/home/runner/work/R-graphs/R-graphs/.vendor/bundle/ruby/2.7.0/gems/ffi-1.16.2/ext/ffi_c'
+
+current directory: /home/runner/work/R-graphs/R-graphs/.vendor/bundle/ruby/2.7.0/gems/ffi-1.16.2/ext/ffi_c
+make "DESTDIR=" install
+make[1]: Entering directory '/home/runner/work/R-graphs/R-graphs/.vendor/bundle/ruby/2.7.0/gems/ffi-1.16.2/ext/ffi_c'
+Makefile:176: warning: overriding recipe for target 'clean'
+À(¤Í¡U:176: warning: ignoring old recipe for target 'clean'
+Makefile:183: warning: overriding recipe for target 'distclean'
+À(¤Í¡U:183: warning: ignoring old recipe for target 'distclean'
+Makefile:191: warning: overriding recipe for target 'install-so'
+À(¤Í¡U:191: warning: ignoring old recipe for target 'install-so'
+Makefile:201: warning: overriding recipe for target 'pre-install-rb-default'
+À(¤Í¡U:201: warning: ignoring old recipe for target 'pre-install-rb-default'
+Makefile:203: warning: overriding recipe for target '.sitearchdir.time'
+À(¤Í¡U:203: warning: ignoring old recipe for target '.sitearchdir.time'
+Makefile:213: warning: overriding recipe for target '.cc.o'
+À(¤Í¡U:213: warning: ignoring old recipe for target '.cc.o'
+Makefile:217: warning: overriding recipe for target '.cc.S'
+À(¤Í¡U:217: warning: ignoring old recipe for target '.cc.S'
+Makefile:221: warning: overriding recipe for target '.mm.o'
+À(¤Í¡U:221: warning: ignoring old recipe for target '.mm.o'
+Makefile:225: warning: overriding recipe for target '.mm.S'
+À(¤Í¡U:225: warning: ignoring old recipe for target '.mm.S'
+Makefile:229: warning: overriding recipe for target '.cxx.o'
+À(¤Í¡U:229: warning: ignoring old recipe for target '.cxx.o'
+Makefile:233: warning: overriding recipe for target '.cxx.S'
+À(¤Í¡U:233: warning: ignoring old recipe for target '.cxx.S'
+Makefile:237: warning: overriding recipe for target '.cpp.o'
+À(¤Í¡U:237: warning: ignoring old recipe for target '.cpp.o'
+Makefile:241: warning: overriding recipe for target '.cpp.S'
+À(¤Í¡U:241: warning: ignoring old recipe for target '.cpp.S'
+Makefile:245: warning: overriding recipe for target '.c.o'
+À(¤Í¡U:245: warning: ignoring old recipe for target '.c.o'
+Makefile:249: warning: overriding recipe for target '.c.S'
+À(¤Í¡U:249: warning: ignoring old recipe for target '.c.S'
+Makefile:253: warning: overriding recipe for target '.m.o'
+À(¤Í¡U:253: warning: ignoring old recipe for target '.m.o'
+Makefile:257: warning: overriding recipe for target '.m.S'
+À(¤Í¡U:257: warning: ignoring old recipe for target '.m.S'
+Makefile:261: warning: overriding recipe for target 'ffi_c.so'
+À(¤Í¡U:261: warning: ignoring old recipe for target 'ffi_c.so'
+/usr/bin/install -c -m 0755 ffi_c.so ./.gem.20230927-16212-1t691yy
+make[1]: Leaving directory '/home/runner/work/R-graphs/R-graphs/.vendor/bundle/ruby/2.7.0/gems/ffi-1.16.2/ext/ffi_c'

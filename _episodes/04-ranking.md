@@ -28,6 +28,35 @@ is the most common, and which is the least common.
 ### What are they?
 
 ### What do we use them for?
+We use them for showing a relationship between a numeric and a categorical
+variable. 
+
+That can be 
+
+
+~~~
+geom_bar
+~~~
+{: .language-r}
+
+
+
+~~~
+function (mapping = NULL, data = NULL, stat = "count", position = "stack", 
+    ..., just = 0.5, width = NULL, na.rm = FALSE, orientation = NA, 
+    show.legend = NA, inherit.aes = TRUE) 
+{
+    layer(data = data, mapping = mapping, stat = stat, geom = GeomBar, 
+        position = position, show.legend = show.legend, inherit.aes = inherit.aes, 
+        params = list2(just = just, width = width, na.rm = na.rm, 
+            orientation = orientation, ...))
+}
+<bytecode: 0x55f20cc807c8>
+<environment: namespace:ggplot2>
+~~~
+{: .output}
+
+
 
 ### how do we make them?
 
@@ -111,8 +140,8 @@ wrap_plots(
 {: .language-r}
 
 <div class="figure" style="text-align: center">
-<img src="../fig/rmd-04-unnamed-chunk-2-1.png" alt="plot of chunk unnamed-chunk-2" width="612" />
-<p class="caption">plot of chunk unnamed-chunk-2</p>
+<img src="../fig/rmd-04-unnamed-chunk-3-1.png" alt="plot of chunk unnamed-chunk-3" width="612" />
+<p class="caption">plot of chunk unnamed-chunk-3</p>
 </div>
 
 
@@ -129,11 +158,92 @@ over multiple quantitative variables.
 
 ggradar
 
+~~~
+library(fmsb)
+~~~
+{: .language-r}
+
 
 
 ### Interesting variations
 
 ### Think about
+
+We are plotting quantitative values, and those are difficult to read
+in a circular layout. 
+
+Folk kigger på formen. Og den er stærkt afhængig af rækkefølgen af kategorier
+
+
+
+~~~
+library(fmsb)
+ 
+# Create data: note in High school for Jonathan:
+data <- as.data.frame(matrix( sample( 2:20 , 10 , replace=T) , ncol=10))
+colnames(data) <- c("math" , "english" , "biology" , "music" , "R-coding", "data-viz" , "french" , "physic", "statistic", "sport" )
+ 
+# To use the fmsb package, I have to add 2 lines to the dataframe: the max and min of each topic to show on the plot!
+data <- rbind(rep(20,10) , rep(0,10) , data)
+ 
+# Check your data, it has to look like this!
+head(data)
+~~~
+{: .language-r}
+
+
+
+~~~
+  math english biology music R-coding data-viz french physic statistic sport
+1   20      20      20    20       20       20     20     20        20    20
+2    0       0       0     0        0        0      0      0         0     0
+3   15       8      11     5       18        9     18      9         9    17
+~~~
+{: .output}
+
+
+
+~~~
+data %>% 
+  mutate(tal = c("max", "min", "data"), .before = 1) %>% 
+  pivot_longer(2:11)
+~~~
+{: .language-r}
+
+
+
+~~~
+# A tibble: 30 × 3
+   tal   name      value
+   <chr> <chr>     <dbl>
+ 1 max   math         20
+ 2 max   english      20
+ 3 max   biology      20
+ 4 max   music        20
+ 5 max   R-coding     20
+ 6 max   data-viz     20
+ 7 max   french       20
+ 8 max   physic       20
+ 9 max   statistic    20
+10 max   sport        20
+# ℹ 20 more rows
+~~~
+{: .output}
+
+
+
+~~~
+# The default radar chart 
+radarchart(data)
+~~~
+{: .language-r}
+
+<div class="figure" style="text-align: center">
+<img src="../fig/rmd-04-unnamed-chunk-5-1.png" alt="plot of chunk unnamed-chunk-5" width="612" />
+<p class="caption">plot of chunk unnamed-chunk-5</p>
+</div>
+
+
 Det her er også noget skrammel...
 
 https://www.data-to-viz.com/caveat/spider.html
