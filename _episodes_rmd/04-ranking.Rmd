@@ -31,6 +31,16 @@ is the most common, and which is the least common.
 ### What are they?
 
 ### What do we use them for?
+We use them for showing a relationship between a numeric and a categorical
+variable. 
+
+That can be 
+
+```{r}
+geom_bar
+```
+
+
 
 ### how do we make them?
 
@@ -109,12 +119,47 @@ over multiple quantitative variables.
 ### how do we make them?
 
 ggradar
+```{r}
+
+
+
+library(fmsb)
+```
 
 
 
 ### Interesting variations
 
 ### Think about
+
+We are plotting quantitative values, and those are difficult to read
+in a circular layout. 
+
+Folk kigger på formen. Og den er stærkt afhængig af rækkefølgen af kategorier
+
+
+```{r}
+library(fmsb)
+ 
+# Create data: note in High school for Jonathan:
+data <- as.data.frame(matrix( sample( 2:20 , 10 , replace=T) , ncol=10))
+colnames(data) <- c("math" , "english" , "biology" , "music" , "R-coding", "data-viz" , "french" , "physic", "statistic", "sport" )
+ 
+# To use the fmsb package, I have to add 2 lines to the dataframe: the max and min of each topic to show on the plot!
+data <- rbind(rep(20,10) , rep(0,10) , data)
+ 
+# Check your data, it has to look like this!
+head(data)
+
+data %>% 
+  mutate(tal = c("max", "min", "data"), .before = 1) %>% 
+  pivot_longer(2:11)
+
+# The default radar chart 
+radarchart(data)
+```
+
+
 Det her er også noget skrammel...
 
 https://www.data-to-viz.com/caveat/spider.html
